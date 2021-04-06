@@ -10,13 +10,13 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import uk.ac.kcl.course.jsonQ.Model
+import uk.ac.kcl.course.jsonQ.JSONQueryModel
 
 @ExtendWith(InjectionExtension)
 @InjectWith(JsonQInjectorProvider)
 class JsonQParsingTest {
 	@Inject
-	ParseHelper<Model> parseHelper
+	ParseHelper<JSONQueryModel> parseHelper
 	
 	@Test
 	def void loadModel() {
