@@ -1,0 +1,42 @@
+grammar uk.ac.kcl.course.JsonQ with org.eclipse.xtext.common.Terminals
+
+generate jsonQ "http://www.ac.uk/kcl/course/JsonQ"
+
+JSONQueryModel:
+    (inputStatement+=Statements)*;
+
+ 
+
+Statements:
+    'GET' operation=Operation 'FOR' q1key=InputFieldSingle q1val=InputVal (connector+=('AND'|'OR'))? (q2key=InputFieldSingle q2val=InputVal)? 
+;
+
+ 
+
+InputVal:
+    INTLiteral | StringLiteral
+;
+
+ 
+
+StringLiteral:
+    value = STRING
+;
+
+ 
+
+INTLiteral:
+    value = INT
+;
+
+ 
+
+enum Operation:
+    DATA
+;
+    
+enum InputFieldSingle:
+    areaType = 'areaType' | 
+    areaName = 'areaName' | 
+    areaCode = 'areaCode' 
+;

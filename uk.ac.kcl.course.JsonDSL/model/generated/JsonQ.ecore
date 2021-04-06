@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jsonQ" nsURI="http://www.ac.uk/kcl/course/JsonQ" nsPrefix="jsonQ">
+  <eClassifiers xsi:type="ecore:EClass" name="JSONQueryModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputStatement" upperBound="-1"
+        eType="#//Statements" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Statements">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="q1key" eType="#//InputFieldSingle"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="q1val" eType="#//InputVal"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connector" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="q2key" eType="#//InputFieldSingle"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="q2val" eType="#//InputVal"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputVal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringLiteral" eSuperTypes="#//InputVal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="INTLiteral" eSuperTypes="#//InputVal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Operation">
+    <eLiterals name="DATA" literal="DATA"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="InputFieldSingle">
+    <eLiterals name="areaType" literal="areaType"/>
+    <eLiterals name="areaName" value="1" literal="areaName"/>
+    <eLiterals name="areaCode" value="2" literal="areaCode"/>
+  </eClassifiers>
+</ecore:EPackage>
