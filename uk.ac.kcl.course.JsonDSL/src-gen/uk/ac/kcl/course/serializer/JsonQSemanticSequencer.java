@@ -14,10 +14,12 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import uk.ac.kcl.course.jsonQ.AdditionalQuery;
+import uk.ac.kcl.course.jsonQ.AggregateStatements;
+import uk.ac.kcl.course.jsonQ.GetStatements;
 import uk.ac.kcl.course.jsonQ.INTLiteral;
 import uk.ac.kcl.course.jsonQ.JSONQueryModel;
 import uk.ac.kcl.course.jsonQ.JsonQPackage;
-import uk.ac.kcl.course.jsonQ.Statements;
 import uk.ac.kcl.course.jsonQ.StringLiteral;
 import uk.ac.kcl.course.services.JsonQGrammarAccess;
 
@@ -35,14 +37,20 @@ public class JsonQSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == JsonQPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case JsonQPackage.ADDITIONAL_QUERY:
+				sequence_AdditionalQuery(context, (AdditionalQuery) semanticObject); 
+				return; 
+			case JsonQPackage.AGGREGATE_STATEMENTS:
+				sequence_AggregateStatements(context, (AggregateStatements) semanticObject); 
+				return; 
+			case JsonQPackage.GET_STATEMENTS:
+				sequence_GetStatements(context, (GetStatements) semanticObject); 
+				return; 
 			case JsonQPackage.INT_LITERAL:
 				sequence_INTLiteral(context, (INTLiteral) semanticObject); 
 				return; 
 			case JsonQPackage.JSON_QUERY_MODEL:
 				sequence_JSONQueryModel(context, (JSONQueryModel) semanticObject); 
-				return; 
-			case JsonQPackage.STATEMENTS:
-				sequence_Statements(context, (Statements) semanticObject); 
 				return; 
 			case JsonQPackage.STRING_LITERAL:
 				sequence_StringLiteral(context, (StringLiteral) semanticObject); 
@@ -51,6 +59,44 @@ public class JsonQSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     AdditionalQuery returns AdditionalQuery
+	 *
+	 * Constraint:
+	 *     ((connector='AND' | connector='OR') q2key=InputFieldSingle q2val=InputVal)
+	 */
+	protected void sequence_AdditionalQuery(ISerializationContext context, AdditionalQuery semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statements returns AggregateStatements
+	 *     AggregateStatements returns AggregateStatements
+	 *
+	 * Constraint:
+	 *     (opAgg=OperationAgg aggField=InputFieldSingle q1key=InputFieldSingle q1val=InputVal qryadditional=AdditionalQuery?)
+	 */
+	protected void sequence_AggregateStatements(ISerializationContext context, AggregateStatements semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statements returns GetStatements
+	 *     GetStatements returns GetStatements
+	 *
+	 * Constraint:
+	 *     (opGet=OperationGET q1key=InputFieldSingle q1val=InputVal qryadditional=AdditionalQuery?)
+	 */
+	protected void sequence_GetStatements(ISerializationContext context, GetStatements semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -79,18 +125,6 @@ public class JsonQSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     inputStatement+=Statements+
 	 */
 	protected void sequence_JSONQueryModel(ISerializationContext context, JSONQueryModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Statements returns Statements
-	 *
-	 * Constraint:
-	 *     (operation=Operation q1key=InputFieldSingle q1val=InputVal (connector+='AND' | connector+='OR')? (q2key=InputFieldSingle q2val=InputVal)?)
-	 */
-	protected void sequence_Statements(ISerializationContext context, Statements semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

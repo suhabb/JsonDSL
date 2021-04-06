@@ -97,22 +97,13 @@ public interface JsonQPackage extends EPackage
   int STATEMENTS = 1;
 
   /**
-   * The feature id for the '<em><b>Operation</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENTS__OPERATION = 0;
-
-  /**
    * The feature id for the '<em><b>Q1key</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENTS__Q1KEY = 1;
+  int STATEMENTS__Q1KEY = 0;
 
   /**
    * The feature id for the '<em><b>Q1val</b></em>' containment reference.
@@ -121,34 +112,16 @@ public interface JsonQPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENTS__Q1VAL = 2;
+  int STATEMENTS__Q1VAL = 1;
 
   /**
-   * The feature id for the '<em><b>Connector</b></em>' attribute list.
+   * The feature id for the '<em><b>Qryadditional</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENTS__CONNECTOR = 3;
-
-  /**
-   * The feature id for the '<em><b>Q2key</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENTS__Q2KEY = 4;
-
-  /**
-   * The feature id for the '<em><b>Q2val</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENTS__Q2VAL = 5;
+  int STATEMENTS__QRYADDITIONAL = 2;
 
   /**
    * The number of structural features of the '<em>Statements</em>' class.
@@ -157,7 +130,172 @@ public interface JsonQPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATEMENTS_FEATURE_COUNT = 6;
+  int STATEMENTS_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.impl.AggregateStatementsImpl <em>Aggregate Statements</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.course.jsonQ.impl.AggregateStatementsImpl
+   * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getAggregateStatements()
+   * @generated
+   */
+  int AGGREGATE_STATEMENTS = 2;
+
+  /**
+   * The feature id for the '<em><b>Q1key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AGGREGATE_STATEMENTS__Q1KEY = STATEMENTS__Q1KEY;
+
+  /**
+   * The feature id for the '<em><b>Q1val</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AGGREGATE_STATEMENTS__Q1VAL = STATEMENTS__Q1VAL;
+
+  /**
+   * The feature id for the '<em><b>Qryadditional</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AGGREGATE_STATEMENTS__QRYADDITIONAL = STATEMENTS__QRYADDITIONAL;
+
+  /**
+   * The feature id for the '<em><b>Op Agg</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AGGREGATE_STATEMENTS__OP_AGG = STATEMENTS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Agg Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AGGREGATE_STATEMENTS__AGG_FIELD = STATEMENTS_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Aggregate Statements</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AGGREGATE_STATEMENTS_FEATURE_COUNT = STATEMENTS_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.impl.GetStatementsImpl <em>Get Statements</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.course.jsonQ.impl.GetStatementsImpl
+   * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getGetStatements()
+   * @generated
+   */
+  int GET_STATEMENTS = 3;
+
+  /**
+   * The feature id for the '<em><b>Q1key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_STATEMENTS__Q1KEY = STATEMENTS__Q1KEY;
+
+  /**
+   * The feature id for the '<em><b>Q1val</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_STATEMENTS__Q1VAL = STATEMENTS__Q1VAL;
+
+  /**
+   * The feature id for the '<em><b>Qryadditional</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_STATEMENTS__QRYADDITIONAL = STATEMENTS__QRYADDITIONAL;
+
+  /**
+   * The feature id for the '<em><b>Op Get</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_STATEMENTS__OP_GET = STATEMENTS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Get Statements</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GET_STATEMENTS_FEATURE_COUNT = STATEMENTS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.impl.AdditionalQueryImpl <em>Additional Query</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.course.jsonQ.impl.AdditionalQueryImpl
+   * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getAdditionalQuery()
+   * @generated
+   */
+  int ADDITIONAL_QUERY = 4;
+
+  /**
+   * The feature id for the '<em><b>Connector</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITIONAL_QUERY__CONNECTOR = 0;
+
+  /**
+   * The feature id for the '<em><b>Q2key</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITIONAL_QUERY__Q2KEY = 1;
+
+  /**
+   * The feature id for the '<em><b>Q2val</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITIONAL_QUERY__Q2VAL = 2;
+
+  /**
+   * The number of structural features of the '<em>Additional Query</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADDITIONAL_QUERY_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.impl.InputValImpl <em>Input Val</em>}' class.
@@ -167,7 +305,7 @@ public interface JsonQPackage extends EPackage
    * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getInputVal()
    * @generated
    */
-  int INPUT_VAL = 2;
+  int INPUT_VAL = 5;
 
   /**
    * The number of structural features of the '<em>Input Val</em>' class.
@@ -186,7 +324,7 @@ public interface JsonQPackage extends EPackage
    * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getStringLiteral()
    * @generated
    */
-  int STRING_LITERAL = 3;
+  int STRING_LITERAL = 6;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -214,7 +352,7 @@ public interface JsonQPackage extends EPackage
    * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getINTLiteral()
    * @generated
    */
-  int INT_LITERAL = 4;
+  int INT_LITERAL = 7;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -235,14 +373,24 @@ public interface JsonQPackage extends EPackage
   int INT_LITERAL_FEATURE_COUNT = INPUT_VAL_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.Operation <em>Operation</em>}' enum.
+   * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.OperationAgg <em>Operation Agg</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see uk.ac.kcl.course.jsonQ.Operation
-   * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getOperation()
+   * @see uk.ac.kcl.course.jsonQ.OperationAgg
+   * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getOperationAgg()
    * @generated
    */
-  int OPERATION = 5;
+  int OPERATION_AGG = 8;
+
+  /**
+   * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.OperationGET <em>Operation GET</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.ac.kcl.course.jsonQ.OperationGET
+   * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getOperationGET()
+   * @generated
+   */
+  int OPERATION_GET = 9;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.InputFieldSingle <em>Input Field Single</em>}' enum.
@@ -252,7 +400,7 @@ public interface JsonQPackage extends EPackage
    * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getInputFieldSingle()
    * @generated
    */
-  int INPUT_FIELD_SINGLE = 6;
+  int INPUT_FIELD_SINGLE = 10;
 
 
   /**
@@ -287,17 +435,6 @@ public interface JsonQPackage extends EPackage
   EClass getStatements();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.course.jsonQ.Statements#getOperation <em>Operation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operation</em>'.
-   * @see uk.ac.kcl.course.jsonQ.Statements#getOperation()
-   * @see #getStatements()
-   * @generated
-   */
-  EAttribute getStatements_Operation();
-
-  /**
    * Returns the meta object for the attribute '{@link uk.ac.kcl.course.jsonQ.Statements#getQ1key <em>Q1key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -320,37 +457,111 @@ public interface JsonQPackage extends EPackage
   EReference getStatements_Q1val();
 
   /**
-   * Returns the meta object for the attribute list '{@link uk.ac.kcl.course.jsonQ.Statements#getConnector <em>Connector</em>}'.
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.course.jsonQ.Statements#getQryadditional <em>Qryadditional</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Connector</em>'.
-   * @see uk.ac.kcl.course.jsonQ.Statements#getConnector()
+   * @return the meta object for the containment reference '<em>Qryadditional</em>'.
+   * @see uk.ac.kcl.course.jsonQ.Statements#getQryadditional()
    * @see #getStatements()
    * @generated
    */
-  EAttribute getStatements_Connector();
+  EReference getStatements_Qryadditional();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.course.jsonQ.Statements#getQ2key <em>Q2key</em>}'.
+   * Returns the meta object for class '{@link uk.ac.kcl.course.jsonQ.AggregateStatements <em>Aggregate Statements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Aggregate Statements</em>'.
+   * @see uk.ac.kcl.course.jsonQ.AggregateStatements
+   * @generated
+   */
+  EClass getAggregateStatements();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.course.jsonQ.AggregateStatements#getOpAgg <em>Op Agg</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op Agg</em>'.
+   * @see uk.ac.kcl.course.jsonQ.AggregateStatements#getOpAgg()
+   * @see #getAggregateStatements()
+   * @generated
+   */
+  EAttribute getAggregateStatements_OpAgg();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.course.jsonQ.AggregateStatements#getAggField <em>Agg Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Agg Field</em>'.
+   * @see uk.ac.kcl.course.jsonQ.AggregateStatements#getAggField()
+   * @see #getAggregateStatements()
+   * @generated
+   */
+  EAttribute getAggregateStatements_AggField();
+
+  /**
+   * Returns the meta object for class '{@link uk.ac.kcl.course.jsonQ.GetStatements <em>Get Statements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Get Statements</em>'.
+   * @see uk.ac.kcl.course.jsonQ.GetStatements
+   * @generated
+   */
+  EClass getGetStatements();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.course.jsonQ.GetStatements#getOpGet <em>Op Get</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op Get</em>'.
+   * @see uk.ac.kcl.course.jsonQ.GetStatements#getOpGet()
+   * @see #getGetStatements()
+   * @generated
+   */
+  EAttribute getGetStatements_OpGet();
+
+  /**
+   * Returns the meta object for class '{@link uk.ac.kcl.course.jsonQ.AdditionalQuery <em>Additional Query</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Additional Query</em>'.
+   * @see uk.ac.kcl.course.jsonQ.AdditionalQuery
+   * @generated
+   */
+  EClass getAdditionalQuery();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.course.jsonQ.AdditionalQuery#getConnector <em>Connector</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Connector</em>'.
+   * @see uk.ac.kcl.course.jsonQ.AdditionalQuery#getConnector()
+   * @see #getAdditionalQuery()
+   * @generated
+   */
+  EAttribute getAdditionalQuery_Connector();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.ac.kcl.course.jsonQ.AdditionalQuery#getQ2key <em>Q2key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Q2key</em>'.
-   * @see uk.ac.kcl.course.jsonQ.Statements#getQ2key()
-   * @see #getStatements()
+   * @see uk.ac.kcl.course.jsonQ.AdditionalQuery#getQ2key()
+   * @see #getAdditionalQuery()
    * @generated
    */
-  EAttribute getStatements_Q2key();
+  EAttribute getAdditionalQuery_Q2key();
 
   /**
-   * Returns the meta object for the containment reference '{@link uk.ac.kcl.course.jsonQ.Statements#getQ2val <em>Q2val</em>}'.
+   * Returns the meta object for the containment reference '{@link uk.ac.kcl.course.jsonQ.AdditionalQuery#getQ2val <em>Q2val</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Q2val</em>'.
-   * @see uk.ac.kcl.course.jsonQ.Statements#getQ2val()
-   * @see #getStatements()
+   * @see uk.ac.kcl.course.jsonQ.AdditionalQuery#getQ2val()
+   * @see #getAdditionalQuery()
    * @generated
    */
-  EReference getStatements_Q2val();
+  EReference getAdditionalQuery_Q2val();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.course.jsonQ.InputVal <em>Input Val</em>}'.
@@ -405,14 +616,24 @@ public interface JsonQPackage extends EPackage
   EAttribute getINTLiteral_Value();
 
   /**
-   * Returns the meta object for enum '{@link uk.ac.kcl.course.jsonQ.Operation <em>Operation</em>}'.
+   * Returns the meta object for enum '{@link uk.ac.kcl.course.jsonQ.OperationAgg <em>Operation Agg</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Operation</em>'.
-   * @see uk.ac.kcl.course.jsonQ.Operation
+   * @return the meta object for enum '<em>Operation Agg</em>'.
+   * @see uk.ac.kcl.course.jsonQ.OperationAgg
    * @generated
    */
-  EEnum getOperation();
+  EEnum getOperationAgg();
+
+  /**
+   * Returns the meta object for enum '{@link uk.ac.kcl.course.jsonQ.OperationGET <em>Operation GET</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Operation GET</em>'.
+   * @see uk.ac.kcl.course.jsonQ.OperationGET
+   * @generated
+   */
+  EEnum getOperationGET();
 
   /**
    * Returns the meta object for enum '{@link uk.ac.kcl.course.jsonQ.InputFieldSingle <em>Input Field Single</em>}'.
@@ -476,14 +697,6 @@ public interface JsonQPackage extends EPackage
     EClass STATEMENTS = eINSTANCE.getStatements();
 
     /**
-     * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STATEMENTS__OPERATION = eINSTANCE.getStatements_Operation();
-
-    /**
      * The meta object literal for the '<em><b>Q1key</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -500,12 +713,74 @@ public interface JsonQPackage extends EPackage
     EReference STATEMENTS__Q1VAL = eINSTANCE.getStatements_Q1val();
 
     /**
-     * The meta object literal for the '<em><b>Connector</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Qryadditional</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STATEMENTS__CONNECTOR = eINSTANCE.getStatements_Connector();
+    EReference STATEMENTS__QRYADDITIONAL = eINSTANCE.getStatements_Qryadditional();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.course.jsonQ.impl.AggregateStatementsImpl <em>Aggregate Statements</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.course.jsonQ.impl.AggregateStatementsImpl
+     * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getAggregateStatements()
+     * @generated
+     */
+    EClass AGGREGATE_STATEMENTS = eINSTANCE.getAggregateStatements();
+
+    /**
+     * The meta object literal for the '<em><b>Op Agg</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute AGGREGATE_STATEMENTS__OP_AGG = eINSTANCE.getAggregateStatements_OpAgg();
+
+    /**
+     * The meta object literal for the '<em><b>Agg Field</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute AGGREGATE_STATEMENTS__AGG_FIELD = eINSTANCE.getAggregateStatements_AggField();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.course.jsonQ.impl.GetStatementsImpl <em>Get Statements</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.course.jsonQ.impl.GetStatementsImpl
+     * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getGetStatements()
+     * @generated
+     */
+    EClass GET_STATEMENTS = eINSTANCE.getGetStatements();
+
+    /**
+     * The meta object literal for the '<em><b>Op Get</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GET_STATEMENTS__OP_GET = eINSTANCE.getGetStatements_OpGet();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.course.jsonQ.impl.AdditionalQueryImpl <em>Additional Query</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.course.jsonQ.impl.AdditionalQueryImpl
+     * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getAdditionalQuery()
+     * @generated
+     */
+    EClass ADDITIONAL_QUERY = eINSTANCE.getAdditionalQuery();
+
+    /**
+     * The meta object literal for the '<em><b>Connector</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADDITIONAL_QUERY__CONNECTOR = eINSTANCE.getAdditionalQuery_Connector();
 
     /**
      * The meta object literal for the '<em><b>Q2key</b></em>' attribute feature.
@@ -513,7 +788,7 @@ public interface JsonQPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STATEMENTS__Q2KEY = eINSTANCE.getStatements_Q2key();
+    EAttribute ADDITIONAL_QUERY__Q2KEY = eINSTANCE.getAdditionalQuery_Q2key();
 
     /**
      * The meta object literal for the '<em><b>Q2val</b></em>' containment reference feature.
@@ -521,7 +796,7 @@ public interface JsonQPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATEMENTS__Q2VAL = eINSTANCE.getStatements_Q2val();
+    EReference ADDITIONAL_QUERY__Q2VAL = eINSTANCE.getAdditionalQuery_Q2val();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.course.jsonQ.impl.InputValImpl <em>Input Val</em>}' class.
@@ -570,14 +845,24 @@ public interface JsonQPackage extends EPackage
     EAttribute INT_LITERAL__VALUE = eINSTANCE.getINTLiteral_Value();
 
     /**
-     * The meta object literal for the '{@link uk.ac.kcl.course.jsonQ.Operation <em>Operation</em>}' enum.
+     * The meta object literal for the '{@link uk.ac.kcl.course.jsonQ.OperationAgg <em>Operation Agg</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see uk.ac.kcl.course.jsonQ.Operation
-     * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getOperation()
+     * @see uk.ac.kcl.course.jsonQ.OperationAgg
+     * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getOperationAgg()
      * @generated
      */
-    EEnum OPERATION = eINSTANCE.getOperation();
+    EEnum OPERATION_AGG = eINSTANCE.getOperationAgg();
+
+    /**
+     * The meta object literal for the '{@link uk.ac.kcl.course.jsonQ.OperationGET <em>Operation GET</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.ac.kcl.course.jsonQ.OperationGET
+     * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getOperationGET()
+     * @generated
+     */
+    EEnum OPERATION_GET = eINSTANCE.getOperationGET();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.course.jsonQ.InputFieldSingle <em>Input Field Single</em>}' enum.

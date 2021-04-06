@@ -12,6 +12,9 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import uk.ac.kcl.course.jsonQ.JSONQueryModel
 import uk.ac.kcl.course.jsonQ.Statements
 import uk.ac.kcl.course.jsonQ.StringLiteral
+import uk.ac.kcl.course.jsonQ.GetStatements
+import uk.ac.kcl.course.jsonQ.AggregateStatements
+import uk.ac.kcl.course.jsonQ.AdditionalQuery
 
 /**
  * Generates code from your model files on save.
@@ -61,27 +64,75 @@ class JsonQGenerator extends AbstractGenerator {
 		var json = jsonList.stream.collect(Collectors.joining(','));
 		json
 	}
-
-	def generateJQ(Statements st) {
+	
+	dispatch def String generateJQ(Statements stmt)''''''
+	dispatch def String generateJQ(GetStatements stmt){
 		var jsonCount="json" + counter
-	 
+	 	var str = stmt.q1val as StringLiteral
+	 	var qa = stmt.qryadditional as AdditionalQuery
 		var result = '''
-
 				  JSONQuery «jsonCount»= new JSONQueryBuilder()
-				        	.setOperationValue("«st.operation.literal»")
-				        	.setFirstQueryKey("«st.q1key.getName»")
-				        	«val q1Value = st.q1val as StringLiteral»
-				        	.setFirstQueryValue("«q1Value.value»")
-				        	.setConnectorValue("«st.connector.get(0)»")
-				        	.setSecondQueryKey("«st.q2key.getName»")
-				        	«val q2Value = st.q2val as StringLiteral»
-				        	.setSecondQueryValue("«q2Value.value»")
+				        	.setOperationValue("«stmt.opGet.literal»")
+				        	.setFirstQueryKey("«stmt.q1key.literal»")
+				        	.setFirstQueryValue("«str.value»")
+				        	«if (qa !== null) '''
+				        	.setConnectorValue("«qa.connector»")
+				        	.setSecondQueryKey("«qa.q2key.literal»")
+				        	«var q2str = qa.q2val as StringLiteral»
+				        	.setSecondQueryValue("«q2str.value»")
+				        	'''»
 				        	.build();
 				        	
 		'''
 		counter++;
 		jsonList.add(jsonCount)
-		result;
+		result;		
 	}
+
+	dispatch def String generateJQ(AggregateStatements stmt){
+		var jsonCount="json" + counter
+	 	var str = stmt.q1val as StringLiteral
+	 	var qa = stmt.qryadditional as AdditionalQuery
+		var result = '''
+				  JSONQuery «jsonCount»= new JSONQueryBuilder()
+				        	.setOperationValue("«stmt.opAgg.literal»")
+				        	.setAggregateField("«stmt.aggField»")
+				        	.setFirstQueryKey("«stmt.q1key.literal»")
+				        	.setFirstQueryValue("«str.value»")
+				        	«if (qa !== null) '''
+				        	.setConnectorValue("«qa.connector»")
+				        	.setSecondQueryKey("«qa.q2key.literal»")
+				        	«var q2str = qa.q2val as StringLiteral»
+				        	.setSecondQueryValue("«q2str.value»")
+				        	'''»
+				        	.build();
+				        	
+		'''
+		counter++;
+		jsonList.add(jsonCount)
+		result;		
+	}
+	
+//	def generateJQ(Statements st) {
+//		var jsonCount="json" + counter
+//	 
+//		var result = '''
+//
+//				  JSONQuery «jsonCount»= new JSONQueryBuilder()
+//				        	.setOperationValue("«st.operation.literal»")
+//				        	.setFirstQueryKey("«st.q1key.getName»")
+//				        	«val q1Value = st.q1val as StringLiteral»
+//				        	.setFirstQueryValue("«q1Value.value»")
+//				        	.setConnectorValue("«st.connector.get(0)»")
+//				        	.setSecondQueryKey("«st.q2key.getName»")
+//				        	«val q2Value = st.q2val as StringLiteral»
+//				        	.setSecondQueryValue("«q2Value.value»")
+//				        	.build();
+//				        	
+//		'''
+//		counter++;
+//		jsonList.add(jsonCount)
+//		result;
+//	}
 
 }

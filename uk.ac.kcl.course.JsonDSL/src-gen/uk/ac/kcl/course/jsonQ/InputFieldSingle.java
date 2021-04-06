@@ -21,67 +21,151 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum InputFieldSingle implements Enumerator
 {
   /**
-   * The '<em><b>Area Type</b></em>' literal object.
+   * The '<em><b>First Name</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #AREA_TYPE_VALUE
+   * @see #FIRST_NAME_VALUE
    * @generated
    * @ordered
    */
-  AREA_TYPE(0, "areaType", "areaType"),
+  FIRST_NAME(0, "firstName", "firstName"),
 
   /**
-   * The '<em><b>Area Name</b></em>' literal object.
+   * The '<em><b>Last Name</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #AREA_NAME_VALUE
+   * @see #LAST_NAME_VALUE
    * @generated
    * @ordered
    */
-  AREA_NAME(1, "areaName", "areaName"),
+  LAST_NAME(1, "lastName", "lastName"),
 
   /**
-   * The '<em><b>Area Code</b></em>' literal object.
+   * The '<em><b>Gender</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #AREA_CODE_VALUE
+   * @see #GENDER_VALUE
    * @generated
    * @ordered
    */
-  AREA_CODE(2, "areaCode", "areaCode");
+  GENDER(2, "gender", "gender"),
 
   /**
-   * The '<em><b>Area Type</b></em>' literal value.
+   * The '<em><b>Counrty Code</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #AREA_TYPE
-   * @model name="areaType"
+   * @see #COUNRTY_CODE_VALUE
    * @generated
    * @ordered
    */
-  public static final int AREA_TYPE_VALUE = 0;
+  COUNRTY_CODE(3, "counrtyCode", "counrtyCode"),
 
   /**
-   * The '<em><b>Area Name</b></em>' literal value.
+   * The '<em><b>City Name</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #AREA_NAME
-   * @model name="areaName"
+   * @see #CITY_NAME_VALUE
    * @generated
    * @ordered
    */
-  public static final int AREA_NAME_VALUE = 1;
+  CITY_NAME(4, "cityName", "cityName"),
 
   /**
-   * The '<em><b>Area Code</b></em>' literal value.
+   * The '<em><b>Is Vaccinated</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #AREA_CODE
-   * @model name="areaCode"
+   * @see #IS_VACCINATED_VALUE
    * @generated
    * @ordered
    */
-  public static final int AREA_CODE_VALUE = 2;
+  IS_VACCINATED(5, "isVaccinated", "isVaccinated"),
+
+  /**
+   * The '<em><b>Income</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #INCOME_VALUE
+   * @generated
+   * @ordered
+   */
+  INCOME(6, "income", "income");
+
+  /**
+   * The '<em><b>First Name</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #FIRST_NAME
+   * @model name="firstName"
+   * @generated
+   * @ordered
+   */
+  public static final int FIRST_NAME_VALUE = 0;
+
+  /**
+   * The '<em><b>Last Name</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #LAST_NAME
+   * @model name="lastName"
+   * @generated
+   * @ordered
+   */
+  public static final int LAST_NAME_VALUE = 1;
+
+  /**
+   * The '<em><b>Gender</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #GENDER
+   * @model name="gender"
+   * @generated
+   * @ordered
+   */
+  public static final int GENDER_VALUE = 2;
+
+  /**
+   * The '<em><b>Counrty Code</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #COUNRTY_CODE
+   * @model name="counrtyCode"
+   * @generated
+   * @ordered
+   */
+  public static final int COUNRTY_CODE_VALUE = 3;
+
+  /**
+   * The '<em><b>City Name</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #CITY_NAME
+   * @model name="cityName"
+   * @generated
+   * @ordered
+   */
+  public static final int CITY_NAME_VALUE = 4;
+
+  /**
+   * The '<em><b>Is Vaccinated</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #IS_VACCINATED
+   * @model name="isVaccinated"
+   * @generated
+   * @ordered
+   */
+  public static final int IS_VACCINATED_VALUE = 5;
+
+  /**
+   * The '<em><b>Income</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #INCOME
+   * @model name="income"
+   * @generated
+   * @ordered
+   */
+  public static final int INCOME_VALUE = 6;
 
   /**
    * An array of all the '<em><b>Input Field Single</b></em>' enumerators.
@@ -92,9 +176,13 @@ public enum InputFieldSingle implements Enumerator
   private static final InputFieldSingle[] VALUES_ARRAY =
     new InputFieldSingle[]
     {
-      AREA_TYPE,
-      AREA_NAME,
-      AREA_CODE,
+      FIRST_NAME,
+      LAST_NAME,
+      GENDER,
+      COUNRTY_CODE,
+      CITY_NAME,
+      IS_VACCINATED,
+      INCOME,
     };
 
   /**
@@ -159,9 +247,13 @@ public enum InputFieldSingle implements Enumerator
   {
     switch (value)
     {
-      case AREA_TYPE_VALUE: return AREA_TYPE;
-      case AREA_NAME_VALUE: return AREA_NAME;
-      case AREA_CODE_VALUE: return AREA_CODE;
+      case FIRST_NAME_VALUE: return FIRST_NAME;
+      case LAST_NAME_VALUE: return LAST_NAME;
+      case GENDER_VALUE: return GENDER;
+      case COUNRTY_CODE_VALUE: return COUNRTY_CODE;
+      case CITY_NAME_VALUE: return CITY_NAME;
+      case IS_VACCINATED_VALUE: return IS_VACCINATED;
+      case INCOME_VALUE: return INCOME;
     }
     return null;
   }

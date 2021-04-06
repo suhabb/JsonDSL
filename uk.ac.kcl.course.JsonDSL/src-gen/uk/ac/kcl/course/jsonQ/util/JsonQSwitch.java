@@ -87,6 +87,29 @@ public class JsonQSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case JsonQPackage.AGGREGATE_STATEMENTS:
+      {
+        AggregateStatements aggregateStatements = (AggregateStatements)theEObject;
+        T result = caseAggregateStatements(aggregateStatements);
+        if (result == null) result = caseStatements(aggregateStatements);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JsonQPackage.GET_STATEMENTS:
+      {
+        GetStatements getStatements = (GetStatements)theEObject;
+        T result = caseGetStatements(getStatements);
+        if (result == null) result = caseStatements(getStatements);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case JsonQPackage.ADDITIONAL_QUERY:
+      {
+        AdditionalQuery additionalQuery = (AdditionalQuery)theEObject;
+        T result = caseAdditionalQuery(additionalQuery);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case JsonQPackage.INPUT_VAL:
       {
         InputVal inputVal = (InputVal)theEObject;
@@ -142,6 +165,54 @@ public class JsonQSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStatements(Statements object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Aggregate Statements</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Aggregate Statements</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAggregateStatements(AggregateStatements object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Get Statements</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Get Statements</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGetStatements(GetStatements object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Additional Query</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Additional Query</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAdditionalQuery(AdditionalQuery object)
   {
     return null;
   }

@@ -113,42 +113,200 @@ ruleStatements returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		{
+			newCompositeNode(grammarAccess.getStatementsAccess().getGetStatementsParserRuleCall_0());
+		}
+		this_GetStatements_0=ruleGetStatements
+		{
+			$current = $this_GetStatements_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getStatementsAccess().getAggregateStatementsParserRuleCall_1());
+		}
+		this_AggregateStatements_1=ruleAggregateStatements
+		{
+			$current = $this_AggregateStatements_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleAggregateStatements
+entryRuleAggregateStatements returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAggregateStatementsRule()); }
+	iv_ruleAggregateStatements=ruleAggregateStatements
+	{ $current=$iv_ruleAggregateStatements.current; }
+	EOF;
+
+// Rule AggregateStatements
+ruleAggregateStatements returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		otherlv_0='GET'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getStatementsAccess().getGETKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getAggregateStatementsAccess().getGETKeyword_0());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getStatementsAccess().getOperationOperationEnumRuleCall_1_0());
+					newCompositeNode(grammarAccess.getAggregateStatementsAccess().getOpAggOperationAggEnumRuleCall_1_0());
 				}
-				lv_operation_1_0=ruleOperation
+				lv_opAgg_1_0=ruleOperationAgg
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getStatementsRule());
+						$current = createModelElementForParent(grammarAccess.getAggregateStatementsRule());
 					}
 					set(
 						$current,
-						"operation",
-						lv_operation_1_0,
-						"uk.ac.kcl.course.JsonQ.Operation");
+						"opAgg",
+						lv_opAgg_1_0,
+						"uk.ac.kcl.course.JsonQ.OperationAgg");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_2='FOR'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAggregateStatementsAccess().getAggFieldInputFieldSingleEnumRuleCall_2_0());
+				}
+				lv_aggField_2_0=ruleInputFieldSingle
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAggregateStatementsRule());
+					}
+					set(
+						$current,
+						"aggField",
+						lv_aggField_2_0,
+						"uk.ac.kcl.course.JsonQ.InputFieldSingle");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='WHERE'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getStatementsAccess().getFORKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getAggregateStatementsAccess().getWHEREKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getStatementsAccess().getQ1keyInputFieldSingleEnumRuleCall_3_0());
+					newCompositeNode(grammarAccess.getAggregateStatementsAccess().getQ1keyInputFieldSingleEnumRuleCall_4_0());
+				}
+				lv_q1key_4_0=ruleInputFieldSingle
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAggregateStatementsRule());
+					}
+					set(
+						$current,
+						"q1key",
+						lv_q1key_4_0,
+						"uk.ac.kcl.course.JsonQ.InputFieldSingle");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAggregateStatementsAccess().getQ1valInputValParserRuleCall_5_0());
+				}
+				lv_q1val_5_0=ruleInputVal
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAggregateStatementsRule());
+					}
+					set(
+						$current,
+						"q1val",
+						lv_q1val_5_0,
+						"uk.ac.kcl.course.JsonQ.InputVal");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAggregateStatementsAccess().getQryadditionalAdditionalQueryParserRuleCall_6_0());
+				}
+				lv_qryadditional_6_0=ruleAdditionalQuery
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAggregateStatementsRule());
+					}
+					set(
+						$current,
+						"qryadditional",
+						lv_qryadditional_6_0,
+						"uk.ac.kcl.course.JsonQ.AdditionalQuery");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleGetStatements
+entryRuleGetStatements returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getGetStatementsRule()); }
+	iv_ruleGetStatements=ruleGetStatements
+	{ $current=$iv_ruleGetStatements.current; }
+	EOF;
+
+// Rule GetStatements
+ruleGetStatements returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='GET'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getGetStatementsAccess().getGETKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGetStatementsAccess().getOpGetOperationGETEnumRuleCall_1_0());
+				}
+				lv_opGet_1_0=ruleOperationGET
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGetStatementsRule());
+					}
+					set(
+						$current,
+						"opGet",
+						lv_opGet_1_0,
+						"uk.ac.kcl.course.JsonQ.OperationGET");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='WHERE'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getGetStatementsAccess().getWHEREKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getGetStatementsAccess().getQ1keyInputFieldSingleEnumRuleCall_3_0());
 				}
 				lv_q1key_3_0=ruleInputFieldSingle
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getStatementsRule());
+						$current = createModelElementForParent(grammarAccess.getGetStatementsRule());
 					}
 					set(
 						$current,
@@ -162,12 +320,12 @@ ruleStatements returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getStatementsAccess().getQ1valInputValParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getGetStatementsAccess().getQ1valInputValParserRuleCall_4_0());
 				}
 				lv_q1val_4_0=ruleInputVal
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getStatementsRule());
+						$current = createModelElementForParent(grammarAccess.getGetStatementsRule());
 					}
 					set(
 						$current,
@@ -180,71 +338,107 @@ ruleStatements returns [EObject current=null]
 		)
 		(
 			(
-				(
-					lv_connector_5_1='AND'
-					{
-						newLeafNode(lv_connector_5_1, grammarAccess.getStatementsAccess().getConnectorANDKeyword_5_0_0());
+				{
+					newCompositeNode(grammarAccess.getGetStatementsAccess().getQryadditionalAdditionalQueryParserRuleCall_5_0());
+				}
+				lv_qryadditional_5_0=ruleAdditionalQuery
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getGetStatementsRule());
 					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getStatementsRule());
-						}
-						addWithLastConsumed($current, "connector", lv_connector_5_1, null);
-					}
-					    |
-					lv_connector_5_2='OR'
-					{
-						newLeafNode(lv_connector_5_2, grammarAccess.getStatementsAccess().getConnectorORKeyword_5_0_1());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getStatementsRule());
-						}
-						addWithLastConsumed($current, "connector", lv_connector_5_2, null);
-					}
-				)
+					set(
+						$current,
+						"qryadditional",
+						lv_qryadditional_5_0,
+						"uk.ac.kcl.course.JsonQ.AdditionalQuery");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)?
+	)
+;
+
+// Entry rule entryRuleAdditionalQuery
+entryRuleAdditionalQuery returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAdditionalQueryRule()); }
+	iv_ruleAdditionalQuery=ruleAdditionalQuery
+	{ $current=$iv_ruleAdditionalQuery.current; }
+	EOF;
+
+// Rule AdditionalQuery
+ruleAdditionalQuery returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		(
 			(
 				(
+					lv_connector_0_1='AND'
 					{
-						newCompositeNode(grammarAccess.getStatementsAccess().getQ2keyInputFieldSingleEnumRuleCall_6_0_0());
+						newLeafNode(lv_connector_0_1, grammarAccess.getAdditionalQueryAccess().getConnectorANDKeyword_0_0_0());
 					}
-					lv_q2key_6_0=ruleInputFieldSingle
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getStatementsRule());
+							$current = createModelElement(grammarAccess.getAdditionalQueryRule());
 						}
-						set(
-							$current,
-							"q2key",
-							lv_q2key_6_0,
-							"uk.ac.kcl.course.JsonQ.InputFieldSingle");
-						afterParserOrEnumRuleCall();
+						setWithLastConsumed($current, "connector", lv_connector_0_1, null);
+					}
+					    |
+					lv_connector_0_2='OR'
+					{
+						newLeafNode(lv_connector_0_2, grammarAccess.getAdditionalQueryAccess().getConnectorORKeyword_0_0_1());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAdditionalQueryRule());
+						}
+						setWithLastConsumed($current, "connector", lv_connector_0_2, null);
 					}
 				)
 			)
+		)
+		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getStatementsAccess().getQ2valInputValParserRuleCall_6_1_0());
+				{
+					newCompositeNode(grammarAccess.getAdditionalQueryAccess().getQ2keyInputFieldSingleEnumRuleCall_1_0());
+				}
+				lv_q2key_1_0=ruleInputFieldSingle
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAdditionalQueryRule());
 					}
-					lv_q2val_7_0=ruleInputVal
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getStatementsRule());
-						}
-						set(
-							$current,
-							"q2val",
-							lv_q2val_7_0,
-							"uk.ac.kcl.course.JsonQ.InputVal");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"q2key",
+						lv_q2key_1_0,
+						"uk.ac.kcl.course.JsonQ.InputFieldSingle");
+					afterParserOrEnumRuleCall();
+				}
 			)
-		)?
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAdditionalQueryAccess().getQ2valInputValParserRuleCall_2_0());
+				}
+				lv_q2val_2_0=ruleInputVal
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAdditionalQueryRule());
+					}
+					set(
+						$current,
+						"q2val",
+						lv_q2val_2_0,
+						"uk.ac.kcl.course.JsonQ.InputVal");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -354,8 +548,8 @@ ruleINTLiteral returns [EObject current=null]
 	)
 ;
 
-// Rule Operation
-ruleOperation returns [Enumerator current=null]
+// Rule OperationAgg
+ruleOperationAgg returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -363,11 +557,38 @@ ruleOperation returns [Enumerator current=null]
 	leaveRule();
 }:
 	(
-		enumLiteral_0='DATA'
+		enumLiteral_0='AVG'
 		{
-			$current = grammarAccess.getOperationAccess().getDATAEnumLiteralDeclaration().getEnumLiteral().getInstance();
-			newLeafNode(enumLiteral_0, grammarAccess.getOperationAccess().getDATAEnumLiteralDeclaration());
+			$current = grammarAccess.getOperationAggAccess().getAVGEnumLiteralDeclaration().getEnumLiteral().getInstance();
+			newLeafNode(enumLiteral_0, grammarAccess.getOperationAggAccess().getAVGEnumLiteralDeclaration());
 		}
+	)
+;
+
+// Rule OperationGET
+ruleOperationGET returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='DATA'
+			{
+				$current = grammarAccess.getOperationGETAccess().getDATAEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getOperationGETAccess().getDATAEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='COUNT'
+			{
+				$current = grammarAccess.getOperationGETAccess().getCOUNTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getOperationGETAccess().getCOUNTEnumLiteralDeclaration_1());
+			}
+		)
 	)
 ;
 
@@ -381,26 +602,58 @@ ruleInputFieldSingle returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='areaType'
+			enumLiteral_0='firstName'
 			{
-				$current = grammarAccess.getInputFieldSingleAccess().getAreaTypeEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getInputFieldSingleAccess().getAreaTypeEnumLiteralDeclaration_0());
+				$current = grammarAccess.getInputFieldSingleAccess().getFirstNameEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getInputFieldSingleAccess().getFirstNameEnumLiteralDeclaration_0());
 			}
 		)
 		    |
 		(
-			enumLiteral_1='areaName'
+			enumLiteral_1='lastName'
 			{
-				$current = grammarAccess.getInputFieldSingleAccess().getAreaNameEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getInputFieldSingleAccess().getAreaNameEnumLiteralDeclaration_1());
+				$current = grammarAccess.getInputFieldSingleAccess().getLastNameEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getInputFieldSingleAccess().getLastNameEnumLiteralDeclaration_1());
 			}
 		)
 		    |
 		(
-			enumLiteral_2='areaCode'
+			enumLiteral_2='gender'
 			{
-				$current = grammarAccess.getInputFieldSingleAccess().getAreaCodeEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getInputFieldSingleAccess().getAreaCodeEnumLiteralDeclaration_2());
+				$current = grammarAccess.getInputFieldSingleAccess().getGenderEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getInputFieldSingleAccess().getGenderEnumLiteralDeclaration_2());
+			}
+		)
+		    |
+		(
+			enumLiteral_3='counrtyCode'
+			{
+				$current = grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3());
+			}
+		)
+		    |
+		(
+			enumLiteral_4='cityName'
+			{
+				$current = grammarAccess.getInputFieldSingleAccess().getCityNameEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_4, grammarAccess.getInputFieldSingleAccess().getCityNameEnumLiteralDeclaration_4());
+			}
+		)
+		    |
+		(
+			enumLiteral_5='isVaccinated'
+			{
+				$current = grammarAccess.getInputFieldSingleAccess().getIsVaccinatedEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_5, grammarAccess.getInputFieldSingleAccess().getIsVaccinatedEnumLiteralDeclaration_5());
+			}
+		)
+		    |
+		(
+			enumLiteral_6='income'
+			{
+				$current = grammarAccess.getInputFieldSingleAccess().getIncomeEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_6, grammarAccess.getInputFieldSingleAccess().getIncomeEnumLiteralDeclaration_6());
 			}
 		)
 	)

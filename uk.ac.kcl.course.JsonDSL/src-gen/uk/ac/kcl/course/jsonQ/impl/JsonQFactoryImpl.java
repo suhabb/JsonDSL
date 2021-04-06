@@ -68,6 +68,9 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
     {
       case JsonQPackage.JSON_QUERY_MODEL: return createJSONQueryModel();
       case JsonQPackage.STATEMENTS: return createStatements();
+      case JsonQPackage.AGGREGATE_STATEMENTS: return createAggregateStatements();
+      case JsonQPackage.GET_STATEMENTS: return createGetStatements();
+      case JsonQPackage.ADDITIONAL_QUERY: return createAdditionalQuery();
       case JsonQPackage.INPUT_VAL: return createInputVal();
       case JsonQPackage.STRING_LITERAL: return createStringLiteral();
       case JsonQPackage.INT_LITERAL: return createINTLiteral();
@@ -86,8 +89,10 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case JsonQPackage.OPERATION:
-        return createOperationFromString(eDataType, initialValue);
+      case JsonQPackage.OPERATION_AGG:
+        return createOperationAggFromString(eDataType, initialValue);
+      case JsonQPackage.OPERATION_GET:
+        return createOperationGETFromString(eDataType, initialValue);
       case JsonQPackage.INPUT_FIELD_SINGLE:
         return createInputFieldSingleFromString(eDataType, initialValue);
       default:
@@ -105,8 +110,10 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case JsonQPackage.OPERATION:
-        return convertOperationToString(eDataType, instanceValue);
+      case JsonQPackage.OPERATION_AGG:
+        return convertOperationAggToString(eDataType, instanceValue);
+      case JsonQPackage.OPERATION_GET:
+        return convertOperationGETToString(eDataType, instanceValue);
       case JsonQPackage.INPUT_FIELD_SINGLE:
         return convertInputFieldSingleToString(eDataType, instanceValue);
       default:
@@ -136,6 +143,42 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
   {
     StatementsImpl statements = new StatementsImpl();
     return statements;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AggregateStatements createAggregateStatements()
+  {
+    AggregateStatementsImpl aggregateStatements = new AggregateStatementsImpl();
+    return aggregateStatements;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GetStatements createGetStatements()
+  {
+    GetStatementsImpl getStatements = new GetStatementsImpl();
+    return getStatements;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AdditionalQuery createAdditionalQuery()
+  {
+    AdditionalQueryImpl additionalQuery = new AdditionalQueryImpl();
+    return additionalQuery;
   }
 
   /**
@@ -179,9 +222,9 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Operation createOperationFromString(EDataType eDataType, String initialValue)
+  public OperationAgg createOperationAggFromString(EDataType eDataType, String initialValue)
   {
-    Operation result = Operation.get(initialValue);
+    OperationAgg result = OperationAgg.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -191,7 +234,29 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertOperationToString(EDataType eDataType, Object instanceValue)
+  public String convertOperationAggToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OperationGET createOperationGETFromString(EDataType eDataType, String initialValue)
+  {
+    OperationGET result = OperationGET.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertOperationGETToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

@@ -11,13 +11,17 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import uk.ac.kcl.course.jsonQ.AdditionalQuery;
+import uk.ac.kcl.course.jsonQ.AggregateStatements;
+import uk.ac.kcl.course.jsonQ.GetStatements;
 import uk.ac.kcl.course.jsonQ.INTLiteral;
 import uk.ac.kcl.course.jsonQ.InputFieldSingle;
 import uk.ac.kcl.course.jsonQ.InputVal;
 import uk.ac.kcl.course.jsonQ.JSONQueryModel;
 import uk.ac.kcl.course.jsonQ.JsonQFactory;
 import uk.ac.kcl.course.jsonQ.JsonQPackage;
-import uk.ac.kcl.course.jsonQ.Operation;
+import uk.ac.kcl.course.jsonQ.OperationAgg;
+import uk.ac.kcl.course.jsonQ.OperationGET;
 import uk.ac.kcl.course.jsonQ.Statements;
 import uk.ac.kcl.course.jsonQ.StringLiteral;
 
@@ -48,6 +52,27 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass aggregateStatementsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass getStatementsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass additionalQueryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass inputValEClass = null;
 
   /**
@@ -69,7 +94,14 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum operationEEnum = null;
+  private EEnum operationAggEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum operationGETEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -180,7 +212,7 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   @Override
-  public EAttribute getStatements_Operation()
+  public EAttribute getStatements_Q1key()
   {
     return (EAttribute)statementsEClass.getEStructuralFeatures().get(0);
   }
@@ -191,9 +223,9 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   @Override
-  public EAttribute getStatements_Q1key()
+  public EReference getStatements_Q1val()
   {
-    return (EAttribute)statementsEClass.getEStructuralFeatures().get(1);
+    return (EReference)statementsEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -202,7 +234,7 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   @Override
-  public EReference getStatements_Q1val()
+  public EReference getStatements_Qryadditional()
   {
     return (EReference)statementsEClass.getEStructuralFeatures().get(2);
   }
@@ -213,9 +245,9 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   @Override
-  public EAttribute getStatements_Connector()
+  public EClass getAggregateStatements()
   {
-    return (EAttribute)statementsEClass.getEStructuralFeatures().get(3);
+    return aggregateStatementsEClass;
   }
 
   /**
@@ -224,9 +256,9 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   @Override
-  public EAttribute getStatements_Q2key()
+  public EAttribute getAggregateStatements_OpAgg()
   {
-    return (EAttribute)statementsEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)aggregateStatementsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -235,9 +267,75 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   @Override
-  public EReference getStatements_Q2val()
+  public EAttribute getAggregateStatements_AggField()
   {
-    return (EReference)statementsEClass.getEStructuralFeatures().get(5);
+    return (EAttribute)aggregateStatementsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getGetStatements()
+  {
+    return getStatementsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getGetStatements_OpGet()
+  {
+    return (EAttribute)getStatementsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAdditionalQuery()
+  {
+    return additionalQueryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAdditionalQuery_Connector()
+  {
+    return (EAttribute)additionalQueryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAdditionalQuery_Q2key()
+  {
+    return (EAttribute)additionalQueryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAdditionalQuery_Q2val()
+  {
+    return (EReference)additionalQueryEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -301,9 +399,20 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   @Override
-  public EEnum getOperation()
+  public EEnum getOperationAgg()
   {
-    return operationEEnum;
+    return operationAggEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EEnum getOperationGET()
+  {
+    return operationGETEEnum;
   }
 
   /**
@@ -352,12 +461,21 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
     createEReference(jsonQueryModelEClass, JSON_QUERY_MODEL__INPUT_STATEMENT);
 
     statementsEClass = createEClass(STATEMENTS);
-    createEAttribute(statementsEClass, STATEMENTS__OPERATION);
     createEAttribute(statementsEClass, STATEMENTS__Q1KEY);
     createEReference(statementsEClass, STATEMENTS__Q1VAL);
-    createEAttribute(statementsEClass, STATEMENTS__CONNECTOR);
-    createEAttribute(statementsEClass, STATEMENTS__Q2KEY);
-    createEReference(statementsEClass, STATEMENTS__Q2VAL);
+    createEReference(statementsEClass, STATEMENTS__QRYADDITIONAL);
+
+    aggregateStatementsEClass = createEClass(AGGREGATE_STATEMENTS);
+    createEAttribute(aggregateStatementsEClass, AGGREGATE_STATEMENTS__OP_AGG);
+    createEAttribute(aggregateStatementsEClass, AGGREGATE_STATEMENTS__AGG_FIELD);
+
+    getStatementsEClass = createEClass(GET_STATEMENTS);
+    createEAttribute(getStatementsEClass, GET_STATEMENTS__OP_GET);
+
+    additionalQueryEClass = createEClass(ADDITIONAL_QUERY);
+    createEAttribute(additionalQueryEClass, ADDITIONAL_QUERY__CONNECTOR);
+    createEAttribute(additionalQueryEClass, ADDITIONAL_QUERY__Q2KEY);
+    createEReference(additionalQueryEClass, ADDITIONAL_QUERY__Q2VAL);
 
     inputValEClass = createEClass(INPUT_VAL);
 
@@ -368,7 +486,8 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
     createEAttribute(intLiteralEClass, INT_LITERAL__VALUE);
 
     // Create enums
-    operationEEnum = createEEnum(OPERATION);
+    operationAggEEnum = createEEnum(OPERATION_AGG);
+    operationGETEEnum = createEEnum(OPERATION_GET);
     inputFieldSingleEEnum = createEEnum(INPUT_FIELD_SINGLE);
   }
 
@@ -401,6 +520,8 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    aggregateStatementsEClass.getESuperTypes().add(this.getStatements());
+    getStatementsEClass.getESuperTypes().add(this.getStatements());
     stringLiteralEClass.getESuperTypes().add(this.getInputVal());
     intLiteralEClass.getESuperTypes().add(this.getInputVal());
 
@@ -409,12 +530,21 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
     initEReference(getJSONQueryModel_InputStatement(), this.getStatements(), null, "inputStatement", null, 0, -1, JSONQueryModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementsEClass, Statements.class, "Statements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStatements_Operation(), this.getOperation(), "operation", null, 0, 1, Statements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStatements_Q1key(), this.getInputFieldSingle(), "q1key", null, 0, 1, Statements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStatements_Q1val(), this.getInputVal(), null, "q1val", null, 0, 1, Statements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStatements_Connector(), ecorePackage.getEString(), "connector", null, 0, -1, Statements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStatements_Q2key(), this.getInputFieldSingle(), "q2key", null, 0, 1, Statements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStatements_Q2val(), this.getInputVal(), null, "q2val", null, 0, 1, Statements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatements_Qryadditional(), this.getAdditionalQuery(), null, "qryadditional", null, 0, 1, Statements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(aggregateStatementsEClass, AggregateStatements.class, "AggregateStatements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAggregateStatements_OpAgg(), this.getOperationAgg(), "opAgg", null, 0, 1, AggregateStatements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAggregateStatements_AggField(), this.getInputFieldSingle(), "aggField", null, 0, 1, AggregateStatements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(getStatementsEClass, GetStatements.class, "GetStatements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGetStatements_OpGet(), this.getOperationGET(), "opGet", null, 0, 1, GetStatements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(additionalQueryEClass, AdditionalQuery.class, "AdditionalQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAdditionalQuery_Connector(), ecorePackage.getEString(), "connector", null, 0, 1, AdditionalQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAdditionalQuery_Q2key(), this.getInputFieldSingle(), "q2key", null, 0, 1, AdditionalQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAdditionalQuery_Q2val(), this.getInputVal(), null, "q2val", null, 0, 1, AdditionalQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputValEClass, InputVal.class, "InputVal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -425,13 +555,21 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
     initEAttribute(getINTLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, INTLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
-    initEEnum(operationEEnum, Operation.class, "Operation");
-    addEEnumLiteral(operationEEnum, Operation.DATA);
+    initEEnum(operationAggEEnum, OperationAgg.class, "OperationAgg");
+    addEEnumLiteral(operationAggEEnum, OperationAgg.AVG);
+
+    initEEnum(operationGETEEnum, OperationGET.class, "OperationGET");
+    addEEnumLiteral(operationGETEEnum, OperationGET.DATA);
+    addEEnumLiteral(operationGETEEnum, OperationGET.COUNT);
 
     initEEnum(inputFieldSingleEEnum, InputFieldSingle.class, "InputFieldSingle");
-    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.AREA_TYPE);
-    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.AREA_NAME);
-    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.AREA_CODE);
+    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.FIRST_NAME);
+    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.LAST_NAME);
+    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.GENDER);
+    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.COUNRTY_CODE);
+    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.CITY_NAME);
+    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.IS_VACCINATED);
+    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.INCOME);
 
     // Create resource
     createResource(eNS_URI);

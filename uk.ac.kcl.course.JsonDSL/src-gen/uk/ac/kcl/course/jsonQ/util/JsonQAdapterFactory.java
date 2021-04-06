@@ -86,6 +86,21 @@ public class JsonQAdapterFactory extends AdapterFactoryImpl
         return createStatementsAdapter();
       }
       @Override
+      public Adapter caseAggregateStatements(AggregateStatements object)
+      {
+        return createAggregateStatementsAdapter();
+      }
+      @Override
+      public Adapter caseGetStatements(GetStatements object)
+      {
+        return createGetStatementsAdapter();
+      }
+      @Override
+      public Adapter caseAdditionalQuery(AdditionalQuery object)
+      {
+        return createAdditionalQueryAdapter();
+      }
+      @Override
       public Adapter caseInputVal(InputVal object)
       {
         return createInputValAdapter();
@@ -148,6 +163,51 @@ public class JsonQAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.course.jsonQ.AggregateStatements <em>Aggregate Statements</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.course.jsonQ.AggregateStatements
+   * @generated
+   */
+  public Adapter createAggregateStatementsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.course.jsonQ.GetStatements <em>Get Statements</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.course.jsonQ.GetStatements
+   * @generated
+   */
+  public Adapter createGetStatementsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.course.jsonQ.AdditionalQuery <em>Additional Query</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.course.jsonQ.AdditionalQuery
+   * @generated
+   */
+  public Adapter createAdditionalQueryAdapter()
   {
     return null;
   }

@@ -42,6 +42,33 @@ public interface JsonQFactory extends EFactory
   Statements createStatements();
 
   /**
+   * Returns a new object of class '<em>Aggregate Statements</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Aggregate Statements</em>'.
+   * @generated
+   */
+  AggregateStatements createAggregateStatements();
+
+  /**
+   * Returns a new object of class '<em>Get Statements</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Get Statements</em>'.
+   * @generated
+   */
+  GetStatements createGetStatements();
+
+  /**
+   * Returns a new object of class '<em>Additional Query</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Additional Query</em>'.
+   * @generated
+   */
+  AdditionalQuery createAdditionalQuery();
+
+  /**
    * Returns a new object of class '<em>Input Val</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

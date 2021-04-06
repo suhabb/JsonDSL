@@ -6,12 +6,21 @@
         eType="#//Statements" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Statements">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//Operation"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="q1key" eType="#//InputFieldSingle"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="q1val" eType="#//InputVal"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connector" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qryadditional" eType="#//AdditionalQuery"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregateStatements" eSuperTypes="#//Statements">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="opAgg" eType="#//OperationAgg"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggField" eType="#//InputFieldSingle"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GetStatements" eSuperTypes="#//Statements">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="opGet" eType="#//OperationGET"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdditionalQuery">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connector" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="q2key" eType="#//InputFieldSingle"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="q2val" eType="#//InputVal"
         containment="true"/>
@@ -23,12 +32,20 @@
   <eClassifiers xsi:type="ecore:EClass" name="INTLiteral" eSuperTypes="#//InputVal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Operation">
+  <eClassifiers xsi:type="ecore:EEnum" name="OperationAgg">
+    <eLiterals name="AVG" literal="AVG"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperationGET">
     <eLiterals name="DATA" literal="DATA"/>
+    <eLiterals name="COUNT" value="1" literal="COUNT"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="InputFieldSingle">
-    <eLiterals name="areaType" literal="areaType"/>
-    <eLiterals name="areaName" value="1" literal="areaName"/>
-    <eLiterals name="areaCode" value="2" literal="areaCode"/>
+    <eLiterals name="firstName" literal="firstName"/>
+    <eLiterals name="lastName" value="1" literal="lastName"/>
+    <eLiterals name="gender" value="2" literal="gender"/>
+    <eLiterals name="counrtyCode" value="3" literal="counrtyCode"/>
+    <eLiterals name="cityName" value="4" literal="cityName"/>
+    <eLiterals name="isVaccinated" value="5" literal="isVaccinated"/>
+    <eLiterals name="income" value="6" literal="income"/>
   </eClassifiers>
 </ecore:EPackage>

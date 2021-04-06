@@ -22,24 +22,30 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJsonQParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'GET'", "'FOR'", "'AND'", "'OR'", "'DATA'", "'areaType'", "'areaName'", "'areaCode'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'GET'", "'WHERE'", "'AND'", "'OR'", "'AVG'", "'DATA'", "'COUNT'", "'firstName'", "'lastName'", "'gender'", "'counrtyCode'", "'cityName'", "'isVaccinated'", "'income'"
     };
-    public static final int RULE_ID=6;
-    public static final int RULE_WS=9;
     public static final int RULE_STRING=4;
-    public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
+    public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
-    public static final int RULE_INT=5;
     public static final int T__18=18;
     public static final int T__11=11;
-    public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int RULE_ID=6;
+    public static final int RULE_WS=9;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_INT=5;
+    public static final int T__22=22;
+    public static final int RULE_ML_COMMENT=7;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__20=20;
+    public static final int T__21=21;
 
     // delegates
     // delegators
@@ -236,62 +242,198 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStatements"
-    // InternalJsonQ.g:108:1: ruleStatements returns [EObject current=null] : (otherlv_0= 'GET' ( (lv_operation_1_0= ruleOperation ) ) otherlv_2= 'FOR' ( (lv_q1key_3_0= ruleInputFieldSingle ) ) ( (lv_q1val_4_0= ruleInputVal ) ) ( ( (lv_connector_5_1= 'AND' | lv_connector_5_2= 'OR' ) ) )? ( ( (lv_q2key_6_0= ruleInputFieldSingle ) ) ( (lv_q2val_7_0= ruleInputVal ) ) )? ) ;
+    // InternalJsonQ.g:108:1: ruleStatements returns [EObject current=null] : (this_GetStatements_0= ruleGetStatements | this_AggregateStatements_1= ruleAggregateStatements ) ;
     public final EObject ruleStatements() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token otherlv_2=null;
-        Token lv_connector_5_1=null;
-        Token lv_connector_5_2=null;
-        Enumerator lv_operation_1_0 = null;
+        EObject this_GetStatements_0 = null;
 
-        Enumerator lv_q1key_3_0 = null;
-
-        EObject lv_q1val_4_0 = null;
-
-        Enumerator lv_q2key_6_0 = null;
-
-        EObject lv_q2val_7_0 = null;
+        EObject this_AggregateStatements_1 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalJsonQ.g:114:2: ( (otherlv_0= 'GET' ( (lv_operation_1_0= ruleOperation ) ) otherlv_2= 'FOR' ( (lv_q1key_3_0= ruleInputFieldSingle ) ) ( (lv_q1val_4_0= ruleInputVal ) ) ( ( (lv_connector_5_1= 'AND' | lv_connector_5_2= 'OR' ) ) )? ( ( (lv_q2key_6_0= ruleInputFieldSingle ) ) ( (lv_q2val_7_0= ruleInputVal ) ) )? ) )
-            // InternalJsonQ.g:115:2: (otherlv_0= 'GET' ( (lv_operation_1_0= ruleOperation ) ) otherlv_2= 'FOR' ( (lv_q1key_3_0= ruleInputFieldSingle ) ) ( (lv_q1val_4_0= ruleInputVal ) ) ( ( (lv_connector_5_1= 'AND' | lv_connector_5_2= 'OR' ) ) )? ( ( (lv_q2key_6_0= ruleInputFieldSingle ) ) ( (lv_q2val_7_0= ruleInputVal ) ) )? )
+            // InternalJsonQ.g:114:2: ( (this_GetStatements_0= ruleGetStatements | this_AggregateStatements_1= ruleAggregateStatements ) )
+            // InternalJsonQ.g:115:2: (this_GetStatements_0= ruleGetStatements | this_AggregateStatements_1= ruleAggregateStatements )
             {
-            // InternalJsonQ.g:115:2: (otherlv_0= 'GET' ( (lv_operation_1_0= ruleOperation ) ) otherlv_2= 'FOR' ( (lv_q1key_3_0= ruleInputFieldSingle ) ) ( (lv_q1val_4_0= ruleInputVal ) ) ( ( (lv_connector_5_1= 'AND' | lv_connector_5_2= 'OR' ) ) )? ( ( (lv_q2key_6_0= ruleInputFieldSingle ) ) ( (lv_q2val_7_0= ruleInputVal ) ) )? )
-            // InternalJsonQ.g:116:3: otherlv_0= 'GET' ( (lv_operation_1_0= ruleOperation ) ) otherlv_2= 'FOR' ( (lv_q1key_3_0= ruleInputFieldSingle ) ) ( (lv_q1val_4_0= ruleInputVal ) ) ( ( (lv_connector_5_1= 'AND' | lv_connector_5_2= 'OR' ) ) )? ( ( (lv_q2key_6_0= ruleInputFieldSingle ) ) ( (lv_q2val_7_0= ruleInputVal ) ) )?
+            // InternalJsonQ.g:115:2: (this_GetStatements_0= ruleGetStatements | this_AggregateStatements_1= ruleAggregateStatements )
+            int alt2=2;
+            int LA2_0 = input.LA(1);
+
+            if ( (LA2_0==11) ) {
+                int LA2_1 = input.LA(2);
+
+                if ( ((LA2_1>=16 && LA2_1<=17)) ) {
+                    alt2=1;
+                }
+                else if ( (LA2_1==15) ) {
+                    alt2=2;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 2, 1, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 2, 0, input);
+
+                throw nvae;
+            }
+            switch (alt2) {
+                case 1 :
+                    // InternalJsonQ.g:116:3: this_GetStatements_0= ruleGetStatements
+                    {
+
+                    			newCompositeNode(grammarAccess.getStatementsAccess().getGetStatementsParserRuleCall_0());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_GetStatements_0=ruleGetStatements();
+
+                    state._fsp--;
+
+
+                    			current = this_GetStatements_0;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalJsonQ.g:125:3: this_AggregateStatements_1= ruleAggregateStatements
+                    {
+
+                    			newCompositeNode(grammarAccess.getStatementsAccess().getAggregateStatementsParserRuleCall_1());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_AggregateStatements_1=ruleAggregateStatements();
+
+                    state._fsp--;
+
+
+                    			current = this_AggregateStatements_1;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleStatements"
+
+
+    // $ANTLR start "entryRuleAggregateStatements"
+    // InternalJsonQ.g:137:1: entryRuleAggregateStatements returns [EObject current=null] : iv_ruleAggregateStatements= ruleAggregateStatements EOF ;
+    public final EObject entryRuleAggregateStatements() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleAggregateStatements = null;
+
+
+        try {
+            // InternalJsonQ.g:137:60: (iv_ruleAggregateStatements= ruleAggregateStatements EOF )
+            // InternalJsonQ.g:138:2: iv_ruleAggregateStatements= ruleAggregateStatements EOF
+            {
+             newCompositeNode(grammarAccess.getAggregateStatementsRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleAggregateStatements=ruleAggregateStatements();
+
+            state._fsp--;
+
+             current =iv_ruleAggregateStatements; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleAggregateStatements"
+
+
+    // $ANTLR start "ruleAggregateStatements"
+    // InternalJsonQ.g:144:1: ruleAggregateStatements returns [EObject current=null] : (otherlv_0= 'GET' ( (lv_opAgg_1_0= ruleOperationAgg ) ) ( (lv_aggField_2_0= ruleInputFieldSingle ) ) otherlv_3= 'WHERE' ( (lv_q1key_4_0= ruleInputFieldSingle ) ) ( (lv_q1val_5_0= ruleInputVal ) ) ( (lv_qryadditional_6_0= ruleAdditionalQuery ) )? ) ;
+    public final EObject ruleAggregateStatements() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_3=null;
+        Enumerator lv_opAgg_1_0 = null;
+
+        Enumerator lv_aggField_2_0 = null;
+
+        Enumerator lv_q1key_4_0 = null;
+
+        EObject lv_q1val_5_0 = null;
+
+        EObject lv_qryadditional_6_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalJsonQ.g:150:2: ( (otherlv_0= 'GET' ( (lv_opAgg_1_0= ruleOperationAgg ) ) ( (lv_aggField_2_0= ruleInputFieldSingle ) ) otherlv_3= 'WHERE' ( (lv_q1key_4_0= ruleInputFieldSingle ) ) ( (lv_q1val_5_0= ruleInputVal ) ) ( (lv_qryadditional_6_0= ruleAdditionalQuery ) )? ) )
+            // InternalJsonQ.g:151:2: (otherlv_0= 'GET' ( (lv_opAgg_1_0= ruleOperationAgg ) ) ( (lv_aggField_2_0= ruleInputFieldSingle ) ) otherlv_3= 'WHERE' ( (lv_q1key_4_0= ruleInputFieldSingle ) ) ( (lv_q1val_5_0= ruleInputVal ) ) ( (lv_qryadditional_6_0= ruleAdditionalQuery ) )? )
+            {
+            // InternalJsonQ.g:151:2: (otherlv_0= 'GET' ( (lv_opAgg_1_0= ruleOperationAgg ) ) ( (lv_aggField_2_0= ruleInputFieldSingle ) ) otherlv_3= 'WHERE' ( (lv_q1key_4_0= ruleInputFieldSingle ) ) ( (lv_q1val_5_0= ruleInputVal ) ) ( (lv_qryadditional_6_0= ruleAdditionalQuery ) )? )
+            // InternalJsonQ.g:152:3: otherlv_0= 'GET' ( (lv_opAgg_1_0= ruleOperationAgg ) ) ( (lv_aggField_2_0= ruleInputFieldSingle ) ) otherlv_3= 'WHERE' ( (lv_q1key_4_0= ruleInputFieldSingle ) ) ( (lv_q1val_5_0= ruleInputVal ) ) ( (lv_qryadditional_6_0= ruleAdditionalQuery ) )?
             {
             otherlv_0=(Token)match(input,11,FOLLOW_4); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getStatementsAccess().getGETKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getAggregateStatementsAccess().getGETKeyword_0());
             		
-            // InternalJsonQ.g:120:3: ( (lv_operation_1_0= ruleOperation ) )
-            // InternalJsonQ.g:121:4: (lv_operation_1_0= ruleOperation )
+            // InternalJsonQ.g:156:3: ( (lv_opAgg_1_0= ruleOperationAgg ) )
+            // InternalJsonQ.g:157:4: (lv_opAgg_1_0= ruleOperationAgg )
             {
-            // InternalJsonQ.g:121:4: (lv_operation_1_0= ruleOperation )
-            // InternalJsonQ.g:122:5: lv_operation_1_0= ruleOperation
+            // InternalJsonQ.g:157:4: (lv_opAgg_1_0= ruleOperationAgg )
+            // InternalJsonQ.g:158:5: lv_opAgg_1_0= ruleOperationAgg
             {
 
-            					newCompositeNode(grammarAccess.getStatementsAccess().getOperationOperationEnumRuleCall_1_0());
+            					newCompositeNode(grammarAccess.getAggregateStatementsAccess().getOpAggOperationAggEnumRuleCall_1_0());
             				
             pushFollow(FOLLOW_5);
-            lv_operation_1_0=ruleOperation();
+            lv_opAgg_1_0=ruleOperationAgg();
 
             state._fsp--;
 
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getStatementsRule());
+            						current = createModelElementForParent(grammarAccess.getAggregateStatementsRule());
             					}
             					set(
             						current,
-            						"operation",
-            						lv_operation_1_0,
-            						"uk.ac.kcl.course.JsonQ.Operation");
+            						"opAgg",
+            						lv_opAgg_1_0,
+            						"uk.ac.kcl.course.JsonQ.OperationAgg");
             					afterParserOrEnumRuleCall();
             				
 
@@ -300,32 +442,28 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FOLLOW_6); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getStatementsAccess().getFORKeyword_2());
-            		
-            // InternalJsonQ.g:143:3: ( (lv_q1key_3_0= ruleInputFieldSingle ) )
-            // InternalJsonQ.g:144:4: (lv_q1key_3_0= ruleInputFieldSingle )
+            // InternalJsonQ.g:175:3: ( (lv_aggField_2_0= ruleInputFieldSingle ) )
+            // InternalJsonQ.g:176:4: (lv_aggField_2_0= ruleInputFieldSingle )
             {
-            // InternalJsonQ.g:144:4: (lv_q1key_3_0= ruleInputFieldSingle )
-            // InternalJsonQ.g:145:5: lv_q1key_3_0= ruleInputFieldSingle
+            // InternalJsonQ.g:176:4: (lv_aggField_2_0= ruleInputFieldSingle )
+            // InternalJsonQ.g:177:5: lv_aggField_2_0= ruleInputFieldSingle
             {
 
-            					newCompositeNode(grammarAccess.getStatementsAccess().getQ1keyInputFieldSingleEnumRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getAggregateStatementsAccess().getAggFieldInputFieldSingleEnumRuleCall_2_0());
             				
-            pushFollow(FOLLOW_7);
-            lv_q1key_3_0=ruleInputFieldSingle();
+            pushFollow(FOLLOW_6);
+            lv_aggField_2_0=ruleInputFieldSingle();
 
             state._fsp--;
 
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getStatementsRule());
+            						current = createModelElementForParent(grammarAccess.getAggregateStatementsRule());
             					}
             					set(
             						current,
-            						"q1key",
-            						lv_q1key_3_0,
+            						"aggField",
+            						lv_aggField_2_0,
             						"uk.ac.kcl.course.JsonQ.InputFieldSingle");
             					afterParserOrEnumRuleCall();
             				
@@ -335,28 +473,63 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalJsonQ.g:162:3: ( (lv_q1val_4_0= ruleInputVal ) )
-            // InternalJsonQ.g:163:4: (lv_q1val_4_0= ruleInputVal )
+            otherlv_3=(Token)match(input,12,FOLLOW_5); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getAggregateStatementsAccess().getWHEREKeyword_3());
+            		
+            // InternalJsonQ.g:198:3: ( (lv_q1key_4_0= ruleInputFieldSingle ) )
+            // InternalJsonQ.g:199:4: (lv_q1key_4_0= ruleInputFieldSingle )
             {
-            // InternalJsonQ.g:163:4: (lv_q1val_4_0= ruleInputVal )
-            // InternalJsonQ.g:164:5: lv_q1val_4_0= ruleInputVal
+            // InternalJsonQ.g:199:4: (lv_q1key_4_0= ruleInputFieldSingle )
+            // InternalJsonQ.g:200:5: lv_q1key_4_0= ruleInputFieldSingle
             {
 
-            					newCompositeNode(grammarAccess.getStatementsAccess().getQ1valInputValParserRuleCall_4_0());
+            					newCompositeNode(grammarAccess.getAggregateStatementsAccess().getQ1keyInputFieldSingleEnumRuleCall_4_0());
             				
-            pushFollow(FOLLOW_8);
-            lv_q1val_4_0=ruleInputVal();
+            pushFollow(FOLLOW_7);
+            lv_q1key_4_0=ruleInputFieldSingle();
 
             state._fsp--;
 
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getStatementsRule());
+            						current = createModelElementForParent(grammarAccess.getAggregateStatementsRule());
+            					}
+            					set(
+            						current,
+            						"q1key",
+            						lv_q1key_4_0,
+            						"uk.ac.kcl.course.JsonQ.InputFieldSingle");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalJsonQ.g:217:3: ( (lv_q1val_5_0= ruleInputVal ) )
+            // InternalJsonQ.g:218:4: (lv_q1val_5_0= ruleInputVal )
+            {
+            // InternalJsonQ.g:218:4: (lv_q1val_5_0= ruleInputVal )
+            // InternalJsonQ.g:219:5: lv_q1val_5_0= ruleInputVal
+            {
+
+            					newCompositeNode(grammarAccess.getAggregateStatementsAccess().getQ1valInputValParserRuleCall_5_0());
+            				
+            pushFollow(FOLLOW_8);
+            lv_q1val_5_0=ruleInputVal();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getAggregateStatementsRule());
             					}
             					set(
             						current,
             						"q1val",
-            						lv_q1val_4_0,
+            						lv_q1val_5_0,
             						"uk.ac.kcl.course.JsonQ.InputVal");
             					afterParserOrEnumRuleCall();
             				
@@ -366,7 +539,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalJsonQ.g:181:3: ( ( (lv_connector_5_1= 'AND' | lv_connector_5_2= 'OR' ) ) )?
+            // InternalJsonQ.g:236:3: ( (lv_qryadditional_6_0= ruleAdditionalQuery ) )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -375,142 +548,30 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalJsonQ.g:182:4: ( (lv_connector_5_1= 'AND' | lv_connector_5_2= 'OR' ) )
+                    // InternalJsonQ.g:237:4: (lv_qryadditional_6_0= ruleAdditionalQuery )
                     {
-                    // InternalJsonQ.g:182:4: ( (lv_connector_5_1= 'AND' | lv_connector_5_2= 'OR' ) )
-                    // InternalJsonQ.g:183:5: (lv_connector_5_1= 'AND' | lv_connector_5_2= 'OR' )
-                    {
-                    // InternalJsonQ.g:183:5: (lv_connector_5_1= 'AND' | lv_connector_5_2= 'OR' )
-                    int alt2=2;
-                    int LA2_0 = input.LA(1);
-
-                    if ( (LA2_0==13) ) {
-                        alt2=1;
-                    }
-                    else if ( (LA2_0==14) ) {
-                        alt2=2;
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 2, 0, input);
-
-                        throw nvae;
-                    }
-                    switch (alt2) {
-                        case 1 :
-                            // InternalJsonQ.g:184:6: lv_connector_5_1= 'AND'
-                            {
-                            lv_connector_5_1=(Token)match(input,13,FOLLOW_9); 
-
-                            						newLeafNode(lv_connector_5_1, grammarAccess.getStatementsAccess().getConnectorANDKeyword_5_0_0());
-                            					
-
-                            						if (current==null) {
-                            							current = createModelElement(grammarAccess.getStatementsRule());
-                            						}
-                            						addWithLastConsumed(current, "connector", lv_connector_5_1, null);
-                            					
-
-                            }
-                            break;
-                        case 2 :
-                            // InternalJsonQ.g:195:6: lv_connector_5_2= 'OR'
-                            {
-                            lv_connector_5_2=(Token)match(input,14,FOLLOW_9); 
-
-                            						newLeafNode(lv_connector_5_2, grammarAccess.getStatementsAccess().getConnectorORKeyword_5_0_1());
-                            					
-
-                            						if (current==null) {
-                            							current = createModelElement(grammarAccess.getStatementsRule());
-                            						}
-                            						addWithLastConsumed(current, "connector", lv_connector_5_2, null);
-                            					
-
-                            }
-                            break;
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // InternalJsonQ.g:208:3: ( ( (lv_q2key_6_0= ruleInputFieldSingle ) ) ( (lv_q2val_7_0= ruleInputVal ) ) )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
-
-            if ( ((LA4_0>=16 && LA4_0<=18)) ) {
-                alt4=1;
-            }
-            switch (alt4) {
-                case 1 :
-                    // InternalJsonQ.g:209:4: ( (lv_q2key_6_0= ruleInputFieldSingle ) ) ( (lv_q2val_7_0= ruleInputVal ) )
-                    {
-                    // InternalJsonQ.g:209:4: ( (lv_q2key_6_0= ruleInputFieldSingle ) )
-                    // InternalJsonQ.g:210:5: (lv_q2key_6_0= ruleInputFieldSingle )
-                    {
-                    // InternalJsonQ.g:210:5: (lv_q2key_6_0= ruleInputFieldSingle )
-                    // InternalJsonQ.g:211:6: lv_q2key_6_0= ruleInputFieldSingle
+                    // InternalJsonQ.g:237:4: (lv_qryadditional_6_0= ruleAdditionalQuery )
+                    // InternalJsonQ.g:238:5: lv_qryadditional_6_0= ruleAdditionalQuery
                     {
 
-                    						newCompositeNode(grammarAccess.getStatementsAccess().getQ2keyInputFieldSingleEnumRuleCall_6_0_0());
-                    					
-                    pushFollow(FOLLOW_7);
-                    lv_q2key_6_0=ruleInputFieldSingle();
-
-                    state._fsp--;
-
-
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getStatementsRule());
-                    						}
-                    						set(
-                    							current,
-                    							"q2key",
-                    							lv_q2key_6_0,
-                    							"uk.ac.kcl.course.JsonQ.InputFieldSingle");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-                    // InternalJsonQ.g:228:4: ( (lv_q2val_7_0= ruleInputVal ) )
-                    // InternalJsonQ.g:229:5: (lv_q2val_7_0= ruleInputVal )
-                    {
-                    // InternalJsonQ.g:229:5: (lv_q2val_7_0= ruleInputVal )
-                    // InternalJsonQ.g:230:6: lv_q2val_7_0= ruleInputVal
-                    {
-
-                    						newCompositeNode(grammarAccess.getStatementsAccess().getQ2valInputValParserRuleCall_6_1_0());
-                    					
+                    					newCompositeNode(grammarAccess.getAggregateStatementsAccess().getQryadditionalAdditionalQueryParserRuleCall_6_0());
+                    				
                     pushFollow(FOLLOW_2);
-                    lv_q2val_7_0=ruleInputVal();
+                    lv_qryadditional_6_0=ruleAdditionalQuery();
 
                     state._fsp--;
 
 
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getStatementsRule());
-                    						}
-                    						set(
-                    							current,
-                    							"q2val",
-                    							lv_q2val_7_0,
-                    							"uk.ac.kcl.course.JsonQ.InputVal");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getAggregateStatementsRule());
+                    					}
+                    					set(
+                    						current,
+                    						"qryadditional",
+                    						lv_qryadditional_6_0,
+                    						"uk.ac.kcl.course.JsonQ.AdditionalQuery");
+                    					afterParserOrEnumRuleCall();
+                    				
 
                     }
 
@@ -539,11 +600,444 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleStatements"
+    // $ANTLR end "ruleAggregateStatements"
+
+
+    // $ANTLR start "entryRuleGetStatements"
+    // InternalJsonQ.g:259:1: entryRuleGetStatements returns [EObject current=null] : iv_ruleGetStatements= ruleGetStatements EOF ;
+    public final EObject entryRuleGetStatements() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleGetStatements = null;
+
+
+        try {
+            // InternalJsonQ.g:259:54: (iv_ruleGetStatements= ruleGetStatements EOF )
+            // InternalJsonQ.g:260:2: iv_ruleGetStatements= ruleGetStatements EOF
+            {
+             newCompositeNode(grammarAccess.getGetStatementsRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleGetStatements=ruleGetStatements();
+
+            state._fsp--;
+
+             current =iv_ruleGetStatements; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleGetStatements"
+
+
+    // $ANTLR start "ruleGetStatements"
+    // InternalJsonQ.g:266:1: ruleGetStatements returns [EObject current=null] : (otherlv_0= 'GET' ( (lv_opGet_1_0= ruleOperationGET ) ) otherlv_2= 'WHERE' ( (lv_q1key_3_0= ruleInputFieldSingle ) ) ( (lv_q1val_4_0= ruleInputVal ) ) ( (lv_qryadditional_5_0= ruleAdditionalQuery ) )? ) ;
+    public final EObject ruleGetStatements() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_2=null;
+        Enumerator lv_opGet_1_0 = null;
+
+        Enumerator lv_q1key_3_0 = null;
+
+        EObject lv_q1val_4_0 = null;
+
+        EObject lv_qryadditional_5_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalJsonQ.g:272:2: ( (otherlv_0= 'GET' ( (lv_opGet_1_0= ruleOperationGET ) ) otherlv_2= 'WHERE' ( (lv_q1key_3_0= ruleInputFieldSingle ) ) ( (lv_q1val_4_0= ruleInputVal ) ) ( (lv_qryadditional_5_0= ruleAdditionalQuery ) )? ) )
+            // InternalJsonQ.g:273:2: (otherlv_0= 'GET' ( (lv_opGet_1_0= ruleOperationGET ) ) otherlv_2= 'WHERE' ( (lv_q1key_3_0= ruleInputFieldSingle ) ) ( (lv_q1val_4_0= ruleInputVal ) ) ( (lv_qryadditional_5_0= ruleAdditionalQuery ) )? )
+            {
+            // InternalJsonQ.g:273:2: (otherlv_0= 'GET' ( (lv_opGet_1_0= ruleOperationGET ) ) otherlv_2= 'WHERE' ( (lv_q1key_3_0= ruleInputFieldSingle ) ) ( (lv_q1val_4_0= ruleInputVal ) ) ( (lv_qryadditional_5_0= ruleAdditionalQuery ) )? )
+            // InternalJsonQ.g:274:3: otherlv_0= 'GET' ( (lv_opGet_1_0= ruleOperationGET ) ) otherlv_2= 'WHERE' ( (lv_q1key_3_0= ruleInputFieldSingle ) ) ( (lv_q1val_4_0= ruleInputVal ) ) ( (lv_qryadditional_5_0= ruleAdditionalQuery ) )?
+            {
+            otherlv_0=(Token)match(input,11,FOLLOW_9); 
+
+            			newLeafNode(otherlv_0, grammarAccess.getGetStatementsAccess().getGETKeyword_0());
+            		
+            // InternalJsonQ.g:278:3: ( (lv_opGet_1_0= ruleOperationGET ) )
+            // InternalJsonQ.g:279:4: (lv_opGet_1_0= ruleOperationGET )
+            {
+            // InternalJsonQ.g:279:4: (lv_opGet_1_0= ruleOperationGET )
+            // InternalJsonQ.g:280:5: lv_opGet_1_0= ruleOperationGET
+            {
+
+            					newCompositeNode(grammarAccess.getGetStatementsAccess().getOpGetOperationGETEnumRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_6);
+            lv_opGet_1_0=ruleOperationGET();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getGetStatementsRule());
+            					}
+            					set(
+            						current,
+            						"opGet",
+            						lv_opGet_1_0,
+            						"uk.ac.kcl.course.JsonQ.OperationGET");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,12,FOLLOW_5); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getGetStatementsAccess().getWHEREKeyword_2());
+            		
+            // InternalJsonQ.g:301:3: ( (lv_q1key_3_0= ruleInputFieldSingle ) )
+            // InternalJsonQ.g:302:4: (lv_q1key_3_0= ruleInputFieldSingle )
+            {
+            // InternalJsonQ.g:302:4: (lv_q1key_3_0= ruleInputFieldSingle )
+            // InternalJsonQ.g:303:5: lv_q1key_3_0= ruleInputFieldSingle
+            {
+
+            					newCompositeNode(grammarAccess.getGetStatementsAccess().getQ1keyInputFieldSingleEnumRuleCall_3_0());
+            				
+            pushFollow(FOLLOW_7);
+            lv_q1key_3_0=ruleInputFieldSingle();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getGetStatementsRule());
+            					}
+            					set(
+            						current,
+            						"q1key",
+            						lv_q1key_3_0,
+            						"uk.ac.kcl.course.JsonQ.InputFieldSingle");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalJsonQ.g:320:3: ( (lv_q1val_4_0= ruleInputVal ) )
+            // InternalJsonQ.g:321:4: (lv_q1val_4_0= ruleInputVal )
+            {
+            // InternalJsonQ.g:321:4: (lv_q1val_4_0= ruleInputVal )
+            // InternalJsonQ.g:322:5: lv_q1val_4_0= ruleInputVal
+            {
+
+            					newCompositeNode(grammarAccess.getGetStatementsAccess().getQ1valInputValParserRuleCall_4_0());
+            				
+            pushFollow(FOLLOW_8);
+            lv_q1val_4_0=ruleInputVal();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getGetStatementsRule());
+            					}
+            					set(
+            						current,
+            						"q1val",
+            						lv_q1val_4_0,
+            						"uk.ac.kcl.course.JsonQ.InputVal");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalJsonQ.g:339:3: ( (lv_qryadditional_5_0= ruleAdditionalQuery ) )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
+
+            if ( ((LA4_0>=13 && LA4_0<=14)) ) {
+                alt4=1;
+            }
+            switch (alt4) {
+                case 1 :
+                    // InternalJsonQ.g:340:4: (lv_qryadditional_5_0= ruleAdditionalQuery )
+                    {
+                    // InternalJsonQ.g:340:4: (lv_qryadditional_5_0= ruleAdditionalQuery )
+                    // InternalJsonQ.g:341:5: lv_qryadditional_5_0= ruleAdditionalQuery
+                    {
+
+                    					newCompositeNode(grammarAccess.getGetStatementsAccess().getQryadditionalAdditionalQueryParserRuleCall_5_0());
+                    				
+                    pushFollow(FOLLOW_2);
+                    lv_qryadditional_5_0=ruleAdditionalQuery();
+
+                    state._fsp--;
+
+
+                    					if (current==null) {
+                    						current = createModelElementForParent(grammarAccess.getGetStatementsRule());
+                    					}
+                    					set(
+                    						current,
+                    						"qryadditional",
+                    						lv_qryadditional_5_0,
+                    						"uk.ac.kcl.course.JsonQ.AdditionalQuery");
+                    					afterParserOrEnumRuleCall();
+                    				
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleGetStatements"
+
+
+    // $ANTLR start "entryRuleAdditionalQuery"
+    // InternalJsonQ.g:362:1: entryRuleAdditionalQuery returns [EObject current=null] : iv_ruleAdditionalQuery= ruleAdditionalQuery EOF ;
+    public final EObject entryRuleAdditionalQuery() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleAdditionalQuery = null;
+
+
+        try {
+            // InternalJsonQ.g:362:56: (iv_ruleAdditionalQuery= ruleAdditionalQuery EOF )
+            // InternalJsonQ.g:363:2: iv_ruleAdditionalQuery= ruleAdditionalQuery EOF
+            {
+             newCompositeNode(grammarAccess.getAdditionalQueryRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleAdditionalQuery=ruleAdditionalQuery();
+
+            state._fsp--;
+
+             current =iv_ruleAdditionalQuery; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleAdditionalQuery"
+
+
+    // $ANTLR start "ruleAdditionalQuery"
+    // InternalJsonQ.g:369:1: ruleAdditionalQuery returns [EObject current=null] : ( ( ( (lv_connector_0_1= 'AND' | lv_connector_0_2= 'OR' ) ) ) ( (lv_q2key_1_0= ruleInputFieldSingle ) ) ( (lv_q2val_2_0= ruleInputVal ) ) ) ;
+    public final EObject ruleAdditionalQuery() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_connector_0_1=null;
+        Token lv_connector_0_2=null;
+        Enumerator lv_q2key_1_0 = null;
+
+        EObject lv_q2val_2_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalJsonQ.g:375:2: ( ( ( ( (lv_connector_0_1= 'AND' | lv_connector_0_2= 'OR' ) ) ) ( (lv_q2key_1_0= ruleInputFieldSingle ) ) ( (lv_q2val_2_0= ruleInputVal ) ) ) )
+            // InternalJsonQ.g:376:2: ( ( ( (lv_connector_0_1= 'AND' | lv_connector_0_2= 'OR' ) ) ) ( (lv_q2key_1_0= ruleInputFieldSingle ) ) ( (lv_q2val_2_0= ruleInputVal ) ) )
+            {
+            // InternalJsonQ.g:376:2: ( ( ( (lv_connector_0_1= 'AND' | lv_connector_0_2= 'OR' ) ) ) ( (lv_q2key_1_0= ruleInputFieldSingle ) ) ( (lv_q2val_2_0= ruleInputVal ) ) )
+            // InternalJsonQ.g:377:3: ( ( (lv_connector_0_1= 'AND' | lv_connector_0_2= 'OR' ) ) ) ( (lv_q2key_1_0= ruleInputFieldSingle ) ) ( (lv_q2val_2_0= ruleInputVal ) )
+            {
+            // InternalJsonQ.g:377:3: ( ( (lv_connector_0_1= 'AND' | lv_connector_0_2= 'OR' ) ) )
+            // InternalJsonQ.g:378:4: ( (lv_connector_0_1= 'AND' | lv_connector_0_2= 'OR' ) )
+            {
+            // InternalJsonQ.g:378:4: ( (lv_connector_0_1= 'AND' | lv_connector_0_2= 'OR' ) )
+            // InternalJsonQ.g:379:5: (lv_connector_0_1= 'AND' | lv_connector_0_2= 'OR' )
+            {
+            // InternalJsonQ.g:379:5: (lv_connector_0_1= 'AND' | lv_connector_0_2= 'OR' )
+            int alt5=2;
+            int LA5_0 = input.LA(1);
+
+            if ( (LA5_0==13) ) {
+                alt5=1;
+            }
+            else if ( (LA5_0==14) ) {
+                alt5=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 5, 0, input);
+
+                throw nvae;
+            }
+            switch (alt5) {
+                case 1 :
+                    // InternalJsonQ.g:380:6: lv_connector_0_1= 'AND'
+                    {
+                    lv_connector_0_1=(Token)match(input,13,FOLLOW_5); 
+
+                    						newLeafNode(lv_connector_0_1, grammarAccess.getAdditionalQueryAccess().getConnectorANDKeyword_0_0_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getAdditionalQueryRule());
+                    						}
+                    						setWithLastConsumed(current, "connector", lv_connector_0_1, null);
+                    					
+
+                    }
+                    break;
+                case 2 :
+                    // InternalJsonQ.g:391:6: lv_connector_0_2= 'OR'
+                    {
+                    lv_connector_0_2=(Token)match(input,14,FOLLOW_5); 
+
+                    						newLeafNode(lv_connector_0_2, grammarAccess.getAdditionalQueryAccess().getConnectorORKeyword_0_0_1());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getAdditionalQueryRule());
+                    						}
+                    						setWithLastConsumed(current, "connector", lv_connector_0_2, null);
+                    					
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+            // InternalJsonQ.g:404:3: ( (lv_q2key_1_0= ruleInputFieldSingle ) )
+            // InternalJsonQ.g:405:4: (lv_q2key_1_0= ruleInputFieldSingle )
+            {
+            // InternalJsonQ.g:405:4: (lv_q2key_1_0= ruleInputFieldSingle )
+            // InternalJsonQ.g:406:5: lv_q2key_1_0= ruleInputFieldSingle
+            {
+
+            					newCompositeNode(grammarAccess.getAdditionalQueryAccess().getQ2keyInputFieldSingleEnumRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_7);
+            lv_q2key_1_0=ruleInputFieldSingle();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getAdditionalQueryRule());
+            					}
+            					set(
+            						current,
+            						"q2key",
+            						lv_q2key_1_0,
+            						"uk.ac.kcl.course.JsonQ.InputFieldSingle");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalJsonQ.g:423:3: ( (lv_q2val_2_0= ruleInputVal ) )
+            // InternalJsonQ.g:424:4: (lv_q2val_2_0= ruleInputVal )
+            {
+            // InternalJsonQ.g:424:4: (lv_q2val_2_0= ruleInputVal )
+            // InternalJsonQ.g:425:5: lv_q2val_2_0= ruleInputVal
+            {
+
+            					newCompositeNode(grammarAccess.getAdditionalQueryAccess().getQ2valInputValParserRuleCall_2_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_q2val_2_0=ruleInputVal();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getAdditionalQueryRule());
+            					}
+            					set(
+            						current,
+            						"q2val",
+            						lv_q2val_2_0,
+            						"uk.ac.kcl.course.JsonQ.InputVal");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleAdditionalQuery"
 
 
     // $ANTLR start "entryRuleInputVal"
-    // InternalJsonQ.g:252:1: entryRuleInputVal returns [EObject current=null] : iv_ruleInputVal= ruleInputVal EOF ;
+    // InternalJsonQ.g:446:1: entryRuleInputVal returns [EObject current=null] : iv_ruleInputVal= ruleInputVal EOF ;
     public final EObject entryRuleInputVal() throws RecognitionException {
         EObject current = null;
 
@@ -551,8 +1045,8 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonQ.g:252:49: (iv_ruleInputVal= ruleInputVal EOF )
-            // InternalJsonQ.g:253:2: iv_ruleInputVal= ruleInputVal EOF
+            // InternalJsonQ.g:446:49: (iv_ruleInputVal= ruleInputVal EOF )
+            // InternalJsonQ.g:447:2: iv_ruleInputVal= ruleInputVal EOF
             {
              newCompositeNode(grammarAccess.getInputValRule()); 
             pushFollow(FOLLOW_1);
@@ -579,7 +1073,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInputVal"
-    // InternalJsonQ.g:259:1: ruleInputVal returns [EObject current=null] : (this_INTLiteral_0= ruleINTLiteral | this_StringLiteral_1= ruleStringLiteral ) ;
+    // InternalJsonQ.g:453:1: ruleInputVal returns [EObject current=null] : (this_INTLiteral_0= ruleINTLiteral | this_StringLiteral_1= ruleStringLiteral ) ;
     public final EObject ruleInputVal() throws RecognitionException {
         EObject current = null;
 
@@ -592,28 +1086,28 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonQ.g:265:2: ( (this_INTLiteral_0= ruleINTLiteral | this_StringLiteral_1= ruleStringLiteral ) )
-            // InternalJsonQ.g:266:2: (this_INTLiteral_0= ruleINTLiteral | this_StringLiteral_1= ruleStringLiteral )
+            // InternalJsonQ.g:459:2: ( (this_INTLiteral_0= ruleINTLiteral | this_StringLiteral_1= ruleStringLiteral ) )
+            // InternalJsonQ.g:460:2: (this_INTLiteral_0= ruleINTLiteral | this_StringLiteral_1= ruleStringLiteral )
             {
-            // InternalJsonQ.g:266:2: (this_INTLiteral_0= ruleINTLiteral | this_StringLiteral_1= ruleStringLiteral )
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalJsonQ.g:460:2: (this_INTLiteral_0= ruleINTLiteral | this_StringLiteral_1= ruleStringLiteral )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0==RULE_INT) ) {
-                alt5=1;
+            if ( (LA6_0==RULE_INT) ) {
+                alt6=1;
             }
-            else if ( (LA5_0==RULE_STRING) ) {
-                alt5=2;
+            else if ( (LA6_0==RULE_STRING) ) {
+                alt6=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // InternalJsonQ.g:267:3: this_INTLiteral_0= ruleINTLiteral
+                    // InternalJsonQ.g:461:3: this_INTLiteral_0= ruleINTLiteral
                     {
 
                     			newCompositeNode(grammarAccess.getInputValAccess().getINTLiteralParserRuleCall_0());
@@ -631,7 +1125,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonQ.g:276:3: this_StringLiteral_1= ruleStringLiteral
+                    // InternalJsonQ.g:470:3: this_StringLiteral_1= ruleStringLiteral
                     {
 
                     			newCompositeNode(grammarAccess.getInputValAccess().getStringLiteralParserRuleCall_1());
@@ -671,7 +1165,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringLiteral"
-    // InternalJsonQ.g:288:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
+    // InternalJsonQ.g:482:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
     public final EObject entryRuleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -679,8 +1173,8 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonQ.g:288:54: (iv_ruleStringLiteral= ruleStringLiteral EOF )
-            // InternalJsonQ.g:289:2: iv_ruleStringLiteral= ruleStringLiteral EOF
+            // InternalJsonQ.g:482:54: (iv_ruleStringLiteral= ruleStringLiteral EOF )
+            // InternalJsonQ.g:483:2: iv_ruleStringLiteral= ruleStringLiteral EOF
             {
              newCompositeNode(grammarAccess.getStringLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -707,7 +1201,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringLiteral"
-    // InternalJsonQ.g:295:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
+    // InternalJsonQ.g:489:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
     public final EObject ruleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -717,14 +1211,14 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonQ.g:301:2: ( ( (lv_value_0_0= RULE_STRING ) ) )
-            // InternalJsonQ.g:302:2: ( (lv_value_0_0= RULE_STRING ) )
+            // InternalJsonQ.g:495:2: ( ( (lv_value_0_0= RULE_STRING ) ) )
+            // InternalJsonQ.g:496:2: ( (lv_value_0_0= RULE_STRING ) )
             {
-            // InternalJsonQ.g:302:2: ( (lv_value_0_0= RULE_STRING ) )
-            // InternalJsonQ.g:303:3: (lv_value_0_0= RULE_STRING )
+            // InternalJsonQ.g:496:2: ( (lv_value_0_0= RULE_STRING ) )
+            // InternalJsonQ.g:497:3: (lv_value_0_0= RULE_STRING )
             {
-            // InternalJsonQ.g:303:3: (lv_value_0_0= RULE_STRING )
-            // InternalJsonQ.g:304:4: lv_value_0_0= RULE_STRING
+            // InternalJsonQ.g:497:3: (lv_value_0_0= RULE_STRING )
+            // InternalJsonQ.g:498:4: lv_value_0_0= RULE_STRING
             {
             lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -766,7 +1260,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleINTLiteral"
-    // InternalJsonQ.g:323:1: entryRuleINTLiteral returns [EObject current=null] : iv_ruleINTLiteral= ruleINTLiteral EOF ;
+    // InternalJsonQ.g:517:1: entryRuleINTLiteral returns [EObject current=null] : iv_ruleINTLiteral= ruleINTLiteral EOF ;
     public final EObject entryRuleINTLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -774,8 +1268,8 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonQ.g:323:51: (iv_ruleINTLiteral= ruleINTLiteral EOF )
-            // InternalJsonQ.g:324:2: iv_ruleINTLiteral= ruleINTLiteral EOF
+            // InternalJsonQ.g:517:51: (iv_ruleINTLiteral= ruleINTLiteral EOF )
+            // InternalJsonQ.g:518:2: iv_ruleINTLiteral= ruleINTLiteral EOF
             {
              newCompositeNode(grammarAccess.getINTLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -802,7 +1296,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleINTLiteral"
-    // InternalJsonQ.g:330:1: ruleINTLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
+    // InternalJsonQ.g:524:1: ruleINTLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
     public final EObject ruleINTLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -812,14 +1306,14 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonQ.g:336:2: ( ( (lv_value_0_0= RULE_INT ) ) )
-            // InternalJsonQ.g:337:2: ( (lv_value_0_0= RULE_INT ) )
+            // InternalJsonQ.g:530:2: ( ( (lv_value_0_0= RULE_INT ) ) )
+            // InternalJsonQ.g:531:2: ( (lv_value_0_0= RULE_INT ) )
             {
-            // InternalJsonQ.g:337:2: ( (lv_value_0_0= RULE_INT ) )
-            // InternalJsonQ.g:338:3: (lv_value_0_0= RULE_INT )
+            // InternalJsonQ.g:531:2: ( (lv_value_0_0= RULE_INT ) )
+            // InternalJsonQ.g:532:3: (lv_value_0_0= RULE_INT )
             {
-            // InternalJsonQ.g:338:3: (lv_value_0_0= RULE_INT )
-            // InternalJsonQ.g:339:4: lv_value_0_0= RULE_INT
+            // InternalJsonQ.g:532:3: (lv_value_0_0= RULE_INT )
+            // InternalJsonQ.g:533:4: lv_value_0_0= RULE_INT
             {
             lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -860,9 +1354,9 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleINTLiteral"
 
 
-    // $ANTLR start "ruleOperation"
-    // InternalJsonQ.g:358:1: ruleOperation returns [Enumerator current=null] : (enumLiteral_0= 'DATA' ) ;
-    public final Enumerator ruleOperation() throws RecognitionException {
+    // $ANTLR start "ruleOperationAgg"
+    // InternalJsonQ.g:552:1: ruleOperationAgg returns [Enumerator current=null] : (enumLiteral_0= 'AVG' ) ;
+    public final Enumerator ruleOperationAgg() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
@@ -871,16 +1365,16 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonQ.g:364:2: ( (enumLiteral_0= 'DATA' ) )
-            // InternalJsonQ.g:365:2: (enumLiteral_0= 'DATA' )
+            // InternalJsonQ.g:558:2: ( (enumLiteral_0= 'AVG' ) )
+            // InternalJsonQ.g:559:2: (enumLiteral_0= 'AVG' )
             {
-            // InternalJsonQ.g:365:2: (enumLiteral_0= 'DATA' )
-            // InternalJsonQ.g:366:3: enumLiteral_0= 'DATA'
+            // InternalJsonQ.g:559:2: (enumLiteral_0= 'AVG' )
+            // InternalJsonQ.g:560:3: enumLiteral_0= 'AVG'
             {
             enumLiteral_0=(Token)match(input,15,FOLLOW_2); 
 
-            			current = grammarAccess.getOperationAccess().getDATAEnumLiteralDeclaration().getEnumLiteral().getInstance();
-            			newLeafNode(enumLiteral_0, grammarAccess.getOperationAccess().getDATAEnumLiteralDeclaration());
+            			current = grammarAccess.getOperationAggAccess().getAVGEnumLiteralDeclaration().getEnumLiteral().getInstance();
+            			newLeafNode(enumLiteral_0, grammarAccess.getOperationAggAccess().getAVGEnumLiteralDeclaration());
             		
 
             }
@@ -901,61 +1395,51 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleOperation"
+    // $ANTLR end "ruleOperationAgg"
 
 
-    // $ANTLR start "ruleInputFieldSingle"
-    // InternalJsonQ.g:375:1: ruleInputFieldSingle returns [Enumerator current=null] : ( (enumLiteral_0= 'areaType' ) | (enumLiteral_1= 'areaName' ) | (enumLiteral_2= 'areaCode' ) ) ;
-    public final Enumerator ruleInputFieldSingle() throws RecognitionException {
+    // $ANTLR start "ruleOperationGET"
+    // InternalJsonQ.g:569:1: ruleOperationGET returns [Enumerator current=null] : ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) ) ;
+    public final Enumerator ruleOperationGET() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
         Token enumLiteral_1=null;
-        Token enumLiteral_2=null;
 
 
         	enterRule();
 
         try {
-            // InternalJsonQ.g:381:2: ( ( (enumLiteral_0= 'areaType' ) | (enumLiteral_1= 'areaName' ) | (enumLiteral_2= 'areaCode' ) ) )
-            // InternalJsonQ.g:382:2: ( (enumLiteral_0= 'areaType' ) | (enumLiteral_1= 'areaName' ) | (enumLiteral_2= 'areaCode' ) )
+            // InternalJsonQ.g:575:2: ( ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) ) )
+            // InternalJsonQ.g:576:2: ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) )
             {
-            // InternalJsonQ.g:382:2: ( (enumLiteral_0= 'areaType' ) | (enumLiteral_1= 'areaName' ) | (enumLiteral_2= 'areaCode' ) )
-            int alt6=3;
-            switch ( input.LA(1) ) {
-            case 16:
-                {
-                alt6=1;
-                }
-                break;
-            case 17:
-                {
-                alt6=2;
-                }
-                break;
-            case 18:
-                {
-                alt6=3;
-                }
-                break;
-            default:
+            // InternalJsonQ.g:576:2: ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) )
+            int alt7=2;
+            int LA7_0 = input.LA(1);
+
+            if ( (LA7_0==16) ) {
+                alt7=1;
+            }
+            else if ( (LA7_0==17) ) {
+                alt7=2;
+            }
+            else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
-
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalJsonQ.g:383:3: (enumLiteral_0= 'areaType' )
+                    // InternalJsonQ.g:577:3: (enumLiteral_0= 'DATA' )
                     {
-                    // InternalJsonQ.g:383:3: (enumLiteral_0= 'areaType' )
-                    // InternalJsonQ.g:384:4: enumLiteral_0= 'areaType'
+                    // InternalJsonQ.g:577:3: (enumLiteral_0= 'DATA' )
+                    // InternalJsonQ.g:578:4: enumLiteral_0= 'DATA'
                     {
                     enumLiteral_0=(Token)match(input,16,FOLLOW_2); 
 
-                    				current = grammarAccess.getInputFieldSingleAccess().getAreaTypeEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_0, grammarAccess.getInputFieldSingleAccess().getAreaTypeEnumLiteralDeclaration_0());
+                    				current = grammarAccess.getOperationGETAccess().getDATAEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getOperationGETAccess().getDATAEnumLiteralDeclaration_0());
                     			
 
                     }
@@ -964,15 +1448,137 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonQ.g:391:3: (enumLiteral_1= 'areaName' )
+                    // InternalJsonQ.g:585:3: (enumLiteral_1= 'COUNT' )
                     {
-                    // InternalJsonQ.g:391:3: (enumLiteral_1= 'areaName' )
-                    // InternalJsonQ.g:392:4: enumLiteral_1= 'areaName'
+                    // InternalJsonQ.g:585:3: (enumLiteral_1= 'COUNT' )
+                    // InternalJsonQ.g:586:4: enumLiteral_1= 'COUNT'
                     {
                     enumLiteral_1=(Token)match(input,17,FOLLOW_2); 
 
-                    				current = grammarAccess.getInputFieldSingleAccess().getAreaNameEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_1, grammarAccess.getInputFieldSingleAccess().getAreaNameEnumLiteralDeclaration_1());
+                    				current = grammarAccess.getOperationGETAccess().getCOUNTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getOperationGETAccess().getCOUNTEnumLiteralDeclaration_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleOperationGET"
+
+
+    // $ANTLR start "ruleInputFieldSingle"
+    // InternalJsonQ.g:596:1: ruleInputFieldSingle returns [Enumerator current=null] : ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'counrtyCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) ) ;
+    public final Enumerator ruleInputFieldSingle() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+        Token enumLiteral_2=null;
+        Token enumLiteral_3=null;
+        Token enumLiteral_4=null;
+        Token enumLiteral_5=null;
+        Token enumLiteral_6=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalJsonQ.g:602:2: ( ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'counrtyCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) ) )
+            // InternalJsonQ.g:603:2: ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'counrtyCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) )
+            {
+            // InternalJsonQ.g:603:2: ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'counrtyCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) )
+            int alt8=7;
+            switch ( input.LA(1) ) {
+            case 18:
+                {
+                alt8=1;
+                }
+                break;
+            case 19:
+                {
+                alt8=2;
+                }
+                break;
+            case 20:
+                {
+                alt8=3;
+                }
+                break;
+            case 21:
+                {
+                alt8=4;
+                }
+                break;
+            case 22:
+                {
+                alt8=5;
+                }
+                break;
+            case 23:
+                {
+                alt8=6;
+                }
+                break;
+            case 24:
+                {
+                alt8=7;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 8, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt8) {
+                case 1 :
+                    // InternalJsonQ.g:604:3: (enumLiteral_0= 'firstName' )
+                    {
+                    // InternalJsonQ.g:604:3: (enumLiteral_0= 'firstName' )
+                    // InternalJsonQ.g:605:4: enumLiteral_0= 'firstName'
+                    {
+                    enumLiteral_0=(Token)match(input,18,FOLLOW_2); 
+
+                    				current = grammarAccess.getInputFieldSingleAccess().getFirstNameEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getInputFieldSingleAccess().getFirstNameEnumLiteralDeclaration_0());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalJsonQ.g:612:3: (enumLiteral_1= 'lastName' )
+                    {
+                    // InternalJsonQ.g:612:3: (enumLiteral_1= 'lastName' )
+                    // InternalJsonQ.g:613:4: enumLiteral_1= 'lastName'
+                    {
+                    enumLiteral_1=(Token)match(input,19,FOLLOW_2); 
+
+                    				current = grammarAccess.getInputFieldSingleAccess().getLastNameEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getInputFieldSingleAccess().getLastNameEnumLiteralDeclaration_1());
                     			
 
                     }
@@ -981,15 +1587,83 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJsonQ.g:399:3: (enumLiteral_2= 'areaCode' )
+                    // InternalJsonQ.g:620:3: (enumLiteral_2= 'gender' )
                     {
-                    // InternalJsonQ.g:399:3: (enumLiteral_2= 'areaCode' )
-                    // InternalJsonQ.g:400:4: enumLiteral_2= 'areaCode'
+                    // InternalJsonQ.g:620:3: (enumLiteral_2= 'gender' )
+                    // InternalJsonQ.g:621:4: enumLiteral_2= 'gender'
                     {
-                    enumLiteral_2=(Token)match(input,18,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,20,FOLLOW_2); 
 
-                    				current = grammarAccess.getInputFieldSingleAccess().getAreaCodeEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_2, grammarAccess.getInputFieldSingleAccess().getAreaCodeEnumLiteralDeclaration_2());
+                    				current = grammarAccess.getInputFieldSingleAccess().getGenderEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_2, grammarAccess.getInputFieldSingleAccess().getGenderEnumLiteralDeclaration_2());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 4 :
+                    // InternalJsonQ.g:628:3: (enumLiteral_3= 'counrtyCode' )
+                    {
+                    // InternalJsonQ.g:628:3: (enumLiteral_3= 'counrtyCode' )
+                    // InternalJsonQ.g:629:4: enumLiteral_3= 'counrtyCode'
+                    {
+                    enumLiteral_3=(Token)match(input,21,FOLLOW_2); 
+
+                    				current = grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_3, grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalJsonQ.g:636:3: (enumLiteral_4= 'cityName' )
+                    {
+                    // InternalJsonQ.g:636:3: (enumLiteral_4= 'cityName' )
+                    // InternalJsonQ.g:637:4: enumLiteral_4= 'cityName'
+                    {
+                    enumLiteral_4=(Token)match(input,22,FOLLOW_2); 
+
+                    				current = grammarAccess.getInputFieldSingleAccess().getCityNameEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_4, grammarAccess.getInputFieldSingleAccess().getCityNameEnumLiteralDeclaration_4());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 6 :
+                    // InternalJsonQ.g:644:3: (enumLiteral_5= 'isVaccinated' )
+                    {
+                    // InternalJsonQ.g:644:3: (enumLiteral_5= 'isVaccinated' )
+                    // InternalJsonQ.g:645:4: enumLiteral_5= 'isVaccinated'
+                    {
+                    enumLiteral_5=(Token)match(input,23,FOLLOW_2); 
+
+                    				current = grammarAccess.getInputFieldSingleAccess().getIsVaccinatedEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_5, grammarAccess.getInputFieldSingleAccess().getIsVaccinatedEnumLiteralDeclaration_5());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 7 :
+                    // InternalJsonQ.g:652:3: (enumLiteral_6= 'income' )
+                    {
+                    // InternalJsonQ.g:652:3: (enumLiteral_6= 'income' )
+                    // InternalJsonQ.g:653:4: enumLiteral_6= 'income'
+                    {
+                    enumLiteral_6=(Token)match(input,24,FOLLOW_2); 
+
+                    				current = grammarAccess.getInputFieldSingleAccess().getIncomeEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_6, grammarAccess.getInputFieldSingleAccess().getIncomeEnumLiteralDeclaration_6());
                     			
 
                     }
@@ -1027,10 +1701,10 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000802L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000070000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000001FC0000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000076002L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000070002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000006002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000030000L});
 
 }

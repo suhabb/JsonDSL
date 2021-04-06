@@ -6,24 +6,41 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="JsonQ" basePackage="uk.ac.kcl.course" disposableProviderFactory="true"
       fileExtensions="jq" ecorePackage="JsonQ.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="JsonQ.ecore#//Operation">
-      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//Operation/DATA"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="JsonQ.ecore#//OperationAgg">
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//OperationAgg/AVG"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="JsonQ.ecore#//OperationGET">
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//OperationGET/DATA"/>
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//OperationGET/COUNT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="JsonQ.ecore#//InputFieldSingle">
-      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/areaType"/>
-      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/areaName"/>
-      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/areaCode"/>
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/firstName"/>
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/lastName"/>
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/gender"/>
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/counrtyCode"/>
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/cityName"/>
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/isVaccinated"/>
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/income"/>
     </genEnums>
     <genClasses ecoreClass="JsonQ.ecore#//JSONQueryModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JsonQ.ecore#//JSONQueryModel/inputStatement"/>
     </genClasses>
     <genClasses ecoreClass="JsonQ.ecore#//Statements">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//Statements/operation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//Statements/q1key"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JsonQ.ecore#//Statements/q1val"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//Statements/connector"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//Statements/q2key"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JsonQ.ecore#//Statements/q2val"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JsonQ.ecore#//Statements/qryadditional"/>
+    </genClasses>
+    <genClasses ecoreClass="JsonQ.ecore#//AggregateStatements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//AggregateStatements/opAgg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//AggregateStatements/aggField"/>
+    </genClasses>
+    <genClasses ecoreClass="JsonQ.ecore#//GetStatements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//GetStatements/opGet"/>
+    </genClasses>
+    <genClasses ecoreClass="JsonQ.ecore#//AdditionalQuery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//AdditionalQuery/connector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//AdditionalQuery/q2key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JsonQ.ecore#//AdditionalQuery/q2val"/>
     </genClasses>
     <genClasses ecoreClass="JsonQ.ecore#//InputVal"/>
     <genClasses ecoreClass="JsonQ.ecore#//StringLiteral">

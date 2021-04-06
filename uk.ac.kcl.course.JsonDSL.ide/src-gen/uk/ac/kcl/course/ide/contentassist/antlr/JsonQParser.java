@@ -31,18 +31,27 @@ public class JsonQParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, JsonQGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getStatementsAccess().getConnectorAlternatives_5_0(), "rule__Statements__ConnectorAlternatives_5_0");
+			builder.put(grammarAccess.getStatementsAccess().getAlternatives(), "rule__Statements__Alternatives");
+			builder.put(grammarAccess.getAdditionalQueryAccess().getConnectorAlternatives_0_0(), "rule__AdditionalQuery__ConnectorAlternatives_0_0");
 			builder.put(grammarAccess.getInputValAccess().getAlternatives(), "rule__InputVal__Alternatives");
+			builder.put(grammarAccess.getOperationGETAccess().getAlternatives(), "rule__OperationGET__Alternatives");
 			builder.put(grammarAccess.getInputFieldSingleAccess().getAlternatives(), "rule__InputFieldSingle__Alternatives");
-			builder.put(grammarAccess.getStatementsAccess().getGroup(), "rule__Statements__Group__0");
-			builder.put(grammarAccess.getStatementsAccess().getGroup_6(), "rule__Statements__Group_6__0");
+			builder.put(grammarAccess.getAggregateStatementsAccess().getGroup(), "rule__AggregateStatements__Group__0");
+			builder.put(grammarAccess.getGetStatementsAccess().getGroup(), "rule__GetStatements__Group__0");
+			builder.put(grammarAccess.getAdditionalQueryAccess().getGroup(), "rule__AdditionalQuery__Group__0");
 			builder.put(grammarAccess.getJSONQueryModelAccess().getInputStatementAssignment(), "rule__JSONQueryModel__InputStatementAssignment");
-			builder.put(grammarAccess.getStatementsAccess().getOperationAssignment_1(), "rule__Statements__OperationAssignment_1");
-			builder.put(grammarAccess.getStatementsAccess().getQ1keyAssignment_3(), "rule__Statements__Q1keyAssignment_3");
-			builder.put(grammarAccess.getStatementsAccess().getQ1valAssignment_4(), "rule__Statements__Q1valAssignment_4");
-			builder.put(grammarAccess.getStatementsAccess().getConnectorAssignment_5(), "rule__Statements__ConnectorAssignment_5");
-			builder.put(grammarAccess.getStatementsAccess().getQ2keyAssignment_6_0(), "rule__Statements__Q2keyAssignment_6_0");
-			builder.put(grammarAccess.getStatementsAccess().getQ2valAssignment_6_1(), "rule__Statements__Q2valAssignment_6_1");
+			builder.put(grammarAccess.getAggregateStatementsAccess().getOpAggAssignment_1(), "rule__AggregateStatements__OpAggAssignment_1");
+			builder.put(grammarAccess.getAggregateStatementsAccess().getAggFieldAssignment_2(), "rule__AggregateStatements__AggFieldAssignment_2");
+			builder.put(grammarAccess.getAggregateStatementsAccess().getQ1keyAssignment_4(), "rule__AggregateStatements__Q1keyAssignment_4");
+			builder.put(grammarAccess.getAggregateStatementsAccess().getQ1valAssignment_5(), "rule__AggregateStatements__Q1valAssignment_5");
+			builder.put(grammarAccess.getAggregateStatementsAccess().getQryadditionalAssignment_6(), "rule__AggregateStatements__QryadditionalAssignment_6");
+			builder.put(grammarAccess.getGetStatementsAccess().getOpGetAssignment_1(), "rule__GetStatements__OpGetAssignment_1");
+			builder.put(grammarAccess.getGetStatementsAccess().getQ1keyAssignment_3(), "rule__GetStatements__Q1keyAssignment_3");
+			builder.put(grammarAccess.getGetStatementsAccess().getQ1valAssignment_4(), "rule__GetStatements__Q1valAssignment_4");
+			builder.put(grammarAccess.getGetStatementsAccess().getQryadditionalAssignment_5(), "rule__GetStatements__QryadditionalAssignment_5");
+			builder.put(grammarAccess.getAdditionalQueryAccess().getConnectorAssignment_0(), "rule__AdditionalQuery__ConnectorAssignment_0");
+			builder.put(grammarAccess.getAdditionalQueryAccess().getQ2keyAssignment_1(), "rule__AdditionalQuery__Q2keyAssignment_1");
+			builder.put(grammarAccess.getAdditionalQueryAccess().getQ2valAssignment_2(), "rule__AdditionalQuery__Q2valAssignment_2");
 			builder.put(grammarAccess.getStringLiteralAccess().getValueAssignment(), "rule__StringLiteral__ValueAssignment");
 			builder.put(grammarAccess.getINTLiteralAccess().getValueAssignment(), "rule__INTLiteral__ValueAssignment");
 		}

@@ -3,12 +3,8 @@
  */
 package uk.ac.kcl.course.jsonQ.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -16,12 +12,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-
+import uk.ac.kcl.course.jsonQ.AdditionalQuery;
 import uk.ac.kcl.course.jsonQ.InputFieldSingle;
 import uk.ac.kcl.course.jsonQ.InputVal;
 import uk.ac.kcl.course.jsonQ.JsonQPackage;
-import uk.ac.kcl.course.jsonQ.Operation;
 import uk.ac.kcl.course.jsonQ.Statements;
 
 /**
@@ -32,38 +26,15 @@ import uk.ac.kcl.course.jsonQ.Statements;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.course.jsonQ.impl.StatementsImpl#getOperation <em>Operation</em>}</li>
  *   <li>{@link uk.ac.kcl.course.jsonQ.impl.StatementsImpl#getQ1key <em>Q1key</em>}</li>
  *   <li>{@link uk.ac.kcl.course.jsonQ.impl.StatementsImpl#getQ1val <em>Q1val</em>}</li>
- *   <li>{@link uk.ac.kcl.course.jsonQ.impl.StatementsImpl#getConnector <em>Connector</em>}</li>
- *   <li>{@link uk.ac.kcl.course.jsonQ.impl.StatementsImpl#getQ2key <em>Q2key</em>}</li>
- *   <li>{@link uk.ac.kcl.course.jsonQ.impl.StatementsImpl#getQ2val <em>Q2val</em>}</li>
+ *   <li>{@link uk.ac.kcl.course.jsonQ.impl.StatementsImpl#getQryadditional <em>Qryadditional</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class StatementsImpl extends MinimalEObjectImpl.Container implements Statements
 {
-  /**
-   * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperation()
-   * @generated
-   * @ordered
-   */
-  protected static final Operation OPERATION_EDEFAULT = Operation.DATA;
-
-  /**
-   * The cached value of the '{@link #getOperation() <em>Operation</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperation()
-   * @generated
-   * @ordered
-   */
-  protected Operation operation = OPERATION_EDEFAULT;
-
   /**
    * The default value of the '{@link #getQ1key() <em>Q1key</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -72,7 +43,7 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
    * @generated
    * @ordered
    */
-  protected static final InputFieldSingle Q1KEY_EDEFAULT = InputFieldSingle.AREA_TYPE;
+  protected static final InputFieldSingle Q1KEY_EDEFAULT = InputFieldSingle.FIRST_NAME;
 
   /**
    * The cached value of the '{@link #getQ1key() <em>Q1key</em>}' attribute.
@@ -95,44 +66,14 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
   protected InputVal q1val;
 
   /**
-   * The cached value of the '{@link #getConnector() <em>Connector</em>}' attribute list.
+   * The cached value of the '{@link #getQryadditional() <em>Qryadditional</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConnector()
+   * @see #getQryadditional()
    * @generated
    * @ordered
    */
-  protected EList<String> connector;
-
-  /**
-   * The default value of the '{@link #getQ2key() <em>Q2key</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQ2key()
-   * @generated
-   * @ordered
-   */
-  protected static final InputFieldSingle Q2KEY_EDEFAULT = InputFieldSingle.AREA_TYPE;
-
-  /**
-   * The cached value of the '{@link #getQ2key() <em>Q2key</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQ2key()
-   * @generated
-   * @ordered
-   */
-  protected InputFieldSingle q2key = Q2KEY_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getQ2val() <em>Q2val</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQ2val()
-   * @generated
-   * @ordered
-   */
-  protected InputVal q2val;
+  protected AdditionalQuery qryadditional;
 
   /**
    * <!-- begin-user-doc -->
@@ -153,31 +94,6 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
   protected EClass eStaticClass()
   {
     return JsonQPackage.Literals.STATEMENTS;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Operation getOperation()
-  {
-    return operation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setOperation(Operation newOperation)
-  {
-    Operation oldOperation = operation;
-    operation = newOperation == null ? OPERATION_EDEFAULT : newOperation;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JsonQPackage.STATEMENTS__OPERATION, oldOperation, operation));
   }
 
   /**
@@ -261,13 +177,9 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
    * @generated
    */
   @Override
-  public EList<String> getConnector()
+  public AdditionalQuery getQryadditional()
   {
-    if (connector == null)
-    {
-      connector = new EDataTypeEList<String>(String.class, this, JsonQPackage.STATEMENTS__CONNECTOR);
-    }
-    return connector;
+    return qryadditional;
   }
 
   /**
@@ -275,49 +187,13 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public InputFieldSingle getQ2key()
+  public NotificationChain basicSetQryadditional(AdditionalQuery newQryadditional, NotificationChain msgs)
   {
-    return q2key;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setQ2key(InputFieldSingle newQ2key)
-  {
-    InputFieldSingle oldQ2key = q2key;
-    q2key = newQ2key == null ? Q2KEY_EDEFAULT : newQ2key;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JsonQPackage.STATEMENTS__Q2KEY, oldQ2key, q2key));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public InputVal getQ2val()
-  {
-    return q2val;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetQ2val(InputVal newQ2val, NotificationChain msgs)
-  {
-    InputVal oldQ2val = q2val;
-    q2val = newQ2val;
+    AdditionalQuery oldQryadditional = qryadditional;
+    qryadditional = newQryadditional;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JsonQPackage.STATEMENTS__Q2VAL, oldQ2val, newQ2val);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JsonQPackage.STATEMENTS__QRYADDITIONAL, oldQryadditional, newQryadditional);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -329,20 +205,20 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
    * @generated
    */
   @Override
-  public void setQ2val(InputVal newQ2val)
+  public void setQryadditional(AdditionalQuery newQryadditional)
   {
-    if (newQ2val != q2val)
+    if (newQryadditional != qryadditional)
     {
       NotificationChain msgs = null;
-      if (q2val != null)
-        msgs = ((InternalEObject)q2val).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JsonQPackage.STATEMENTS__Q2VAL, null, msgs);
-      if (newQ2val != null)
-        msgs = ((InternalEObject)newQ2val).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JsonQPackage.STATEMENTS__Q2VAL, null, msgs);
-      msgs = basicSetQ2val(newQ2val, msgs);
+      if (qryadditional != null)
+        msgs = ((InternalEObject)qryadditional).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JsonQPackage.STATEMENTS__QRYADDITIONAL, null, msgs);
+      if (newQryadditional != null)
+        msgs = ((InternalEObject)newQryadditional).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JsonQPackage.STATEMENTS__QRYADDITIONAL, null, msgs);
+      msgs = basicSetQryadditional(newQryadditional, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, JsonQPackage.STATEMENTS__Q2VAL, newQ2val, newQ2val));
+      eNotify(new ENotificationImpl(this, Notification.SET, JsonQPackage.STATEMENTS__QRYADDITIONAL, newQryadditional, newQryadditional));
   }
 
   /**
@@ -357,8 +233,8 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
     {
       case JsonQPackage.STATEMENTS__Q1VAL:
         return basicSetQ1val(null, msgs);
-      case JsonQPackage.STATEMENTS__Q2VAL:
-        return basicSetQ2val(null, msgs);
+      case JsonQPackage.STATEMENTS__QRYADDITIONAL:
+        return basicSetQryadditional(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -373,18 +249,12 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
   {
     switch (featureID)
     {
-      case JsonQPackage.STATEMENTS__OPERATION:
-        return getOperation();
       case JsonQPackage.STATEMENTS__Q1KEY:
         return getQ1key();
       case JsonQPackage.STATEMENTS__Q1VAL:
         return getQ1val();
-      case JsonQPackage.STATEMENTS__CONNECTOR:
-        return getConnector();
-      case JsonQPackage.STATEMENTS__Q2KEY:
-        return getQ2key();
-      case JsonQPackage.STATEMENTS__Q2VAL:
-        return getQ2val();
+      case JsonQPackage.STATEMENTS__QRYADDITIONAL:
+        return getQryadditional();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -394,30 +264,19 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case JsonQPackage.STATEMENTS__OPERATION:
-        setOperation((Operation)newValue);
-        return;
       case JsonQPackage.STATEMENTS__Q1KEY:
         setQ1key((InputFieldSingle)newValue);
         return;
       case JsonQPackage.STATEMENTS__Q1VAL:
         setQ1val((InputVal)newValue);
         return;
-      case JsonQPackage.STATEMENTS__CONNECTOR:
-        getConnector().clear();
-        getConnector().addAll((Collection<? extends String>)newValue);
-        return;
-      case JsonQPackage.STATEMENTS__Q2KEY:
-        setQ2key((InputFieldSingle)newValue);
-        return;
-      case JsonQPackage.STATEMENTS__Q2VAL:
-        setQ2val((InputVal)newValue);
+      case JsonQPackage.STATEMENTS__QRYADDITIONAL:
+        setQryadditional((AdditionalQuery)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -433,23 +292,14 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
   {
     switch (featureID)
     {
-      case JsonQPackage.STATEMENTS__OPERATION:
-        setOperation(OPERATION_EDEFAULT);
-        return;
       case JsonQPackage.STATEMENTS__Q1KEY:
         setQ1key(Q1KEY_EDEFAULT);
         return;
       case JsonQPackage.STATEMENTS__Q1VAL:
         setQ1val((InputVal)null);
         return;
-      case JsonQPackage.STATEMENTS__CONNECTOR:
-        getConnector().clear();
-        return;
-      case JsonQPackage.STATEMENTS__Q2KEY:
-        setQ2key(Q2KEY_EDEFAULT);
-        return;
-      case JsonQPackage.STATEMENTS__Q2VAL:
-        setQ2val((InputVal)null);
+      case JsonQPackage.STATEMENTS__QRYADDITIONAL:
+        setQryadditional((AdditionalQuery)null);
         return;
     }
     super.eUnset(featureID);
@@ -465,18 +315,12 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
   {
     switch (featureID)
     {
-      case JsonQPackage.STATEMENTS__OPERATION:
-        return operation != OPERATION_EDEFAULT;
       case JsonQPackage.STATEMENTS__Q1KEY:
         return q1key != Q1KEY_EDEFAULT;
       case JsonQPackage.STATEMENTS__Q1VAL:
         return q1val != null;
-      case JsonQPackage.STATEMENTS__CONNECTOR:
-        return connector != null && !connector.isEmpty();
-      case JsonQPackage.STATEMENTS__Q2KEY:
-        return q2key != Q2KEY_EDEFAULT;
-      case JsonQPackage.STATEMENTS__Q2VAL:
-        return q2val != null;
+      case JsonQPackage.STATEMENTS__QRYADDITIONAL:
+        return qryadditional != null;
     }
     return super.eIsSet(featureID);
   }
@@ -492,14 +336,8 @@ public class StatementsImpl extends MinimalEObjectImpl.Container implements Stat
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (operation: ");
-    result.append(operation);
-    result.append(", q1key: ");
+    result.append(" (q1key: ");
     result.append(q1key);
-    result.append(", connector: ");
-    result.append(connector);
-    result.append(", q2key: ");
-    result.append(q2key);
     result.append(')');
     return result.toString();
   }

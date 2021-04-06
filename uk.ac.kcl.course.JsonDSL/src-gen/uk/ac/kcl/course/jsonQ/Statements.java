@@ -3,8 +3,6 @@
  */
 package uk.ac.kcl.course.jsonQ;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,12 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link uk.ac.kcl.course.jsonQ.Statements#getOperation <em>Operation</em>}</li>
  *   <li>{@link uk.ac.kcl.course.jsonQ.Statements#getQ1key <em>Q1key</em>}</li>
  *   <li>{@link uk.ac.kcl.course.jsonQ.Statements#getQ1val <em>Q1val</em>}</li>
- *   <li>{@link uk.ac.kcl.course.jsonQ.Statements#getConnector <em>Connector</em>}</li>
- *   <li>{@link uk.ac.kcl.course.jsonQ.Statements#getQ2key <em>Q2key</em>}</li>
- *   <li>{@link uk.ac.kcl.course.jsonQ.Statements#getQ2val <em>Q2val</em>}</li>
+ *   <li>{@link uk.ac.kcl.course.jsonQ.Statements#getQryadditional <em>Qryadditional</em>}</li>
  * </ul>
  *
  * @see uk.ac.kcl.course.jsonQ.JsonQPackage#getStatements()
@@ -30,31 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Statements extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Operation</b></em>' attribute.
-   * The literals are from the enumeration {@link uk.ac.kcl.course.jsonQ.Operation}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Operation</em>' attribute.
-   * @see uk.ac.kcl.course.jsonQ.Operation
-   * @see #setOperation(Operation)
-   * @see uk.ac.kcl.course.jsonQ.JsonQPackage#getStatements_Operation()
-   * @model
-   * @generated
-   */
-  Operation getOperation();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.course.jsonQ.Statements#getOperation <em>Operation</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operation</em>' attribute.
-   * @see uk.ac.kcl.course.jsonQ.Operation
-   * @see #getOperation()
-   * @generated
-   */
-  void setOperation(Operation value);
-
   /**
    * Returns the value of the '<em><b>Q1key</b></em>' attribute.
    * The literals are from the enumeration {@link uk.ac.kcl.course.jsonQ.InputFieldSingle}.
@@ -103,62 +73,25 @@ public interface Statements extends EObject
   void setQ1val(InputVal value);
 
   /**
-   * Returns the value of the '<em><b>Connector</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Qryadditional</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Connector</em>' attribute list.
-   * @see uk.ac.kcl.course.jsonQ.JsonQPackage#getStatements_Connector()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getConnector();
-
-  /**
-   * Returns the value of the '<em><b>Q2key</b></em>' attribute.
-   * The literals are from the enumeration {@link uk.ac.kcl.course.jsonQ.InputFieldSingle}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Q2key</em>' attribute.
-   * @see uk.ac.kcl.course.jsonQ.InputFieldSingle
-   * @see #setQ2key(InputFieldSingle)
-   * @see uk.ac.kcl.course.jsonQ.JsonQPackage#getStatements_Q2key()
-   * @model
-   * @generated
-   */
-  InputFieldSingle getQ2key();
-
-  /**
-   * Sets the value of the '{@link uk.ac.kcl.course.jsonQ.Statements#getQ2key <em>Q2key</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Q2key</em>' attribute.
-   * @see uk.ac.kcl.course.jsonQ.InputFieldSingle
-   * @see #getQ2key()
-   * @generated
-   */
-  void setQ2key(InputFieldSingle value);
-
-  /**
-   * Returns the value of the '<em><b>Q2val</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Q2val</em>' containment reference.
-   * @see #setQ2val(InputVal)
-   * @see uk.ac.kcl.course.jsonQ.JsonQPackage#getStatements_Q2val()
+   * @return the value of the '<em>Qryadditional</em>' containment reference.
+   * @see #setQryadditional(AdditionalQuery)
+   * @see uk.ac.kcl.course.jsonQ.JsonQPackage#getStatements_Qryadditional()
    * @model containment="true"
    * @generated
    */
-  InputVal getQ2val();
+  AdditionalQuery getQryadditional();
 
   /**
-   * Sets the value of the '{@link uk.ac.kcl.course.jsonQ.Statements#getQ2val <em>Q2val</em>}' containment reference.
+   * Sets the value of the '{@link uk.ac.kcl.course.jsonQ.Statements#getQryadditional <em>Qryadditional</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Q2val</em>' containment reference.
-   * @see #getQ2val()
+   * @param value the new value of the '<em>Qryadditional</em>' containment reference.
+   * @see #getQryadditional()
    * @generated
    */
-  void setQ2val(InputVal value);
+  void setQryadditional(AdditionalQuery value);
 
 } // Statements
