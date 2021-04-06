@@ -1,3 +1,4 @@
 /test-bin/
 /bin/
 .settings
+.DS_Store
