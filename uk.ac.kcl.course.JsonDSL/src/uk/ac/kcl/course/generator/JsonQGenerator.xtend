@@ -3,18 +3,15 @@
  */
 package uk.ac.kcl.course.generator
 
+import java.util.List
+import java.util.stream.Collectors
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import uk.ac.kcl.course.jsonQ.JSONQueryModel
 import uk.ac.kcl.course.jsonQ.Statements
-import java.util.Iterator
-import java.util.HashMap
-import java.util.Map
-import org.eclipse.xtext.build.IncrementalBuilder
-import java.util.stream.Collectors
-import java.util.List
+import uk.ac.kcl.course.jsonQ.StringLiteral
 
 /**
  * Generates code from your model files on save.
@@ -29,9 +26,7 @@ class JsonQGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val model = resource.contents.head as JSONQueryModel
 
-		val className = deriveClassName(resource)
-
-		fsa.generateFile("JSONQueryMain" + '.java', model.doGenerateClass(className))
+		fsa.generateFile("JSONQueryMain" + '.java', model.doGenerateClass)
 		initialize
 	}
 	
@@ -40,7 +35,7 @@ class JsonQGenerator extends AbstractGenerator {
 		jsonList.clear
 	}
 
-	def String doGenerateClass(JSONQueryModel model, String className) '''
+	def String doGenerateClass(JSONQueryModel model) '''
 		import java.util.Arrays;
 		import java.util.List;
 		
@@ -54,8 +49,8 @@ class JsonQGenerator extends AbstractGenerator {
 		
 			    public static void main(String[] args) {
 					
-					«model.inputStatement.map[generateJQ3].join('\n')»
-					List<JSONQuery> jsonList = Arrays.asList(«convertListToString»);
+					Â«model.inputStatement.map[generateJQ].join('\n')Â»
+					List<JSONQuery> jsonList = Arrays.asList(Â«convertListToStringÂ»);
 					JSONQueryProgram jsonProgram = new JSONQueryProgram(jsonList);
 					System.out.println("JSOn:"+jsonProgram.toString());
 				}
@@ -67,47 +62,20 @@ class JsonQGenerator extends AbstractGenerator {
 		json
 	}
 
-	def String generateJQ2(Iterator<Statements> statements) {
-		//«model.eAllContents.filter(Statements).generateJQ2()»
-		var result = "";
-		while (statements.hasNext) {
-			val st = statements.next as Statements;
-			result = '''
-				
-					  JSONQuery json = new JSONQueryBuilder()
-					        	.setOperationValue("«st.operation.literal»")
-					        	.setFirstQueryKey("«st.q1key.getName»")
-					        	«val q1Value = st.q1val as uk.ac.kcl.course.jsonQ.StringLiteral»
-					        	.setFirstQueryValue("«q1Value.value»")
-					        	.setConnectorValue("«st.connector.get(0)»")
-					        	.setSecondQueryKey("«st.q2key.getName»")
-					        	«val q2Value = st.q2val as uk.ac.kcl.course.jsonQ.StringLiteral»
-					        	.setSecondQueryValue("«q2Value.value»")
-					        	.build();
-					        	
-					
-			'''
-		}
-		result
-
-	}
-	
-
-
-	def generateJQ3(Statements st) {
+	def generateJQ(Statements st) {
 		var jsonCount="json" + counter
 	 
 		var result = '''
 
-				  JSONQuery «jsonCount»= new JSONQueryBuilder()
-				        	.setOperationValue("«st.operation.literal»")
-				        	.setFirstQueryKey("«st.q1key.getName»")
-				        	«val q1Value = st.q1val as uk.ac.kcl.course.jsonQ.StringLiteral»
-				        	.setFirstQueryValue("«q1Value.value»")
-				        	.setConnectorValue("«st.connector.get(0)»")
-				        	.setSecondQueryKey("«st.q2key.getName»")
-				        	«val q2Value = st.q2val as uk.ac.kcl.course.jsonQ.StringLiteral»
-				        	.setSecondQueryValue("«q2Value.value»")
+				  JSONQuery Â«jsonCountÂ»= new JSONQueryBuilder()
+				        	.setOperationValue("Â«st.operation.literalÂ»")
+				        	.setFirstQueryKey("Â«st.q1key.getNameÂ»")
+				        	Â«val q1Value = st.q1val as StringLiteralÂ»
+				        	.setFirstQueryValue("Â«q1Value.valueÂ»")
+				        	.setConnectorValue("Â«st.connector.get(0)Â»")
+				        	.setSecondQueryKey("Â«st.q2key.getNameÂ»")
+				        	Â«val q2Value = st.q2val as StringLiteralÂ»
+				        	.setSecondQueryValue("Â«q2Value.valueÂ»")
 				        	.build();
 				        	
 		'''
@@ -116,8 +84,4 @@ class JsonQGenerator extends AbstractGenerator {
 		result;
 	}
 
-	def deriveClassName(Resource resource) {
-		val origFilename = resource.URI.lastSegment
-		origFilename.substring(0, origFilename.indexOf('.')) + 'MyDsl'
-	}
 }
