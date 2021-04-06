@@ -10,10 +10,8 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import uk.ac.kcl.course.jsonQ.JSONQueryModel
 import uk.ac.kcl.course.jsonQ.Statements
 import java.util.Iterator
-import org.eclipse.emf.mwe2.language.mwe2.StringLiteral
 import java.util.HashMap
 import java.util.Map
-import org.omg.CORBA.Environment
 import org.eclipse.xtext.build.IncrementalBuilder
 import java.util.stream.Collectors
 import java.util.List
@@ -56,8 +54,8 @@ class JsonQGenerator extends AbstractGenerator {
 		
 			    public static void main(String[] args) {
 					
-					Â«model.inputStatement.map[generateJQ3].join('\n')Â»
-					List<JSONQuery> jsonList = Arrays.asList(Â«convertListToStringÂ»);
+					«model.inputStatement.map[generateJQ3].join('\n')»
+					List<JSONQuery> jsonList = Arrays.asList(«convertListToString»);
 					JSONQueryProgram jsonProgram = new JSONQueryProgram(jsonList);
 					System.out.println("JSOn:"+jsonProgram.toString());
 				}
@@ -70,21 +68,21 @@ class JsonQGenerator extends AbstractGenerator {
 	}
 
 	def String generateJQ2(Iterator<Statements> statements) {
-		//Â«model.eAllContents.filter(Statements).generateJQ2()Â»
+		//«model.eAllContents.filter(Statements).generateJQ2()»
 		var result = "";
 		while (statements.hasNext) {
 			val st = statements.next as Statements;
 			result = '''
 				
 					  JSONQuery json = new JSONQueryBuilder()
-					        	.setOperationValue("Â«st.operation.literalÂ»")
-					        	.setFirstQueryKey("Â«st.q1key.getNameÂ»")
-					        	Â«val q1Value = st.q1val as uk.ac.kcl.course.jsonQ.StringLiteralÂ»
-					        	.setFirstQueryValue("Â«q1Value.valueÂ»")
-					        	.setConnectorValue("Â«st.connector.get(0)Â»")
-					        	.setSecondQueryKey("Â«st.q2key.getNameÂ»")
-					        	Â«val q2Value = st.q2val as uk.ac.kcl.course.jsonQ.StringLiteralÂ»
-					        	.setSecondQueryValue("Â«q2Value.valueÂ»")
+					        	.setOperationValue("«st.operation.literal»")
+					        	.setFirstQueryKey("«st.q1key.getName»")
+					        	«val q1Value = st.q1val as uk.ac.kcl.course.jsonQ.StringLiteral»
+					        	.setFirstQueryValue("«q1Value.value»")
+					        	.setConnectorValue("«st.connector.get(0)»")
+					        	.setSecondQueryKey("«st.q2key.getName»")
+					        	«val q2Value = st.q2val as uk.ac.kcl.course.jsonQ.StringLiteral»
+					        	.setSecondQueryValue("«q2Value.value»")
 					        	.build();
 					        	
 					
@@ -101,15 +99,15 @@ class JsonQGenerator extends AbstractGenerator {
 	 
 		var result = '''
 
-				  JSONQuery Â«jsonCountÂ»= new JSONQueryBuilder()
-				        	.setOperationValue("Â«st.operation.literalÂ»")
-				        	.setFirstQueryKey("Â«st.q1key.getNameÂ»")
-				        	Â«val q1Value = st.q1val as uk.ac.kcl.course.jsonQ.StringLiteralÂ»
-				        	.setFirstQueryValue("Â«q1Value.valueÂ»")
-				        	.setConnectorValue("Â«st.connector.get(0)Â»")
-				        	.setSecondQueryKey("Â«st.q2key.getNameÂ»")
-				        	Â«val q2Value = st.q2val as uk.ac.kcl.course.jsonQ.StringLiteralÂ»
-				        	.setSecondQueryValue("Â«q2Value.valueÂ»")
+				  JSONQuery «jsonCount»= new JSONQueryBuilder()
+				        	.setOperationValue("«st.operation.literal»")
+				        	.setFirstQueryKey("«st.q1key.getName»")
+				        	«val q1Value = st.q1val as uk.ac.kcl.course.jsonQ.StringLiteral»
+				        	.setFirstQueryValue("«q1Value.value»")
+				        	.setConnectorValue("«st.connector.get(0)»")
+				        	.setSecondQueryKey("«st.q2key.getName»")
+				        	«val q2Value = st.q2val as uk.ac.kcl.course.jsonQ.StringLiteral»
+				        	.setSecondQueryValue("«q2Value.value»")
 				        	.build();
 				        	
 		'''
