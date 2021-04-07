@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import uk.ac.kcl.course.jsonQ.AdditionalQuery;
+import uk.ac.kcl.course.jsonQ.Connector;
 import uk.ac.kcl.course.jsonQ.InputFieldSingle;
 import uk.ac.kcl.course.jsonQ.InputVal;
 import uk.ac.kcl.course.jsonQ.JsonQPackage;
@@ -42,7 +43,7 @@ public class AdditionalQueryImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected static final String CONNECTOR_EDEFAULT = null;
+  protected static final Connector CONNECTOR_EDEFAULT = Connector.AND;
 
   /**
    * The cached value of the '{@link #getConnector() <em>Connector</em>}' attribute.
@@ -52,7 +53,7 @@ public class AdditionalQueryImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected String connector = CONNECTOR_EDEFAULT;
+  protected Connector connector = CONNECTOR_EDEFAULT;
 
   /**
    * The default value of the '{@link #getQ2key() <em>Q2key</em>}' attribute.
@@ -111,7 +112,7 @@ public class AdditionalQueryImpl extends MinimalEObjectImpl.Container implements
    * @generated
    */
   @Override
-  public String getConnector()
+  public Connector getConnector()
   {
     return connector;
   }
@@ -122,10 +123,10 @@ public class AdditionalQueryImpl extends MinimalEObjectImpl.Container implements
    * @generated
    */
   @Override
-  public void setConnector(String newConnector)
+  public void setConnector(Connector newConnector)
   {
-    String oldConnector = connector;
-    connector = newConnector;
+    Connector oldConnector = connector;
+    connector = newConnector == null ? CONNECTOR_EDEFAULT : newConnector;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, JsonQPackage.ADDITIONAL_QUERY__CONNECTOR, oldConnector, connector));
   }
@@ -252,7 +253,7 @@ public class AdditionalQueryImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case JsonQPackage.ADDITIONAL_QUERY__CONNECTOR:
-        setConnector((String)newValue);
+        setConnector((Connector)newValue);
         return;
       case JsonQPackage.ADDITIONAL_QUERY__Q2KEY:
         setQ2key((InputFieldSingle)newValue);
@@ -298,7 +299,7 @@ public class AdditionalQueryImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case JsonQPackage.ADDITIONAL_QUERY__CONNECTOR:
-        return CONNECTOR_EDEFAULT == null ? connector != null : !CONNECTOR_EDEFAULT.equals(connector);
+        return connector != CONNECTOR_EDEFAULT;
       case JsonQPackage.ADDITIONAL_QUERY__Q2KEY:
         return q2key != Q2KEY_EDEFAULT;
       case JsonQPackage.ADDITIONAL_QUERY__Q2VAL:

@@ -117,19 +117,18 @@ public class JsonQSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case JsonQPackage.INT_LITERAL:
+      {
+        INTLiteral intLiteral = (INTLiteral)theEObject;
+        T result = caseINTLiteral(intLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case JsonQPackage.STRING_LITERAL:
       {
         StringLiteral stringLiteral = (StringLiteral)theEObject;
         T result = caseStringLiteral(stringLiteral);
         if (result == null) result = caseInputVal(stringLiteral);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case JsonQPackage.INT_LITERAL:
-      {
-        INTLiteral intLiteral = (INTLiteral)theEObject;
-        T result = caseINTLiteral(intLiteral);
-        if (result == null) result = caseInputVal(intLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -234,22 +233,6 @@ public class JsonQSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>String Literal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>String Literal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStringLiteral(StringLiteral object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>INT Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -261,6 +244,22 @@ public class JsonQSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseINTLiteral(INTLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringLiteral(StringLiteral object)
   {
     return null;
   }

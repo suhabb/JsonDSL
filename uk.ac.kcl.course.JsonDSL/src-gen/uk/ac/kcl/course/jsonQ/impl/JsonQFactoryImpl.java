@@ -72,8 +72,8 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
       case JsonQPackage.GET_STATEMENTS: return createGetStatements();
       case JsonQPackage.ADDITIONAL_QUERY: return createAdditionalQuery();
       case JsonQPackage.INPUT_VAL: return createInputVal();
-      case JsonQPackage.STRING_LITERAL: return createStringLiteral();
       case JsonQPackage.INT_LITERAL: return createINTLiteral();
+      case JsonQPackage.STRING_LITERAL: return createStringLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -89,6 +89,8 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
   {
     switch (eDataType.getClassifierID())
     {
+      case JsonQPackage.CONNECTOR:
+        return createConnectorFromString(eDataType, initialValue);
       case JsonQPackage.OPERATION_AGG:
         return createOperationAggFromString(eDataType, initialValue);
       case JsonQPackage.OPERATION_GET:
@@ -110,6 +112,8 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
   {
     switch (eDataType.getClassifierID())
     {
+      case JsonQPackage.CONNECTOR:
+        return convertConnectorToString(eDataType, instanceValue);
       case JsonQPackage.OPERATION_AGG:
         return convertOperationAggToString(eDataType, instanceValue);
       case JsonQPackage.OPERATION_GET:
@@ -199,6 +203,18 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
    * @generated
    */
   @Override
+  public INTLiteral createINTLiteral()
+  {
+    INTLiteralImpl intLiteral = new INTLiteralImpl();
+    return intLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public StringLiteral createStringLiteral()
   {
     StringLiteralImpl stringLiteral = new StringLiteralImpl();
@@ -210,11 +226,21 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public INTLiteral createINTLiteral()
+  public Connector createConnectorFromString(EDataType eDataType, String initialValue)
   {
-    INTLiteralImpl intLiteral = new INTLiteralImpl();
-    return intLiteral;
+    Connector result = Connector.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertConnectorToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

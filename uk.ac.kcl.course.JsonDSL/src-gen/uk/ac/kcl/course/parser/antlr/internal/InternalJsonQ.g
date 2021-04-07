@@ -252,6 +252,10 @@ ruleAggregateStatements returns [EObject current=null]
 				}
 			)
 		)?
+		otherlv_7='END'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getAggregateStatementsAccess().getENDKeyword_7());
+		}
 	)
 ;
 
@@ -355,6 +359,10 @@ ruleGetStatements returns [EObject current=null]
 				}
 			)
 		)?
+		otherlv_6='END'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getGetStatementsAccess().getENDKeyword_6());
+		}
 	)
 ;
 
@@ -376,29 +384,21 @@ ruleAdditionalQuery returns [EObject current=null]
 	(
 		(
 			(
-				(
-					lv_connector_0_1='AND'
-					{
-						newLeafNode(lv_connector_0_1, grammarAccess.getAdditionalQueryAccess().getConnectorANDKeyword_0_0_0());
+				{
+					newCompositeNode(grammarAccess.getAdditionalQueryAccess().getConnectorConnectorEnumRuleCall_0_0());
+				}
+				lv_connector_0_0=ruleConnector
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAdditionalQueryRule());
 					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getAdditionalQueryRule());
-						}
-						setWithLastConsumed($current, "connector", lv_connector_0_1, null);
-					}
-					    |
-					lv_connector_0_2='OR'
-					{
-						newLeafNode(lv_connector_0_2, grammarAccess.getAdditionalQueryAccess().getConnectorORKeyword_0_0_1());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getAdditionalQueryRule());
-						}
-						setWithLastConsumed($current, "connector", lv_connector_0_2, null);
-					}
-				)
+					set(
+						$current,
+						"connector",
+						lv_connector_0_0,
+						"uk.ac.kcl.course.JsonQ.Connector");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)
 		(
@@ -457,25 +457,14 @@ ruleInputVal returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	(
-		{
-			newCompositeNode(grammarAccess.getInputValAccess().getINTLiteralParserRuleCall_0());
-		}
-		this_INTLiteral_0=ruleINTLiteral
-		{
-			$current = $this_INTLiteral_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getInputValAccess().getStringLiteralParserRuleCall_1());
-		}
-		this_StringLiteral_1=ruleStringLiteral
-		{
-			$current = $this_StringLiteral_1.current;
-			afterParserOrEnumRuleCall();
-		}
-	)
+	{
+		newCompositeNode(grammarAccess.getInputValAccess().getStringLiteralParserRuleCall());
+	}
+	this_StringLiteral_0=ruleStringLiteral
+	{
+		$current = $this_StringLiteral_0.current;
+		afterParserOrEnumRuleCall();
+	}
 ;
 
 // Entry rule entryRuleStringLiteral
@@ -513,15 +502,8 @@ ruleStringLiteral returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleINTLiteral
-entryRuleINTLiteral returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getINTLiteralRule()); }
-	iv_ruleINTLiteral=ruleINTLiteral
-	{ $current=$iv_ruleINTLiteral.current; }
-	EOF;
-
-// Rule INTLiteral
-ruleINTLiteral returns [EObject current=null]
+// Rule Connector
+ruleConnector returns [Enumerator current=null]
 @init {
 	enterRule();
 }
@@ -530,19 +512,18 @@ ruleINTLiteral returns [EObject current=null]
 }:
 	(
 		(
-			lv_value_0_0=RULE_INT
+			enumLiteral_0='AND'
 			{
-				newLeafNode(lv_value_0_0, grammarAccess.getINTLiteralAccess().getValueINTTerminalRuleCall_0());
+				$current = grammarAccess.getConnectorAccess().getANDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getConnectorAccess().getANDEnumLiteralDeclaration_0());
 			}
+		)
+		    |
+		(
+			enumLiteral_1='OR'
 			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getINTLiteralRule());
-				}
-				setWithLastConsumed(
-					$current,
-					"value",
-					lv_value_0_0,
-					"org.eclipse.xtext.common.Terminals.INT");
+				$current = grammarAccess.getConnectorAccess().getOREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getConnectorAccess().getOREnumLiteralDeclaration_1());
 			}
 		)
 	)

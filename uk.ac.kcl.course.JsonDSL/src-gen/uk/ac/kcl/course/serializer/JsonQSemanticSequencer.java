@@ -65,10 +65,22 @@ public class JsonQSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     AdditionalQuery returns AdditionalQuery
 	 *
 	 * Constraint:
-	 *     ((connector='AND' | connector='OR') q2key=InputFieldSingle q2val=InputVal)
+	 *     (connector=Connector q2key=InputFieldSingle q2val=InputVal)
 	 */
 	protected void sequence_AdditionalQuery(ISerializationContext context, AdditionalQuery semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JsonQPackage.Literals.ADDITIONAL_QUERY__CONNECTOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JsonQPackage.Literals.ADDITIONAL_QUERY__CONNECTOR));
+			if (transientValues.isValueTransient(semanticObject, JsonQPackage.Literals.ADDITIONAL_QUERY__Q2KEY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JsonQPackage.Literals.ADDITIONAL_QUERY__Q2KEY));
+			if (transientValues.isValueTransient(semanticObject, JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAdditionalQueryAccess().getConnectorConnectorEnumRuleCall_0_0(), semanticObject.getConnector());
+		feeder.accept(grammarAccess.getAdditionalQueryAccess().getQ2keyInputFieldSingleEnumRuleCall_1_0(), semanticObject.getQ2key());
+		feeder.accept(grammarAccess.getAdditionalQueryAccess().getQ2valInputValParserRuleCall_2_0(), semanticObject.getQ2val());
+		feeder.finish();
 	}
 	
 	
@@ -100,7 +112,6 @@ public class JsonQSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     InputVal returns INTLiteral
 	 *     INTLiteral returns INTLiteral
 	 *
 	 * Constraint:

@@ -3,6 +3,7 @@
  */
 package uk.ac.kcl.course.jsonQ;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package uk.ac.kcl.course.jsonQ;
  * @model
  * @generated
  */
-public interface INTLiteral extends InputVal
+public interface INTLiteral extends EObject
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

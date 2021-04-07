@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import uk.ac.kcl.course.jsonQ.INTLiteral;
 import uk.ac.kcl.course.jsonQ.JsonQPackage;
@@ -25,7 +26,7 @@ import uk.ac.kcl.course.jsonQ.JsonQPackage;
  *
  * @generated
  */
-public class INTLiteralImpl extends InputValImpl implements INTLiteral
+public class INTLiteralImpl extends MinimalEObjectImpl.Container implements INTLiteral
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

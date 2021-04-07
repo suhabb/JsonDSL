@@ -6,6 +6,10 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="JsonQ" basePackage="uk.ac.kcl.course" disposableProviderFactory="true"
       fileExtensions="jq" ecorePackage="JsonQ.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="JsonQ.ecore#//Connector">
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//Connector/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//Connector/OR"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="JsonQ.ecore#//OperationAgg">
       <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//OperationAgg/AVG"/>
     </genEnums>
@@ -43,11 +47,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JsonQ.ecore#//AdditionalQuery/q2val"/>
     </genClasses>
     <genClasses ecoreClass="JsonQ.ecore#//InputVal"/>
-    <genClasses ecoreClass="JsonQ.ecore#//StringLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//StringLiteral/value"/>
-    </genClasses>
     <genClasses ecoreClass="JsonQ.ecore#//INTLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//INTLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="JsonQ.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//StringLiteral/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

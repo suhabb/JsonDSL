@@ -20,17 +20,21 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="opGet" eType="#//OperationGET"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AdditionalQuery">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connector" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connector" eType="#//Connector"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="q2key" eType="#//InputFieldSingle"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="q2val" eType="#//InputVal"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Connector">
+    <eLiterals name="AND" literal="AND"/>
+    <eLiterals name="OR" value="1" literal="OR"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputVal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="INTLiteral">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringLiteral" eSuperTypes="#//InputVal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="INTLiteral" eSuperTypes="#//InputVal">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="OperationAgg">
     <eLiterals name="AVG" literal="AVG"/>

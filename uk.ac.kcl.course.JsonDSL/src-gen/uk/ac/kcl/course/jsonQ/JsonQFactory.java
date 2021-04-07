@@ -78,15 +78,6 @@ public interface JsonQFactory extends EFactory
   InputVal createInputVal();
 
   /**
-   * Returns a new object of class '<em>String Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Literal</em>'.
-   * @generated
-   */
-  StringLiteral createStringLiteral();
-
-  /**
    * Returns a new object of class '<em>INT Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,6 +85,15 @@ public interface JsonQFactory extends EFactory
    * @generated
    */
   INTLiteral createINTLiteral();
+
+  /**
+   * Returns a new object of class '<em>String Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Literal</em>'.
+   * @generated
+   */
+  StringLiteral createStringLiteral();
 
   /**
    * Returns the package supported by this factory.

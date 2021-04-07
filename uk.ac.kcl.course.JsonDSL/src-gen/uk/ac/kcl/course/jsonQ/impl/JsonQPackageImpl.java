@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import uk.ac.kcl.course.jsonQ.AdditionalQuery;
 import uk.ac.kcl.course.jsonQ.AggregateStatements;
+import uk.ac.kcl.course.jsonQ.Connector;
 import uk.ac.kcl.course.jsonQ.GetStatements;
 import uk.ac.kcl.course.jsonQ.INTLiteral;
 import uk.ac.kcl.course.jsonQ.InputFieldSingle;
@@ -80,6 +81,13 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass intLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass stringLiteralEClass = null;
 
   /**
@@ -87,7 +95,7 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass intLiteralEClass = null;
+  private EEnum connectorEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -355,6 +363,28 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   @Override
+  public EClass getINTLiteral()
+  {
+    return intLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getINTLiteral_Value()
+  {
+    return (EAttribute)intLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getStringLiteral()
   {
     return stringLiteralEClass;
@@ -377,20 +407,9 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   @Override
-  public EClass getINTLiteral()
+  public EEnum getConnector()
   {
-    return intLiteralEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getINTLiteral_Value()
-  {
-    return (EAttribute)intLiteralEClass.getEStructuralFeatures().get(0);
+    return connectorEEnum;
   }
 
   /**
@@ -479,13 +498,14 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
 
     inputValEClass = createEClass(INPUT_VAL);
 
-    stringLiteralEClass = createEClass(STRING_LITERAL);
-    createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
-
     intLiteralEClass = createEClass(INT_LITERAL);
     createEAttribute(intLiteralEClass, INT_LITERAL__VALUE);
 
+    stringLiteralEClass = createEClass(STRING_LITERAL);
+    createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
+
     // Create enums
+    connectorEEnum = createEEnum(CONNECTOR);
     operationAggEEnum = createEEnum(OPERATION_AGG);
     operationGETEEnum = createEEnum(OPERATION_GET);
     inputFieldSingleEEnum = createEEnum(INPUT_FIELD_SINGLE);
@@ -523,7 +543,6 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
     aggregateStatementsEClass.getESuperTypes().add(this.getStatements());
     getStatementsEClass.getESuperTypes().add(this.getStatements());
     stringLiteralEClass.getESuperTypes().add(this.getInputVal());
-    intLiteralEClass.getESuperTypes().add(this.getInputVal());
 
     // Initialize classes and features; add operations and parameters
     initEClass(jsonQueryModelEClass, JSONQueryModel.class, "JSONQueryModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -542,19 +561,23 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
     initEAttribute(getGetStatements_OpGet(), this.getOperationGET(), "opGet", null, 0, 1, GetStatements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(additionalQueryEClass, AdditionalQuery.class, "AdditionalQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAdditionalQuery_Connector(), ecorePackage.getEString(), "connector", null, 0, 1, AdditionalQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAdditionalQuery_Connector(), this.getConnector(), "connector", null, 0, 1, AdditionalQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAdditionalQuery_Q2key(), this.getInputFieldSingle(), "q2key", null, 0, 1, AdditionalQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAdditionalQuery_Q2val(), this.getInputVal(), null, "q2val", null, 0, 1, AdditionalQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputValEClass, InputVal.class, "InputVal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(intLiteralEClass, INTLiteral.class, "INTLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getINTLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, INTLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     // Initialize enums and add enum literals
+    initEEnum(connectorEEnum, Connector.class, "Connector");
+    addEEnumLiteral(connectorEEnum, Connector.AND);
+    addEEnumLiteral(connectorEEnum, Connector.OR);
+
     initEEnum(operationAggEEnum, OperationAgg.class, "OperationAgg");
     addEEnumLiteral(operationAggEEnum, OperationAgg.AVG);
 

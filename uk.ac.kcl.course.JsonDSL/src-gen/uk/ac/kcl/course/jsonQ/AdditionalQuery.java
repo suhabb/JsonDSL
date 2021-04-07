@@ -27,25 +27,28 @@ public interface AdditionalQuery extends EObject
 {
   /**
    * Returns the value of the '<em><b>Connector</b></em>' attribute.
+   * The literals are from the enumeration {@link uk.ac.kcl.course.jsonQ.Connector}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Connector</em>' attribute.
-   * @see #setConnector(String)
+   * @see uk.ac.kcl.course.jsonQ.Connector
+   * @see #setConnector(Connector)
    * @see uk.ac.kcl.course.jsonQ.JsonQPackage#getAdditionalQuery_Connector()
    * @model
    * @generated
    */
-  String getConnector();
+  Connector getConnector();
 
   /**
    * Sets the value of the '{@link uk.ac.kcl.course.jsonQ.AdditionalQuery#getConnector <em>Connector</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Connector</em>' attribute.
+   * @see uk.ac.kcl.course.jsonQ.Connector
    * @see #getConnector()
    * @generated
    */
-  void setConnector(String value);
+  void setConnector(Connector value);
 
   /**
    * Returns the value of the '<em><b>Q2key</b></em>' attribute.

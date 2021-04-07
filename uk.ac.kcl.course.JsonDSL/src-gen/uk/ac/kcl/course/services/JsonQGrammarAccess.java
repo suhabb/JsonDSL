@@ -77,13 +77,14 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cQ1valInputValParserRuleCall_5_0 = (RuleCall)cQ1valAssignment_5.eContents().get(0);
 		private final Assignment cQryadditionalAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cQryadditionalAdditionalQueryParserRuleCall_6_0 = (RuleCall)cQryadditionalAssignment_6.eContents().get(0);
+		private final Keyword cENDKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//AggregateStatements:
-		//    'GET' opAgg=OperationAgg aggField=InputFieldSingle 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)?
+		//    'GET' opAgg=OperationAgg aggField=InputFieldSingle 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)?  'END'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'GET' opAgg=OperationAgg aggField=InputFieldSingle 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)?
+		//'GET' opAgg=OperationAgg aggField=InputFieldSingle 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)?  'END'
 		public Group getGroup() { return cGroup; }
 		
 		//'GET'
@@ -121,6 +122,9 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//AdditionalQuery
 		public RuleCall getQryadditionalAdditionalQueryParserRuleCall_6_0() { return cQryadditionalAdditionalQueryParserRuleCall_6_0; }
+		
+		//'END'
+		public Keyword getENDKeyword_7() { return cENDKeyword_7; }
 	}
 	public class GetStatementsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.GetStatements");
@@ -135,13 +139,14 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cQ1valInputValParserRuleCall_4_0 = (RuleCall)cQ1valAssignment_4.eContents().get(0);
 		private final Assignment cQryadditionalAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cQryadditionalAdditionalQueryParserRuleCall_5_0 = (RuleCall)cQryadditionalAssignment_5.eContents().get(0);
+		private final Keyword cENDKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//GetStatements:
-		//    'GET' opGet=OperationGET 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)?
+		//    'GET' opGet=OperationGET 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)? 'END'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'GET' opGet=OperationGET 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)?
+		//'GET' opGet=OperationGET 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)? 'END'
 		public Group getGroup() { return cGroup; }
 		
 		//'GET'
@@ -173,38 +178,33 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//AdditionalQuery
 		public RuleCall getQryadditionalAdditionalQueryParserRuleCall_5_0() { return cQryadditionalAdditionalQueryParserRuleCall_5_0; }
+		
+		//'END'
+		public Keyword getENDKeyword_6() { return cENDKeyword_6; }
 	}
 	public class AdditionalQueryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.AdditionalQuery");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cConnectorAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cConnectorAlternatives_0_0 = (Alternatives)cConnectorAssignment_0.eContents().get(0);
-		private final Keyword cConnectorANDKeyword_0_0_0 = (Keyword)cConnectorAlternatives_0_0.eContents().get(0);
-		private final Keyword cConnectorORKeyword_0_0_1 = (Keyword)cConnectorAlternatives_0_0.eContents().get(1);
+		private final RuleCall cConnectorConnectorEnumRuleCall_0_0 = (RuleCall)cConnectorAssignment_0.eContents().get(0);
 		private final Assignment cQ2keyAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cQ2keyInputFieldSingleEnumRuleCall_1_0 = (RuleCall)cQ2keyAssignment_1.eContents().get(0);
 		private final Assignment cQ2valAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cQ2valInputValParserRuleCall_2_0 = (RuleCall)cQ2valAssignment_2.eContents().get(0);
 		
 		//AdditionalQuery:
-		//    connector=('AND'|'OR') q2key=InputFieldSingle q2val=InputVal
+		//    connector=Connector q2key=InputFieldSingle q2val=InputVal
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//connector=('AND'|'OR') q2key=InputFieldSingle q2val=InputVal
+		//connector=Connector q2key=InputFieldSingle q2val=InputVal
 		public Group getGroup() { return cGroup; }
 		
-		//connector=('AND'|'OR')
+		//connector=Connector
 		public Assignment getConnectorAssignment_0() { return cConnectorAssignment_0; }
 		
-		//('AND'|'OR')
-		public Alternatives getConnectorAlternatives_0_0() { return cConnectorAlternatives_0_0; }
-		
-		//'AND'
-		public Keyword getConnectorANDKeyword_0_0_0() { return cConnectorANDKeyword_0_0_0; }
-		
-		//'OR'
-		public Keyword getConnectorORKeyword_0_0_1() { return cConnectorORKeyword_0_0_1; }
+		//Connector
+		public RuleCall getConnectorConnectorEnumRuleCall_0_0() { return cConnectorConnectorEnumRuleCall_0_0; }
 		
 		//q2key=InputFieldSingle
 		public Assignment getQ2keyAssignment_1() { return cQ2keyAssignment_1; }
@@ -220,39 +220,15 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	public class InputValElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.InputVal");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cINTLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cStringLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cStringLiteralParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//InputVal:
-		//    INTLiteral | StringLiteral
+		//    StringLiteral
 		//;
 		@Override public ParserRule getRule() { return rule; }
-		
-		//INTLiteral | StringLiteral
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//INTLiteral
-		public RuleCall getINTLiteralParserRuleCall_0() { return cINTLiteralParserRuleCall_0; }
 		
 		//StringLiteral
-		public RuleCall getStringLiteralParserRuleCall_1() { return cStringLiteralParserRuleCall_1; }
-	}
-	public class StringLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.StringLiteral");
-		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
-		
-		//StringLiteral:
-		//    value = STRING
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//value = STRING
-		public Assignment getValueAssignment() { return cValueAssignment; }
-		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
+		public RuleCall getStringLiteralParserRuleCall() { return cStringLiteralParserRuleCall; }
 	}
 	public class INTLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.INTLiteral");
@@ -270,7 +246,49 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//INT
 		public RuleCall getValueINTTerminalRuleCall_0() { return cValueINTTerminalRuleCall_0; }
 	}
+	public class StringLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.StringLiteral");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//StringLiteral:
+		//    value = STRING
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value = STRING
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
+	}
 	
+	public class ConnectorElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.Connector");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cANDEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cANDANDKeyword_0_0 = (Keyword)cANDEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cOREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cORORKeyword_1_0 = (Keyword)cOREnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum Connector:
+		//    AND | OR
+		//;
+		public EnumRule getRule() { return rule; }
+		
+		//AND | OR
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//AND
+		public EnumLiteralDeclaration getANDEnumLiteralDeclaration_0() { return cANDEnumLiteralDeclaration_0; }
+		
+		public Keyword getANDANDKeyword_0_0() { return cANDANDKeyword_0_0; }
+		
+		//OR
+		public EnumLiteralDeclaration getOREnumLiteralDeclaration_1() { return cOREnumLiteralDeclaration_1; }
+		
+		public Keyword getORORKeyword_1_0() { return cORORKeyword_1_0; }
+	}
 	public class OperationAggElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.OperationAgg");
 		private final EnumLiteralDeclaration cAVGEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
@@ -391,9 +409,10 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final AggregateStatementsElements pAggregateStatements;
 	private final GetStatementsElements pGetStatements;
 	private final AdditionalQueryElements pAdditionalQuery;
+	private final ConnectorElements eConnector;
 	private final InputValElements pInputVal;
-	private final StringLiteralElements pStringLiteral;
 	private final INTLiteralElements pINTLiteral;
+	private final StringLiteralElements pStringLiteral;
 	private final OperationAggElements eOperationAgg;
 	private final OperationGETElements eOperationGET;
 	private final InputFieldSingleElements eInputFieldSingle;
@@ -412,9 +431,10 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pAggregateStatements = new AggregateStatementsElements();
 		this.pGetStatements = new GetStatementsElements();
 		this.pAdditionalQuery = new AdditionalQueryElements();
+		this.eConnector = new ConnectorElements();
 		this.pInputVal = new InputValElements();
-		this.pStringLiteral = new StringLiteralElements();
 		this.pINTLiteral = new INTLiteralElements();
+		this.pStringLiteral = new StringLiteralElements();
 		this.eOperationAgg = new OperationAggElements();
 		this.eOperationGET = new OperationGETElements();
 		this.eInputFieldSingle = new InputFieldSingleElements();
@@ -471,7 +491,7 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//AggregateStatements:
-	//    'GET' opAgg=OperationAgg aggField=InputFieldSingle 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)?
+	//    'GET' opAgg=OperationAgg aggField=InputFieldSingle 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)?  'END'
 	//;
 	public AggregateStatementsElements getAggregateStatementsAccess() {
 		return pAggregateStatements;
@@ -482,7 +502,7 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//GetStatements:
-	//    'GET' opGet=OperationGET 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)?
+	//    'GET' opGet=OperationGET 'WHERE' q1key=InputFieldSingle q1val=InputVal (qryadditional=AdditionalQuery)? 'END'
 	//;
 	public GetStatementsElements getGetStatementsAccess() {
 		return pGetStatements;
@@ -493,7 +513,7 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//AdditionalQuery:
-	//    connector=('AND'|'OR') q2key=InputFieldSingle q2val=InputVal
+	//    connector=Connector q2key=InputFieldSingle q2val=InputVal
 	//;
 	public AdditionalQueryElements getAdditionalQueryAccess() {
 		return pAdditionalQuery;
@@ -503,8 +523,19 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getAdditionalQueryAccess().getRule();
 	}
 	
+	//enum Connector:
+	//    AND | OR
+	//;
+	public ConnectorElements getConnectorAccess() {
+		return eConnector;
+	}
+	
+	public EnumRule getConnectorRule() {
+		return getConnectorAccess().getRule();
+	}
+	
 	//InputVal:
-	//    INTLiteral | StringLiteral
+	//    StringLiteral
 	//;
 	public InputValElements getInputValAccess() {
 		return pInputVal;
@@ -512,17 +543,6 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getInputValRule() {
 		return getInputValAccess().getRule();
-	}
-	
-	//StringLiteral:
-	//    value = STRING
-	//;
-	public StringLiteralElements getStringLiteralAccess() {
-		return pStringLiteral;
-	}
-	
-	public ParserRule getStringLiteralRule() {
-		return getStringLiteralAccess().getRule();
 	}
 	
 	//INTLiteral:
@@ -534,6 +554,17 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getINTLiteralRule() {
 		return getINTLiteralAccess().getRule();
+	}
+	
+	//StringLiteral:
+	//    value = STRING
+	//;
+	public StringLiteralElements getStringLiteralAccess() {
+		return pStringLiteral;
+	}
+	
+	public ParserRule getStringLiteralRule() {
+		return getStringLiteralAccess().getRule();
 	}
 	
 	//enum OperationAgg:
