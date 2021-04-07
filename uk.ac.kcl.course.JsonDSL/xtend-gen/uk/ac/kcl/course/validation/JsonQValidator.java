@@ -116,7 +116,7 @@ public class JsonQValidator extends AbstractJsonQValidator {
           boolean _not_3 = (!_contains_3);
           if (_not_3) {
             this.error("\"Vaccinated\" can have \"Yes\" or \"No\" values.", secondQuery, 
-              JsonQPackage.Literals.STATEMENTS__Q1VAL);
+              JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL);
           }
         }
       }

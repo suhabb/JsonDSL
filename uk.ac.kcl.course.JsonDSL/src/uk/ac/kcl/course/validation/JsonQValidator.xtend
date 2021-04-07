@@ -106,7 +106,7 @@ class JsonQValidator extends AbstractJsonQValidator {
 				val gender = #['yes', 'no']
 				if (!gender.contains(q2ValString.toLowerCase)) {
 					error("\"Vaccinated\" can have \"Yes\" or \"No\" values.", secondQuery,
-						JsonQPackage.Literals.STATEMENTS__Q1VAL)
+						JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL)
 				}
 			}
 
