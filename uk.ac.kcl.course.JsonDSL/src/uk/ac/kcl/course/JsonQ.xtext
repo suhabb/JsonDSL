@@ -23,11 +23,15 @@ GetStatements:
 
 
 AdditionalQuery:
-	connector=('AND'|'OR') q2key=InputFieldSingle q2val=InputVal 
+	connector=Connector q2key=InputFieldSingle q2val=InputVal 
+;
+
+enum Connector:
+	AND | OR
 ;
 
 InputVal:
-	INTLiteral | StringLiteral
+	StringLiteral
 ;
 
 StringLiteral:
