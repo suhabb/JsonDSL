@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJsonQParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'AVG'", "'AND'", "'OR'", "'DATA'", "'COUNT'", "'firstName'", "'lastName'", "'gender'", "'counrtyCode'", "'cityName'", "'isVaccinated'", "'income'", "'GET'", "'WHERE'", "'END'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'AVG'", "'AND'", "'OR'", "'DATA'", "'COUNT'", "'firstName'", "'lastName'", "'gender'", "'countryCode'", "'cityName'", "'isVaccinated'", "'income'", "'GET'", "'WHERE'", "'END'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -1074,13 +1074,13 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InputFieldSingle__Alternatives"
-    // InternalJsonQ.g:354:1: rule__InputFieldSingle__Alternatives : ( ( ( 'firstName' ) ) | ( ( 'lastName' ) ) | ( ( 'gender' ) ) | ( ( 'counrtyCode' ) ) | ( ( 'cityName' ) ) | ( ( 'isVaccinated' ) ) | ( ( 'income' ) ) );
+    // InternalJsonQ.g:354:1: rule__InputFieldSingle__Alternatives : ( ( ( 'firstName' ) ) | ( ( 'lastName' ) ) | ( ( 'gender' ) ) | ( ( 'countryCode' ) ) | ( ( 'cityName' ) ) | ( ( 'isVaccinated' ) ) | ( ( 'income' ) ) );
     public final void rule__InputFieldSingle__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:358:1: ( ( ( 'firstName' ) ) | ( ( 'lastName' ) ) | ( ( 'gender' ) ) | ( ( 'counrtyCode' ) ) | ( ( 'cityName' ) ) | ( ( 'isVaccinated' ) ) | ( ( 'income' ) ) )
+            // InternalJsonQ.g:358:1: ( ( ( 'firstName' ) ) | ( ( 'lastName' ) ) | ( ( 'gender' ) ) | ( ( 'countryCode' ) ) | ( ( 'cityName' ) ) | ( ( 'isVaccinated' ) ) | ( ( 'income' ) ) )
             int alt5=7;
             switch ( input.LA(1) ) {
             case 16:
@@ -1190,20 +1190,20 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalJsonQ.g:377:2: ( ( 'counrtyCode' ) )
+                    // InternalJsonQ.g:377:2: ( ( 'countryCode' ) )
                     {
-                    // InternalJsonQ.g:377:2: ( ( 'counrtyCode' ) )
-                    // InternalJsonQ.g:378:3: ( 'counrtyCode' )
+                    // InternalJsonQ.g:377:2: ( ( 'countryCode' ) )
+                    // InternalJsonQ.g:378:3: ( 'countryCode' )
                     {
-                     before(grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3()); 
-                    // InternalJsonQ.g:379:3: ( 'counrtyCode' )
-                    // InternalJsonQ.g:379:4: 'counrtyCode'
+                     before(grammarAccess.getInputFieldSingleAccess().getCountryCodeEnumLiteralDeclaration_3()); 
+                    // InternalJsonQ.g:379:3: ( 'countryCode' )
+                    // InternalJsonQ.g:379:4: 'countryCode'
                     {
                     match(input,19,FOLLOW_2); 
 
                     }
 
-                     after(grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3()); 
+                     after(grammarAccess.getInputFieldSingleAccess().getCountryCodeEnumLiteralDeclaration_3()); 
 
                     }
 

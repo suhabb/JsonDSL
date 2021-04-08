@@ -15,7 +15,6 @@ import uk.ac.kcl.course.jsonQ.AdditionalQuery;
 import uk.ac.kcl.course.jsonQ.AggregateStatements;
 import uk.ac.kcl.course.jsonQ.Connector;
 import uk.ac.kcl.course.jsonQ.GetStatements;
-import uk.ac.kcl.course.jsonQ.INTLiteral;
 import uk.ac.kcl.course.jsonQ.InputFieldSingle;
 import uk.ac.kcl.course.jsonQ.InputVal;
 import uk.ac.kcl.course.jsonQ.JSONQueryModel;
@@ -75,13 +74,6 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   private EClass inputValEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass intLiteralEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -363,28 +355,6 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   @Override
-  public EClass getINTLiteral()
-  {
-    return intLiteralEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getINTLiteral_Value()
-  {
-    return (EAttribute)intLiteralEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getStringLiteral()
   {
     return stringLiteralEClass;
@@ -498,9 +468,6 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
 
     inputValEClass = createEClass(INPUT_VAL);
 
-    intLiteralEClass = createEClass(INT_LITERAL);
-    createEAttribute(intLiteralEClass, INT_LITERAL__VALUE);
-
     stringLiteralEClass = createEClass(STRING_LITERAL);
     createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
 
@@ -567,9 +534,6 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
 
     initEClass(inputValEClass, InputVal.class, "InputVal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(intLiteralEClass, INTLiteral.class, "INTLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getINTLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, INTLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -589,7 +553,7 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
     addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.FIRST_NAME);
     addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.LAST_NAME);
     addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.GENDER);
-    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.COUNRTY_CODE);
+    addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.COUNTRY_CODE);
     addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.CITY_NAME);
     addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.IS_VACCINATED);
     addEEnumLiteral(inputFieldSingleEEnum, InputFieldSingle.INCOME);

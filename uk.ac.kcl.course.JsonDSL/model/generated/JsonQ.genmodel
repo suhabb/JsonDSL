@@ -21,7 +21,7 @@
       <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/firstName"/>
       <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/lastName"/>
       <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/gender"/>
-      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/counrtyCode"/>
+      <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/countryCode"/>
       <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/cityName"/>
       <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/isVaccinated"/>
       <genEnumLiterals ecoreEnumLiteral="JsonQ.ecore#//InputFieldSingle/income"/>
@@ -47,9 +47,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JsonQ.ecore#//AdditionalQuery/q2val"/>
     </genClasses>
     <genClasses ecoreClass="JsonQ.ecore#//InputVal"/>
-    <genClasses ecoreClass="JsonQ.ecore#//INTLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//INTLiteral/value"/>
-    </genClasses>
     <genClasses ecoreClass="JsonQ.ecore#//StringLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//StringLiteral/value"/>
     </genClasses>

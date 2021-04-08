@@ -78,15 +78,6 @@ public interface JsonQFactory extends EFactory
   InputVal createInputVal();
 
   /**
-   * Returns a new object of class '<em>INT Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>INT Literal</em>'.
-   * @generated
-   */
-  INTLiteral createINTLiteral();
-
-  /**
    * Returns a new object of class '<em>String Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

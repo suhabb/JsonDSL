@@ -230,22 +230,6 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//StringLiteral
 		public RuleCall getStringLiteralParserRuleCall() { return cStringLiteralParserRuleCall; }
 	}
-	public class INTLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.INTLiteral");
-		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValueINTTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
-		
-		//INTLiteral:
-		//    value = INT
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//value = INT
-		public Assignment getValueAssignment() { return cValueAssignment; }
-		
-		//INT
-		public RuleCall getValueINTTerminalRuleCall_0() { return cValueINTTerminalRuleCall_0; }
-	}
 	public class StringLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.StringLiteral");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
@@ -339,8 +323,8 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cLastNameLastNameKeyword_1_0 = (Keyword)cLastNameEnumLiteralDeclaration_1.eContents().get(0);
 		private final EnumLiteralDeclaration cGenderEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
 		private final Keyword cGenderGenderKeyword_2_0 = (Keyword)cGenderEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cCounrtyCodeEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cCounrtyCodeCounrtyCodeKeyword_3_0 = (Keyword)cCounrtyCodeEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cCountryCodeEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cCountryCodeCountryCodeKeyword_3_0 = (Keyword)cCountryCodeEnumLiteralDeclaration_3.eContents().get(0);
 		private final EnumLiteralDeclaration cCityNameEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
 		private final Keyword cCityNameCityNameKeyword_4_0 = (Keyword)cCityNameEnumLiteralDeclaration_4.eContents().get(0);
 		private final EnumLiteralDeclaration cIsVaccinatedEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
@@ -352,7 +336,7 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    firstName |
 		//    lastName |
 		//    gender |
-		//    counrtyCode |
+		//    countryCode |
 		//    cityName |
 		//    isVaccinated |
 		//    income
@@ -362,7 +346,7 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//firstName |
 		//lastName |
 		//gender |
-		//counrtyCode |
+		//countryCode |
 		//cityName |
 		//isVaccinated |
 		//income
@@ -383,10 +367,10 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		public Keyword getGenderGenderKeyword_2_0() { return cGenderGenderKeyword_2_0; }
 		
-		//counrtyCode
-		public EnumLiteralDeclaration getCounrtyCodeEnumLiteralDeclaration_3() { return cCounrtyCodeEnumLiteralDeclaration_3; }
+		//countryCode
+		public EnumLiteralDeclaration getCountryCodeEnumLiteralDeclaration_3() { return cCountryCodeEnumLiteralDeclaration_3; }
 		
-		public Keyword getCounrtyCodeCounrtyCodeKeyword_3_0() { return cCounrtyCodeCounrtyCodeKeyword_3_0; }
+		public Keyword getCountryCodeCountryCodeKeyword_3_0() { return cCountryCodeCountryCodeKeyword_3_0; }
 		
 		//cityName
 		public EnumLiteralDeclaration getCityNameEnumLiteralDeclaration_4() { return cCityNameEnumLiteralDeclaration_4; }
@@ -411,7 +395,6 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final AdditionalQueryElements pAdditionalQuery;
 	private final ConnectorElements eConnector;
 	private final InputValElements pInputVal;
-	private final INTLiteralElements pINTLiteral;
 	private final StringLiteralElements pStringLiteral;
 	private final OperationAggElements eOperationAgg;
 	private final OperationGETElements eOperationGET;
@@ -433,7 +416,6 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pAdditionalQuery = new AdditionalQueryElements();
 		this.eConnector = new ConnectorElements();
 		this.pInputVal = new InputValElements();
-		this.pINTLiteral = new INTLiteralElements();
 		this.pStringLiteral = new StringLiteralElements();
 		this.eOperationAgg = new OperationAggElements();
 		this.eOperationGET = new OperationGETElements();
@@ -545,17 +527,6 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getInputValAccess().getRule();
 	}
 	
-	//INTLiteral:
-	//    value = INT
-	//;
-	public INTLiteralElements getINTLiteralAccess() {
-		return pINTLiteral;
-	}
-	
-	public ParserRule getINTLiteralRule() {
-		return getINTLiteralAccess().getRule();
-	}
-	
 	//StringLiteral:
 	//    value = STRING
 	//;
@@ -593,7 +564,7 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    firstName |
 	//    lastName |
 	//    gender |
-	//    counrtyCode |
+	//    countryCode |
 	//    cityName |
 	//    isVaccinated |
 	//    income

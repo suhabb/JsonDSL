@@ -51,14 +51,14 @@ public enum InputFieldSingle implements Enumerator
   GENDER(2, "gender", "gender"),
 
   /**
-   * The '<em><b>Counrty Code</b></em>' literal object.
+   * The '<em><b>Country Code</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #COUNRTY_CODE_VALUE
+   * @see #COUNTRY_CODE_VALUE
    * @generated
    * @ordered
    */
-  COUNRTY_CODE(3, "counrtyCode", "counrtyCode"),
+  COUNTRY_CODE(3, "countryCode", "countryCode"),
 
   /**
    * The '<em><b>City Name</b></em>' literal object.
@@ -124,15 +124,15 @@ public enum InputFieldSingle implements Enumerator
   public static final int GENDER_VALUE = 2;
 
   /**
-   * The '<em><b>Counrty Code</b></em>' literal value.
+   * The '<em><b>Country Code</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #COUNRTY_CODE
-   * @model name="counrtyCode"
+   * @see #COUNTRY_CODE
+   * @model name="countryCode"
    * @generated
    * @ordered
    */
-  public static final int COUNRTY_CODE_VALUE = 3;
+  public static final int COUNTRY_CODE_VALUE = 3;
 
   /**
    * The '<em><b>City Name</b></em>' literal value.
@@ -179,7 +179,7 @@ public enum InputFieldSingle implements Enumerator
       FIRST_NAME,
       LAST_NAME,
       GENDER,
-      COUNRTY_CODE,
+      COUNTRY_CODE,
       CITY_NAME,
       IS_VACCINATED,
       INCOME,
@@ -250,7 +250,7 @@ public enum InputFieldSingle implements Enumerator
       case FIRST_NAME_VALUE: return FIRST_NAME;
       case LAST_NAME_VALUE: return LAST_NAME;
       case GENDER_VALUE: return GENDER;
-      case COUNRTY_CODE_VALUE: return COUNRTY_CODE;
+      case COUNTRY_CODE_VALUE: return COUNTRY_CODE;
       case CITY_NAME_VALUE: return CITY_NAME;
       case IS_VACCINATED_VALUE: return IS_VACCINATED;
       case INCOME_VALUE: return INCOME;

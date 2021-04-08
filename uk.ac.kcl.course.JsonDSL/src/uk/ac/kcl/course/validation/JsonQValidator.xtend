@@ -13,6 +13,11 @@ import uk.ac.kcl.course.jsonQ.JsonQPackage
 import uk.ac.kcl.course.jsonQ.Statements
 import uk.ac.kcl.course.jsonQ.StringLiteral
 import uk.ac.kcl.course.jsonQ.GetStatements
+import uk.ac.kcl.course.jsonQ.JSONQueryModel
+import java.util.List
+import org.eclipse.xtext.EOF
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.emf.ecore.resource.Resource
 
 /** 
  * This class contains custom validation rules.
@@ -22,18 +27,21 @@ import uk.ac.kcl.course.jsonQ.GetStatements
 class JsonQValidator extends AbstractJsonQValidator {
 
 	public static final String INVALID_CONNECTOR_NAME = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_CONNECTOR_NAME"
-
+	public static final String INVALID_QUERY_TERMINATION = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_QUERY_TERMINATION"
 	public static final String INVALID_INPUT_LITERAL_NAME = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_LITERAL_NAME"
-
-	@Check
-	def void checkConnector(AdditionalQuery additionQuery) {
-//		var connectorName = additionQuery.connector.getName
-//		if (!(connectorName.equals(Connector.AND.name()) || connectorName.equals(Connector.OR.name()))) {
-//			error("Valid connected are: AND, OR", additionQuery, JsonQPackage.Literals.ADDITIONAL_QUERY__CONNECTOR,
-//				INVALID_CONNECTOR_NAME);
+	public static final String INVALID_INPUT_INCOME = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_INCOME"
+	public static final String INVALID_INPUT_VACCINATED = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_VACCINATED"
+	public static final String INVALID_INPUT_GENDER = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_GENDER"
+//	@Check(NORMAL)
+//	def void checkConnector(JSONQueryModel model) {
+//		var statements = model.inputStatement
+//		
+//		if(!(statements.checkStatementTerminationPresent)){
+//			error("Query statement must terminate with \"END\"", model, null,INVALID_QUERY_TERMINATION);
 //		}
-	}
-
+//				
+//	}
+	
 	@Check(CheckType.FAST)
 	def void isInputString(InputVal inputVal) {
 
@@ -49,7 +57,7 @@ class JsonQValidator extends AbstractJsonQValidator {
 					var q1ValString = q1Val.value
 					Integer.parseInt(q1ValString)
 				} catch (Exception e) {
-					error("\"Income\" must have integer value", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL);
+					error("\"Income\" must have integer value", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL, INVALID_INPUT_INCOME);
 				}
 			}
 
@@ -59,7 +67,7 @@ class JsonQValidator extends AbstractJsonQValidator {
 				var q1ValString = q1Val.value
 				val gender = #['female', 'male']
 				if (!gender.contains(q1ValString.toLowerCase)) {
-					error("\"Gender\" must have \"Female\" or \"Male\"", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL)
+					error("\"Gender\" must have \"Female\" or \"Male\"", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL, INVALID_INPUT_GENDER)
 				}
 			}
 
@@ -70,7 +78,7 @@ class JsonQValidator extends AbstractJsonQValidator {
 				val gender = #['yes', 'no']
 				if (!gender.contains(q1ValString.toLowerCase)) {
 					error("\"Vaccinated\" can have \"Yes\" or \"No\" values.", stmt,
-						JsonQPackage.Literals.STATEMENTS__Q1VAL)
+						JsonQPackage.Literals.STATEMENTS__Q1VAL, INVALID_INPUT_VACCINATED)
 				}
 			}
 		} else if (queryInstance instanceof AdditionalQuery) {
@@ -85,7 +93,7 @@ class JsonQValidator extends AbstractJsonQValidator {
 					Integer.parseInt(q2ValString)
 				} catch (Exception e) {
 					error("\"Income\" must have integer value", secondQuery,
-						JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL);
+						JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL, INVALID_INPUT_INCOME);
 				}
 			}
 			if (q2key.equalsIgnoreCase(InputFieldSingle.GENDER.getName)) {
@@ -95,7 +103,7 @@ class JsonQValidator extends AbstractJsonQValidator {
 				val gender = #['female', 'male']
 				if (!gender.contains(q2ValString.toLowerCase)) {
 					error("\"Gender\" must have \"Female\" or \"Male\"", secondQuery,
-						JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL)
+						JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL, INVALID_INPUT_GENDER)
 				}
 			}
 
@@ -106,7 +114,7 @@ class JsonQValidator extends AbstractJsonQValidator {
 				val gender = #['yes', 'no']
 				if (!gender.contains(q2ValString.toLowerCase)) {
 					error("\"Vaccinated\" can have \"Yes\" or \"No\" values.", secondQuery,
-						JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL)
+						JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL, INVALID_INPUT_VACCINATED)
 				}
 			}
 

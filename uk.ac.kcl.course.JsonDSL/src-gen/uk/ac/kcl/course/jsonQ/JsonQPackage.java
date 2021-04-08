@@ -317,34 +317,6 @@ public interface JsonQPackage extends EPackage
   int INPUT_VAL_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.impl.INTLiteralImpl <em>INT Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see uk.ac.kcl.course.jsonQ.impl.INTLiteralImpl
-   * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getINTLiteral()
-   * @generated
-   */
-  int INT_LITERAL = 6;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_LITERAL__VALUE = 0;
-
-  /**
-   * The number of structural features of the '<em>INT Literal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_LITERAL_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.impl.StringLiteralImpl <em>String Literal</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -352,7 +324,7 @@ public interface JsonQPackage extends EPackage
    * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getStringLiteral()
    * @generated
    */
-  int STRING_LITERAL = 7;
+  int STRING_LITERAL = 6;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -380,7 +352,7 @@ public interface JsonQPackage extends EPackage
    * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getConnector()
    * @generated
    */
-  int CONNECTOR = 8;
+  int CONNECTOR = 7;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.OperationAgg <em>Operation Agg</em>}' enum.
@@ -390,7 +362,7 @@ public interface JsonQPackage extends EPackage
    * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getOperationAgg()
    * @generated
    */
-  int OPERATION_AGG = 9;
+  int OPERATION_AGG = 8;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.OperationGET <em>Operation GET</em>}' enum.
@@ -400,7 +372,7 @@ public interface JsonQPackage extends EPackage
    * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getOperationGET()
    * @generated
    */
-  int OPERATION_GET = 10;
+  int OPERATION_GET = 9;
 
   /**
    * The meta object id for the '{@link uk.ac.kcl.course.jsonQ.InputFieldSingle <em>Input Field Single</em>}' enum.
@@ -410,7 +382,7 @@ public interface JsonQPackage extends EPackage
    * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getInputFieldSingle()
    * @generated
    */
-  int INPUT_FIELD_SINGLE = 11;
+  int INPUT_FIELD_SINGLE = 10;
 
 
   /**
@@ -582,27 +554,6 @@ public interface JsonQPackage extends EPackage
    * @generated
    */
   EClass getInputVal();
-
-  /**
-   * Returns the meta object for class '{@link uk.ac.kcl.course.jsonQ.INTLiteral <em>INT Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>INT Literal</em>'.
-   * @see uk.ac.kcl.course.jsonQ.INTLiteral
-   * @generated
-   */
-  EClass getINTLiteral();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.ac.kcl.course.jsonQ.INTLiteral#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see uk.ac.kcl.course.jsonQ.INTLiteral#getValue()
-   * @see #getINTLiteral()
-   * @generated
-   */
-  EAttribute getINTLiteral_Value();
 
   /**
    * Returns the meta object for class '{@link uk.ac.kcl.course.jsonQ.StringLiteral <em>String Literal</em>}'.
@@ -827,24 +778,6 @@ public interface JsonQPackage extends EPackage
      * @generated
      */
     EClass INPUT_VAL = eINSTANCE.getInputVal();
-
-    /**
-     * The meta object literal for the '{@link uk.ac.kcl.course.jsonQ.impl.INTLiteralImpl <em>INT Literal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see uk.ac.kcl.course.jsonQ.impl.INTLiteralImpl
-     * @see uk.ac.kcl.course.jsonQ.impl.JsonQPackageImpl#getINTLiteral()
-     * @generated
-     */
-    EClass INT_LITERAL = eINSTANCE.getINTLiteral();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INT_LITERAL__VALUE = eINSTANCE.getINTLiteral_Value();
 
     /**
      * The meta object literal for the '{@link uk.ac.kcl.course.jsonQ.impl.StringLiteralImpl <em>String Literal</em>}' class.

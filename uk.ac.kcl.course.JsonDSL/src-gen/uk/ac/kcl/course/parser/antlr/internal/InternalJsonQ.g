@@ -607,10 +607,10 @@ ruleInputFieldSingle returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_3='counrtyCode'
+			enumLiteral_3='countryCode'
 			{
-				$current = grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3());
+				$current = grammarAccess.getInputFieldSingleAccess().getCountryCodeEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_3, grammarAccess.getInputFieldSingleAccess().getCountryCodeEnumLiteralDeclaration_3());
 			}
 		)
 		    |

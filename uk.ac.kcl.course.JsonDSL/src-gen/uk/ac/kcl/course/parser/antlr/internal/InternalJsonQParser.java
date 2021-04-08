@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJsonQParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'GET'", "'WHERE'", "'END'", "'AND'", "'OR'", "'AVG'", "'DATA'", "'COUNT'", "'firstName'", "'lastName'", "'gender'", "'counrtyCode'", "'cityName'", "'isVaccinated'", "'income'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'GET'", "'WHERE'", "'END'", "'AND'", "'OR'", "'AVG'", "'DATA'", "'COUNT'", "'firstName'", "'lastName'", "'gender'", "'countryCode'", "'cityName'", "'isVaccinated'", "'income'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -1412,7 +1412,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInputFieldSingle"
-    // InternalJsonQ.g:577:1: ruleInputFieldSingle returns [Enumerator current=null] : ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'counrtyCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) ) ;
+    // InternalJsonQ.g:577:1: ruleInputFieldSingle returns [Enumerator current=null] : ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) ) ;
     public final Enumerator ruleInputFieldSingle() throws RecognitionException {
         Enumerator current = null;
 
@@ -1428,10 +1428,10 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonQ.g:583:2: ( ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'counrtyCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) ) )
-            // InternalJsonQ.g:584:2: ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'counrtyCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) )
+            // InternalJsonQ.g:583:2: ( ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) ) )
+            // InternalJsonQ.g:584:2: ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) )
             {
-            // InternalJsonQ.g:584:2: ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'counrtyCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) )
+            // InternalJsonQ.g:584:2: ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) )
             int alt7=7;
             switch ( input.LA(1) ) {
             case 19:
@@ -1529,15 +1529,15 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalJsonQ.g:609:3: (enumLiteral_3= 'counrtyCode' )
+                    // InternalJsonQ.g:609:3: (enumLiteral_3= 'countryCode' )
                     {
-                    // InternalJsonQ.g:609:3: (enumLiteral_3= 'counrtyCode' )
-                    // InternalJsonQ.g:610:4: enumLiteral_3= 'counrtyCode'
+                    // InternalJsonQ.g:609:3: (enumLiteral_3= 'countryCode' )
+                    // InternalJsonQ.g:610:4: enumLiteral_3= 'countryCode'
                     {
                     enumLiteral_3=(Token)match(input,22,FOLLOW_2); 
 
-                    				current = grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-                    				newLeafNode(enumLiteral_3, grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3());
+                    				current = grammarAccess.getInputFieldSingleAccess().getCountryCodeEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_3, grammarAccess.getInputFieldSingleAccess().getCountryCodeEnumLiteralDeclaration_3());
                     			
 
                     }

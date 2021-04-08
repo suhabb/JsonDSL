@@ -375,9 +375,9 @@ rule__InputFieldSingle__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3()); }
-		('counrtyCode')
-		{ after(grammarAccess.getInputFieldSingleAccess().getCounrtyCodeEnumLiteralDeclaration_3()); }
+		{ before(grammarAccess.getInputFieldSingleAccess().getCountryCodeEnumLiteralDeclaration_3()); }
+		('countryCode')
+		{ after(grammarAccess.getInputFieldSingleAccess().getCountryCodeEnumLiteralDeclaration_3()); }
 	)
 	|
 	(

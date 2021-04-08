@@ -26,11 +26,15 @@ import uk.ac.kcl.course.jsonQ.StringLiteral;
 public class JsonQValidator extends AbstractJsonQValidator {
   public static final String INVALID_CONNECTOR_NAME = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_CONNECTOR_NAME";
   
+  public static final String INVALID_QUERY_TERMINATION = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_QUERY_TERMINATION";
+  
   public static final String INVALID_INPUT_LITERAL_NAME = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_LITERAL_NAME";
   
-  @Check
-  public void checkConnector(final AdditionalQuery additionQuery) {
-  }
+  public static final String INVALID_INPUT_INCOME = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_INCOME";
+  
+  public static final String INVALID_INPUT_VACCINATED = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_VACCINATED";
+  
+  public static final String INVALID_INPUT_GENDER = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_GENDER";
   
   @Check(CheckType.FAST)
   public void isInputString(final InputVal inputVal) {
@@ -47,7 +51,7 @@ public class JsonQValidator extends AbstractJsonQValidator {
           Integer.parseInt(q1ValString);
         } catch (final Throwable _t) {
           if (_t instanceof Exception) {
-            this.error("\"Income\" must have integer value", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL);
+            this.error("\"Income\" must have integer value", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL, JsonQValidator.INVALID_INPUT_INCOME);
           } else {
             throw Exceptions.sneakyThrow(_t);
           }
@@ -61,7 +65,7 @@ public class JsonQValidator extends AbstractJsonQValidator {
         boolean _contains = gender.contains(q1ValString.toLowerCase());
         boolean _not = (!_contains);
         if (_not) {
-          this.error("\"Gender\" must have \"Female\" or \"Male\"", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL);
+          this.error("\"Gender\" must have \"Female\" or \"Male\"", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL, JsonQValidator.INVALID_INPUT_GENDER);
         }
       }
       boolean _equalsIgnoreCase_2 = q1key.equalsIgnoreCase(InputFieldSingle.IS_VACCINATED.getName());
@@ -73,7 +77,7 @@ public class JsonQValidator extends AbstractJsonQValidator {
         boolean _not_1 = (!_contains_1);
         if (_not_1) {
           this.error("\"Vaccinated\" can have \"Yes\" or \"No\" values.", stmt, 
-            JsonQPackage.Literals.STATEMENTS__Q1VAL);
+            JsonQPackage.Literals.STATEMENTS__Q1VAL, JsonQValidator.INVALID_INPUT_VACCINATED);
         }
       }
     } else {
@@ -89,7 +93,7 @@ public class JsonQValidator extends AbstractJsonQValidator {
           } catch (final Throwable _t) {
             if (_t instanceof Exception) {
               this.error("\"Income\" must have integer value", secondQuery, 
-                JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL);
+                JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL, JsonQValidator.INVALID_INPUT_INCOME);
             } else {
               throw Exceptions.sneakyThrow(_t);
             }
@@ -104,7 +108,7 @@ public class JsonQValidator extends AbstractJsonQValidator {
           boolean _not_2 = (!_contains_2);
           if (_not_2) {
             this.error("\"Gender\" must have \"Female\" or \"Male\"", secondQuery, 
-              JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL);
+              JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL, JsonQValidator.INVALID_INPUT_GENDER);
           }
         }
         boolean _equalsIgnoreCase_5 = q2key.equalsIgnoreCase(InputFieldSingle.IS_VACCINATED.getName());
@@ -116,7 +120,7 @@ public class JsonQValidator extends AbstractJsonQValidator {
           boolean _not_3 = (!_contains_3);
           if (_not_3) {
             this.error("\"Vaccinated\" can have \"Yes\" or \"No\" values.", secondQuery, 
-              JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL);
+              JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL, JsonQValidator.INVALID_INPUT_VACCINATED);
           }
         }
       }
