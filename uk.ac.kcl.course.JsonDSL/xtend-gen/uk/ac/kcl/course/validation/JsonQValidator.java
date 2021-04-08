@@ -17,6 +17,7 @@ import uk.ac.kcl.course.jsonQ.InputVal;
 import uk.ac.kcl.course.jsonQ.JsonQPackage;
 import uk.ac.kcl.course.jsonQ.Statements;
 import uk.ac.kcl.course.jsonQ.StringLiteral;
+import uk.ac.kcl.course.typing.validation.JsonDSLTypeSystemValidator;
 
 /**
  * This class contains custom validation rules.
@@ -24,7 +25,7 @@ import uk.ac.kcl.course.jsonQ.StringLiteral;
  * https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")
-public class JsonQValidator extends AbstractJsonQValidator {
+public class JsonQValidator extends JsonDSLTypeSystemValidator {
   public static final String INVALID_CONNECTOR_NAME = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_CONNECTOR_NAME";
   
   public static final String INVALID_QUERY_TERMINATION = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_QUERY_TERMINATION";

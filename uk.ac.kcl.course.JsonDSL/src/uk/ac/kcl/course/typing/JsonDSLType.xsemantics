@@ -1,0 +1,5 @@
+import uk.ac.kcl.course.validation.AbstractJsonQValidator
+
+system uk.ac.kcl.course.typing.JsonDSLTypeSystem
+
+validatorExtends AbstractJsonQValidator

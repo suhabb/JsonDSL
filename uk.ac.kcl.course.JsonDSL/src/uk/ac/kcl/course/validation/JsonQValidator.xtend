@@ -12,13 +12,14 @@ import uk.ac.kcl.course.jsonQ.JsonQPackage
 import uk.ac.kcl.course.jsonQ.Statements
 import uk.ac.kcl.course.jsonQ.StringLiteral
 import java.util.Objects
+import uk.ac.kcl.course.typing.validation.JsonDSLTypeSystemValidator
 
 /** 
  * This class contains custom validation rules.
  * See
  * https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
-class JsonQValidator extends AbstractJsonQValidator {
+class JsonQValidator extends JsonDSLTypeSystemValidator {
 
 	public static final String INVALID_CONNECTOR_NAME = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_CONNECTOR_NAME"
 	public static final String INVALID_QUERY_TERMINATION = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_QUERY_TERMINATION"
