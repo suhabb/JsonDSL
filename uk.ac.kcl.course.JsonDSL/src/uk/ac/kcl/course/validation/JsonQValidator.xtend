@@ -6,18 +6,12 @@ package uk.ac.kcl.course.validation
 import org.eclipse.xtext.validation.Check
 import org.eclipse.xtext.validation.CheckType
 import uk.ac.kcl.course.jsonQ.AdditionalQuery
-import uk.ac.kcl.course.jsonQ.Connector
 import uk.ac.kcl.course.jsonQ.InputFieldSingle
 import uk.ac.kcl.course.jsonQ.InputVal
 import uk.ac.kcl.course.jsonQ.JsonQPackage
 import uk.ac.kcl.course.jsonQ.Statements
 import uk.ac.kcl.course.jsonQ.StringLiteral
-import uk.ac.kcl.course.jsonQ.GetStatements
-import uk.ac.kcl.course.jsonQ.JSONQueryModel
-import java.util.List
-import org.eclipse.xtext.EOF
-import org.eclipse.xtext.EcoreUtil2
-import org.eclipse.emf.ecore.resource.Resource
+import java.util.Objects
 
 /** 
  * This class contains custom validation rules.
@@ -32,18 +26,9 @@ class JsonQValidator extends AbstractJsonQValidator {
 	public static final String INVALID_INPUT_INCOME = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_INCOME"
 	public static final String INVALID_INPUT_VACCINATED = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_VACCINATED"
 	public static final String INVALID_INPUT_GENDER = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_GENDER"
-//	@Check(NORMAL)
-//	def void checkConnector(JSONQueryModel model) {
-//		var statements = model.inputStatement
-//		
-//		if(!(statements.checkStatementTerminationPresent)){
-//			error("Query statement must terminate with \"END\"", model, null,INVALID_QUERY_TERMINATION);
-//		}
-//				
-//	}
-	
+
 	@Check(CheckType.FAST)
-	def void isInputString(InputVal inputVal) {
+	def void checkInputValidData(InputVal inputVal) {
 
 		var queryInstance = inputVal.eContainer
 		if (queryInstance instanceof Statements) {
@@ -57,7 +42,8 @@ class JsonQValidator extends AbstractJsonQValidator {
 					var q1ValString = q1Val.value
 					Integer.parseInt(q1ValString)
 				} catch (Exception e) {
-					error("\"Income\" must have integer value", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL, INVALID_INPUT_INCOME);
+					error("\"Income\" must have integer value", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL,
+						INVALID_INPUT_INCOME);
 				}
 			}
 
@@ -67,7 +53,8 @@ class JsonQValidator extends AbstractJsonQValidator {
 				var q1ValString = q1Val.value
 				val gender = #['female', 'male']
 				if (!gender.contains(q1ValString.toLowerCase)) {
-					error("\"Gender\" must have \"Female\" or \"Male\"", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL, INVALID_INPUT_GENDER)
+					error("\"Gender\" must have \"Female\" or \"Male\"", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL,
+						INVALID_INPUT_GENDER)
 				}
 			}
 
@@ -117,8 +104,32 @@ class JsonQValidator extends AbstractJsonQValidator {
 						JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL, INVALID_INPUT_VACCINATED)
 				}
 			}
+		}
+	}
 
+	@Check(CheckType.FAST)
+	def void checkConnectorValid(InputVal inputVal) {
+		var queryInstance = inputVal.eContainer
+		if (queryInstance instanceof Statements) {
+			var stmt = inputVal.eContainer as Statements;
+			var q1key = stmt.q1key.getName
+			var q1Val = inputVal as StringLiteral
+			var q1ValString = q1Val.value
+			if (Objects.isNull(q1ValString)) {
+				error(q1key + " value is missing", stmt, JsonQPackage.Literals.STATEMENTS__Q1KEY);
+			}
+		} else if (queryInstance instanceof AdditionalQuery) {
+			var secondQuery = queryInstance as AdditionalQuery
+			var q2key = secondQuery.q2key.getName
+
+			var q2Val = inputVal as StringLiteral
+			var q2ValString = q2Val.value
+			if (Objects.isNull(q2ValString)) {
+				error(q2key + " value is missing", secondQuery, JsonQPackage.Literals.ADDITIONAL_QUERY__Q2KEY);
+			}
 		}
 	}
 
 }
+
+

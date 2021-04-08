@@ -5,6 +5,7 @@ package uk.ac.kcl.course.validation;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
@@ -37,7 +38,7 @@ public class JsonQValidator extends AbstractJsonQValidator {
   public static final String INVALID_INPUT_GENDER = "uk.ac.kcl.course.jsonQ.JsonQPackage.INVALID_INPUT_GENDER";
   
   @Check(CheckType.FAST)
-  public void isInputString(final InputVal inputVal) {
+  public void checkInputValidData(final InputVal inputVal) {
     EObject queryInstance = inputVal.eContainer();
     if ((queryInstance instanceof Statements)) {
       EObject _eContainer = inputVal.eContainer();
@@ -51,7 +52,8 @@ public class JsonQValidator extends AbstractJsonQValidator {
           Integer.parseInt(q1ValString);
         } catch (final Throwable _t) {
           if (_t instanceof Exception) {
-            this.error("\"Income\" must have integer value", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL, JsonQValidator.INVALID_INPUT_INCOME);
+            this.error("\"Income\" must have integer value", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL, 
+              JsonQValidator.INVALID_INPUT_INCOME);
           } else {
             throw Exceptions.sneakyThrow(_t);
           }
@@ -65,7 +67,8 @@ public class JsonQValidator extends AbstractJsonQValidator {
         boolean _contains = gender.contains(q1ValString.toLowerCase());
         boolean _not = (!_contains);
         if (_not) {
-          this.error("\"Gender\" must have \"Female\" or \"Male\"", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL, JsonQValidator.INVALID_INPUT_GENDER);
+          this.error("\"Gender\" must have \"Female\" or \"Male\"", stmt, JsonQPackage.Literals.STATEMENTS__Q1VAL, 
+            JsonQValidator.INVALID_INPUT_GENDER);
         }
       }
       boolean _equalsIgnoreCase_2 = q1key.equalsIgnoreCase(InputFieldSingle.IS_VACCINATED.getName());
@@ -122,6 +125,33 @@ public class JsonQValidator extends AbstractJsonQValidator {
             this.error("\"Vaccinated\" can have \"Yes\" or \"No\" values.", secondQuery, 
               JsonQPackage.Literals.ADDITIONAL_QUERY__Q2VAL, JsonQValidator.INVALID_INPUT_VACCINATED);
           }
+        }
+      }
+    }
+  }
+  
+  @Check(CheckType.FAST)
+  public void checkConnectorValid(final InputVal inputVal) {
+    EObject queryInstance = inputVal.eContainer();
+    if ((queryInstance instanceof Statements)) {
+      EObject _eContainer = inputVal.eContainer();
+      Statements stmt = ((Statements) _eContainer);
+      String q1key = stmt.getQ1key().getName();
+      StringLiteral q1Val = ((StringLiteral) inputVal);
+      String q1ValString = q1Val.getValue();
+      boolean _isNull = Objects.isNull(q1ValString);
+      if (_isNull) {
+        this.error((q1key + " value is missing"), stmt, JsonQPackage.Literals.STATEMENTS__Q1KEY);
+      }
+    } else {
+      if ((queryInstance instanceof AdditionalQuery)) {
+        AdditionalQuery secondQuery = ((AdditionalQuery) queryInstance);
+        String q2key = secondQuery.getQ2key().getName();
+        StringLiteral q2Val = ((StringLiteral) inputVal);
+        String q2ValString = q2Val.getValue();
+        boolean _isNull_1 = Objects.isNull(q2ValString);
+        if (_isNull_1) {
+          this.error((q2key + " value is missing"), secondQuery, JsonQPackage.Literals.ADDITIONAL_QUERY__Q2KEY);
         }
       }
     }

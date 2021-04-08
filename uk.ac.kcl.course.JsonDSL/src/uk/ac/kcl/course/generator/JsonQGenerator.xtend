@@ -40,13 +40,15 @@ class JsonQGenerator extends AbstractGenerator {
 	}
 
 	def String doGenerateClass(JSONQueryModel model) '''
+		
 		import java.util.Arrays;
 		import java.util.List;
-		
-		import uk.ac.kcl.course.json_lib.JSONQueryProgram;
+		import java.util.Map;
+		import org.json.JSONObject;
+
 		import uk.ac.kcl.course.json_lib.dto.JSONQuery;
 		import uk.ac.kcl.course.json_lib.dto.JSONQueryBuilder;
-		
+		import uk.ac.kcl.course.json_lib.service.JSONQueryProcess;
 		
 		
 		public class JSONQueryMain {
@@ -55,8 +57,9 @@ class JsonQGenerator extends AbstractGenerator {
 					
 					«model.inputStatement.map[generateJQ].join('\n')»
 					List<JSONQuery> jsonList = Arrays.asList(«convertListToString»);
-					JSONQueryProgram jsonProgram = new JSONQueryProgram(jsonList);
-					System.out.println("JSOn:"+jsonProgram.toString());
+					JSONQueryProcess jsonProcess = new JSONQueryProcess(jsonList);
+					Map<Integer,JSONObject> map = jsonProcess.processJSONQuery();
+					System.out.println("Json:"+map.toString());
 				}
 		}
 	'''
@@ -113,27 +116,5 @@ class JsonQGenerator extends AbstractGenerator {
 		jsonList.add(jsonCount)
 		result;		
 	}
-	
-//	def generateJQ(Statements st) {
-//		var jsonCount="json" + counter
-//	 
-//		var result = '''
-//
-//				  JSONQuery «jsonCount»= new JSONQueryBuilder()
-//				        	.setOperationValue("«st.operation.literal»")
-//				        	.setFirstQueryKey("«st.q1key.getName»")
-//				        	«val q1Value = st.q1val as StringLiteral»
-//				        	.setFirstQueryValue("«q1Value.value»")
-//				        	.setConnectorValue("«st.connector.get(0)»")
-//				        	.setSecondQueryKey("«st.q2key.getName»")
-//				        	«val q2Value = st.q2val as StringLiteral»
-//				        	.setSecondQueryValue("«q2Value.value»")
-//				        	.build();
-//				        	
-//		'''
-//		counter++;
-//		jsonList.add(jsonCount)
-//		result;
-//	}
 
 }
