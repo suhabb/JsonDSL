@@ -32,7 +32,11 @@ enum Connector:
 ;
 
 InputVal:
-	StringLiteral
+	StringLiteral | IntLiteral
+;
+
+IntLiteral:
+	value = INT
 ;
 
 StringLiteral:

@@ -32,6 +32,7 @@ public class JsonQParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, JsonQGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getStatementsAccess().getAlternatives(), "rule__Statements__Alternatives");
+			builder.put(grammarAccess.getInputValAccess().getAlternatives(), "rule__InputVal__Alternatives");
 			builder.put(grammarAccess.getConnectorAccess().getAlternatives(), "rule__Connector__Alternatives");
 			builder.put(grammarAccess.getOperationGETAccess().getAlternatives(), "rule__OperationGET__Alternatives");
 			builder.put(grammarAccess.getInputFieldSingleAccess().getAlternatives(), "rule__InputFieldSingle__Alternatives");
@@ -51,6 +52,7 @@ public class JsonQParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAdditionalQueryAccess().getConnectorAssignment_0(), "rule__AdditionalQuery__ConnectorAssignment_0");
 			builder.put(grammarAccess.getAdditionalQueryAccess().getQ2keyAssignment_1(), "rule__AdditionalQuery__Q2keyAssignment_1");
 			builder.put(grammarAccess.getAdditionalQueryAccess().getQ2valAssignment_2(), "rule__AdditionalQuery__Q2valAssignment_2");
+			builder.put(grammarAccess.getIntLiteralAccess().getValueAssignment(), "rule__IntLiteral__ValueAssignment");
 			builder.put(grammarAccess.getStringLiteralAccess().getValueAssignment(), "rule__StringLiteral__ValueAssignment");
 		}
 	}

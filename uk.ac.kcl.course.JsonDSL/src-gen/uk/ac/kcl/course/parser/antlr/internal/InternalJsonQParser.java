@@ -22,9 +22,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJsonQParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'GET'", "'WHERE'", "'END'", "'AND'", "'OR'", "'AVG'", "'DATA'", "'COUNT'", "'firstName'", "'lastName'", "'gender'", "'countryCode'", "'cityName'", "'isVaccinated'", "'income'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'GET'", "'WHERE'", "'END'", "'AND'", "'OR'", "'AVG'", "'DATA'", "'COUNT'", "'firstName'", "'lastName'", "'gender'", "'countryCode'", "'cityName'", "'isVaccinated'", "'income'"
     };
-    public static final int RULE_STRING=4;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__19=19;
     public static final int T__15=15;
@@ -36,10 +36,10 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int RULE_ID=5;
+    public static final int RULE_ID=6;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
-    public static final int RULE_INT=6;
+    public static final int RULE_INT=4;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -266,11 +266,11 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
             if ( (LA2_0==11) ) {
                 int LA2_1 = input.LA(2);
 
-                if ( ((LA2_1>=17 && LA2_1<=18)) ) {
-                    alt2=1;
-                }
-                else if ( (LA2_1==16) ) {
+                if ( (LA2_1==16) ) {
                     alt2=2;
+                }
+                else if ( ((LA2_1>=17 && LA2_1<=18)) ) {
+                    alt2=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -1051,32 +1051,78 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInputVal"
-    // InternalJsonQ.g:453:1: ruleInputVal returns [EObject current=null] : this_StringLiteral_0= ruleStringLiteral ;
+    // InternalJsonQ.g:453:1: ruleInputVal returns [EObject current=null] : (this_StringLiteral_0= ruleStringLiteral | this_IntLiteral_1= ruleIntLiteral ) ;
     public final EObject ruleInputVal() throws RecognitionException {
         EObject current = null;
 
         EObject this_StringLiteral_0 = null;
+
+        EObject this_IntLiteral_1 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalJsonQ.g:459:2: (this_StringLiteral_0= ruleStringLiteral )
-            // InternalJsonQ.g:460:2: this_StringLiteral_0= ruleStringLiteral
+            // InternalJsonQ.g:459:2: ( (this_StringLiteral_0= ruleStringLiteral | this_IntLiteral_1= ruleIntLiteral ) )
+            // InternalJsonQ.g:460:2: (this_StringLiteral_0= ruleStringLiteral | this_IntLiteral_1= ruleIntLiteral )
             {
+            // InternalJsonQ.g:460:2: (this_StringLiteral_0= ruleStringLiteral | this_IntLiteral_1= ruleIntLiteral )
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            		newCompositeNode(grammarAccess.getInputValAccess().getStringLiteralParserRuleCall());
-            	
-            pushFollow(FOLLOW_2);
-            this_StringLiteral_0=ruleStringLiteral();
+            if ( (LA5_0==RULE_STRING) ) {
+                alt5=1;
+            }
+            else if ( (LA5_0==RULE_INT) ) {
+                alt5=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 5, 0, input);
 
-            state._fsp--;
+                throw nvae;
+            }
+            switch (alt5) {
+                case 1 :
+                    // InternalJsonQ.g:461:3: this_StringLiteral_0= ruleStringLiteral
+                    {
+
+                    			newCompositeNode(grammarAccess.getInputValAccess().getStringLiteralParserRuleCall_0());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_StringLiteral_0=ruleStringLiteral();
+
+                    state._fsp--;
 
 
-            		current = this_StringLiteral_0;
-            		afterParserOrEnumRuleCall();
-            	
+                    			current = this_StringLiteral_0;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalJsonQ.g:470:3: this_IntLiteral_1= ruleIntLiteral
+                    {
+
+                    			newCompositeNode(grammarAccess.getInputValAccess().getIntLiteralParserRuleCall_1());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_IntLiteral_1=ruleIntLiteral();
+
+                    state._fsp--;
+
+
+                    			current = this_IntLiteral_1;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+
+            }
+
 
             }
 
@@ -1096,8 +1142,103 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleInputVal"
 
 
+    // $ANTLR start "entryRuleIntLiteral"
+    // InternalJsonQ.g:482:1: entryRuleIntLiteral returns [EObject current=null] : iv_ruleIntLiteral= ruleIntLiteral EOF ;
+    public final EObject entryRuleIntLiteral() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleIntLiteral = null;
+
+
+        try {
+            // InternalJsonQ.g:482:51: (iv_ruleIntLiteral= ruleIntLiteral EOF )
+            // InternalJsonQ.g:483:2: iv_ruleIntLiteral= ruleIntLiteral EOF
+            {
+             newCompositeNode(grammarAccess.getIntLiteralRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleIntLiteral=ruleIntLiteral();
+
+            state._fsp--;
+
+             current =iv_ruleIntLiteral; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleIntLiteral"
+
+
+    // $ANTLR start "ruleIntLiteral"
+    // InternalJsonQ.g:489:1: ruleIntLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
+    public final EObject ruleIntLiteral() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_value_0_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalJsonQ.g:495:2: ( ( (lv_value_0_0= RULE_INT ) ) )
+            // InternalJsonQ.g:496:2: ( (lv_value_0_0= RULE_INT ) )
+            {
+            // InternalJsonQ.g:496:2: ( (lv_value_0_0= RULE_INT ) )
+            // InternalJsonQ.g:497:3: (lv_value_0_0= RULE_INT )
+            {
+            // InternalJsonQ.g:497:3: (lv_value_0_0= RULE_INT )
+            // InternalJsonQ.g:498:4: lv_value_0_0= RULE_INT
+            {
+            lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+            				newLeafNode(lv_value_0_0, grammarAccess.getIntLiteralAccess().getValueINTTerminalRuleCall_0());
+            			
+
+            				if (current==null) {
+            					current = createModelElement(grammarAccess.getIntLiteralRule());
+            				}
+            				setWithLastConsumed(
+            					current,
+            					"value",
+            					lv_value_0_0,
+            					"org.eclipse.xtext.common.Terminals.INT");
+            			
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleIntLiteral"
+
+
     // $ANTLR start "entryRuleStringLiteral"
-    // InternalJsonQ.g:471:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
+    // InternalJsonQ.g:517:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
     public final EObject entryRuleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -1105,8 +1246,8 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonQ.g:471:54: (iv_ruleStringLiteral= ruleStringLiteral EOF )
-            // InternalJsonQ.g:472:2: iv_ruleStringLiteral= ruleStringLiteral EOF
+            // InternalJsonQ.g:517:54: (iv_ruleStringLiteral= ruleStringLiteral EOF )
+            // InternalJsonQ.g:518:2: iv_ruleStringLiteral= ruleStringLiteral EOF
             {
              newCompositeNode(grammarAccess.getStringLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -1133,7 +1274,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringLiteral"
-    // InternalJsonQ.g:478:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
+    // InternalJsonQ.g:524:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
     public final EObject ruleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -1143,14 +1284,14 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonQ.g:484:2: ( ( (lv_value_0_0= RULE_STRING ) ) )
-            // InternalJsonQ.g:485:2: ( (lv_value_0_0= RULE_STRING ) )
+            // InternalJsonQ.g:530:2: ( ( (lv_value_0_0= RULE_STRING ) ) )
+            // InternalJsonQ.g:531:2: ( (lv_value_0_0= RULE_STRING ) )
             {
-            // InternalJsonQ.g:485:2: ( (lv_value_0_0= RULE_STRING ) )
-            // InternalJsonQ.g:486:3: (lv_value_0_0= RULE_STRING )
+            // InternalJsonQ.g:531:2: ( (lv_value_0_0= RULE_STRING ) )
+            // InternalJsonQ.g:532:3: (lv_value_0_0= RULE_STRING )
             {
-            // InternalJsonQ.g:486:3: (lv_value_0_0= RULE_STRING )
-            // InternalJsonQ.g:487:4: lv_value_0_0= RULE_STRING
+            // InternalJsonQ.g:532:3: (lv_value_0_0= RULE_STRING )
+            // InternalJsonQ.g:533:4: lv_value_0_0= RULE_STRING
             {
             lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -1192,7 +1333,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConnector"
-    // InternalJsonQ.g:506:1: ruleConnector returns [Enumerator current=null] : ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'OR' ) ) ;
+    // InternalJsonQ.g:552:1: ruleConnector returns [Enumerator current=null] : ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'OR' ) ) ;
     public final Enumerator ruleConnector() throws RecognitionException {
         Enumerator current = null;
 
@@ -1203,31 +1344,31 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonQ.g:512:2: ( ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'OR' ) ) )
-            // InternalJsonQ.g:513:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'OR' ) )
+            // InternalJsonQ.g:558:2: ( ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'OR' ) ) )
+            // InternalJsonQ.g:559:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'OR' ) )
             {
-            // InternalJsonQ.g:513:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'OR' ) )
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalJsonQ.g:559:2: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'OR' ) )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0==14) ) {
-                alt5=1;
+            if ( (LA6_0==14) ) {
+                alt6=1;
             }
-            else if ( (LA5_0==15) ) {
-                alt5=2;
+            else if ( (LA6_0==15) ) {
+                alt6=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // InternalJsonQ.g:514:3: (enumLiteral_0= 'AND' )
+                    // InternalJsonQ.g:560:3: (enumLiteral_0= 'AND' )
                     {
-                    // InternalJsonQ.g:514:3: (enumLiteral_0= 'AND' )
-                    // InternalJsonQ.g:515:4: enumLiteral_0= 'AND'
+                    // InternalJsonQ.g:560:3: (enumLiteral_0= 'AND' )
+                    // InternalJsonQ.g:561:4: enumLiteral_0= 'AND'
                     {
                     enumLiteral_0=(Token)match(input,14,FOLLOW_2); 
 
@@ -1241,10 +1382,10 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonQ.g:522:3: (enumLiteral_1= 'OR' )
+                    // InternalJsonQ.g:568:3: (enumLiteral_1= 'OR' )
                     {
-                    // InternalJsonQ.g:522:3: (enumLiteral_1= 'OR' )
-                    // InternalJsonQ.g:523:4: enumLiteral_1= 'OR'
+                    // InternalJsonQ.g:568:3: (enumLiteral_1= 'OR' )
+                    // InternalJsonQ.g:569:4: enumLiteral_1= 'OR'
                     {
                     enumLiteral_1=(Token)match(input,15,FOLLOW_2); 
 
@@ -1280,7 +1421,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOperationAgg"
-    // InternalJsonQ.g:533:1: ruleOperationAgg returns [Enumerator current=null] : (enumLiteral_0= 'AVG' ) ;
+    // InternalJsonQ.g:579:1: ruleOperationAgg returns [Enumerator current=null] : (enumLiteral_0= 'AVG' ) ;
     public final Enumerator ruleOperationAgg() throws RecognitionException {
         Enumerator current = null;
 
@@ -1290,11 +1431,11 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonQ.g:539:2: ( (enumLiteral_0= 'AVG' ) )
-            // InternalJsonQ.g:540:2: (enumLiteral_0= 'AVG' )
+            // InternalJsonQ.g:585:2: ( (enumLiteral_0= 'AVG' ) )
+            // InternalJsonQ.g:586:2: (enumLiteral_0= 'AVG' )
             {
-            // InternalJsonQ.g:540:2: (enumLiteral_0= 'AVG' )
-            // InternalJsonQ.g:541:3: enumLiteral_0= 'AVG'
+            // InternalJsonQ.g:586:2: (enumLiteral_0= 'AVG' )
+            // InternalJsonQ.g:587:3: enumLiteral_0= 'AVG'
             {
             enumLiteral_0=(Token)match(input,16,FOLLOW_2); 
 
@@ -1324,7 +1465,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOperationGET"
-    // InternalJsonQ.g:550:1: ruleOperationGET returns [Enumerator current=null] : ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) ) ;
+    // InternalJsonQ.g:596:1: ruleOperationGET returns [Enumerator current=null] : ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) ) ;
     public final Enumerator ruleOperationGET() throws RecognitionException {
         Enumerator current = null;
 
@@ -1335,31 +1476,31 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonQ.g:556:2: ( ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) ) )
-            // InternalJsonQ.g:557:2: ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) )
+            // InternalJsonQ.g:602:2: ( ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) ) )
+            // InternalJsonQ.g:603:2: ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) )
             {
-            // InternalJsonQ.g:557:2: ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) )
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalJsonQ.g:603:2: ( (enumLiteral_0= 'DATA' ) | (enumLiteral_1= 'COUNT' ) )
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0==17) ) {
-                alt6=1;
+            if ( (LA7_0==17) ) {
+                alt7=1;
             }
-            else if ( (LA6_0==18) ) {
-                alt6=2;
+            else if ( (LA7_0==18) ) {
+                alt7=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalJsonQ.g:558:3: (enumLiteral_0= 'DATA' )
+                    // InternalJsonQ.g:604:3: (enumLiteral_0= 'DATA' )
                     {
-                    // InternalJsonQ.g:558:3: (enumLiteral_0= 'DATA' )
-                    // InternalJsonQ.g:559:4: enumLiteral_0= 'DATA'
+                    // InternalJsonQ.g:604:3: (enumLiteral_0= 'DATA' )
+                    // InternalJsonQ.g:605:4: enumLiteral_0= 'DATA'
                     {
                     enumLiteral_0=(Token)match(input,17,FOLLOW_2); 
 
@@ -1373,10 +1514,10 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonQ.g:566:3: (enumLiteral_1= 'COUNT' )
+                    // InternalJsonQ.g:612:3: (enumLiteral_1= 'COUNT' )
                     {
-                    // InternalJsonQ.g:566:3: (enumLiteral_1= 'COUNT' )
-                    // InternalJsonQ.g:567:4: enumLiteral_1= 'COUNT'
+                    // InternalJsonQ.g:612:3: (enumLiteral_1= 'COUNT' )
+                    // InternalJsonQ.g:613:4: enumLiteral_1= 'COUNT'
                     {
                     enumLiteral_1=(Token)match(input,18,FOLLOW_2); 
 
@@ -1412,7 +1553,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInputFieldSingle"
-    // InternalJsonQ.g:577:1: ruleInputFieldSingle returns [Enumerator current=null] : ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) ) ;
+    // InternalJsonQ.g:623:1: ruleInputFieldSingle returns [Enumerator current=null] : ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) ) ;
     public final Enumerator ruleInputFieldSingle() throws RecognitionException {
         Enumerator current = null;
 
@@ -1428,60 +1569,60 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonQ.g:583:2: ( ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) ) )
-            // InternalJsonQ.g:584:2: ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) )
+            // InternalJsonQ.g:629:2: ( ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) ) )
+            // InternalJsonQ.g:630:2: ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) )
             {
-            // InternalJsonQ.g:584:2: ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) )
-            int alt7=7;
+            // InternalJsonQ.g:630:2: ( (enumLiteral_0= 'firstName' ) | (enumLiteral_1= 'lastName' ) | (enumLiteral_2= 'gender' ) | (enumLiteral_3= 'countryCode' ) | (enumLiteral_4= 'cityName' ) | (enumLiteral_5= 'isVaccinated' ) | (enumLiteral_6= 'income' ) )
+            int alt8=7;
             switch ( input.LA(1) ) {
             case 19:
                 {
-                alt7=1;
+                alt8=1;
                 }
                 break;
             case 20:
                 {
-                alt7=2;
+                alt8=2;
                 }
                 break;
             case 21:
                 {
-                alt7=3;
+                alt8=3;
                 }
                 break;
             case 22:
                 {
-                alt7=4;
+                alt8=4;
                 }
                 break;
             case 23:
                 {
-                alt7=5;
+                alt8=5;
                 }
                 break;
             case 24:
                 {
-                alt7=6;
+                alt8=6;
                 }
                 break;
             case 25:
                 {
-                alt7=7;
+                alt8=7;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalJsonQ.g:585:3: (enumLiteral_0= 'firstName' )
+                    // InternalJsonQ.g:631:3: (enumLiteral_0= 'firstName' )
                     {
-                    // InternalJsonQ.g:585:3: (enumLiteral_0= 'firstName' )
-                    // InternalJsonQ.g:586:4: enumLiteral_0= 'firstName'
+                    // InternalJsonQ.g:631:3: (enumLiteral_0= 'firstName' )
+                    // InternalJsonQ.g:632:4: enumLiteral_0= 'firstName'
                     {
                     enumLiteral_0=(Token)match(input,19,FOLLOW_2); 
 
@@ -1495,10 +1636,10 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonQ.g:593:3: (enumLiteral_1= 'lastName' )
+                    // InternalJsonQ.g:639:3: (enumLiteral_1= 'lastName' )
                     {
-                    // InternalJsonQ.g:593:3: (enumLiteral_1= 'lastName' )
-                    // InternalJsonQ.g:594:4: enumLiteral_1= 'lastName'
+                    // InternalJsonQ.g:639:3: (enumLiteral_1= 'lastName' )
+                    // InternalJsonQ.g:640:4: enumLiteral_1= 'lastName'
                     {
                     enumLiteral_1=(Token)match(input,20,FOLLOW_2); 
 
@@ -1512,10 +1653,10 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJsonQ.g:601:3: (enumLiteral_2= 'gender' )
+                    // InternalJsonQ.g:647:3: (enumLiteral_2= 'gender' )
                     {
-                    // InternalJsonQ.g:601:3: (enumLiteral_2= 'gender' )
-                    // InternalJsonQ.g:602:4: enumLiteral_2= 'gender'
+                    // InternalJsonQ.g:647:3: (enumLiteral_2= 'gender' )
+                    // InternalJsonQ.g:648:4: enumLiteral_2= 'gender'
                     {
                     enumLiteral_2=(Token)match(input,21,FOLLOW_2); 
 
@@ -1529,10 +1670,10 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalJsonQ.g:609:3: (enumLiteral_3= 'countryCode' )
+                    // InternalJsonQ.g:655:3: (enumLiteral_3= 'countryCode' )
                     {
-                    // InternalJsonQ.g:609:3: (enumLiteral_3= 'countryCode' )
-                    // InternalJsonQ.g:610:4: enumLiteral_3= 'countryCode'
+                    // InternalJsonQ.g:655:3: (enumLiteral_3= 'countryCode' )
+                    // InternalJsonQ.g:656:4: enumLiteral_3= 'countryCode'
                     {
                     enumLiteral_3=(Token)match(input,22,FOLLOW_2); 
 
@@ -1546,10 +1687,10 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalJsonQ.g:617:3: (enumLiteral_4= 'cityName' )
+                    // InternalJsonQ.g:663:3: (enumLiteral_4= 'cityName' )
                     {
-                    // InternalJsonQ.g:617:3: (enumLiteral_4= 'cityName' )
-                    // InternalJsonQ.g:618:4: enumLiteral_4= 'cityName'
+                    // InternalJsonQ.g:663:3: (enumLiteral_4= 'cityName' )
+                    // InternalJsonQ.g:664:4: enumLiteral_4= 'cityName'
                     {
                     enumLiteral_4=(Token)match(input,23,FOLLOW_2); 
 
@@ -1563,10 +1704,10 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalJsonQ.g:625:3: (enumLiteral_5= 'isVaccinated' )
+                    // InternalJsonQ.g:671:3: (enumLiteral_5= 'isVaccinated' )
                     {
-                    // InternalJsonQ.g:625:3: (enumLiteral_5= 'isVaccinated' )
-                    // InternalJsonQ.g:626:4: enumLiteral_5= 'isVaccinated'
+                    // InternalJsonQ.g:671:3: (enumLiteral_5= 'isVaccinated' )
+                    // InternalJsonQ.g:672:4: enumLiteral_5= 'isVaccinated'
                     {
                     enumLiteral_5=(Token)match(input,24,FOLLOW_2); 
 
@@ -1580,10 +1721,10 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalJsonQ.g:633:3: (enumLiteral_6= 'income' )
+                    // InternalJsonQ.g:679:3: (enumLiteral_6= 'income' )
                     {
-                    // InternalJsonQ.g:633:3: (enumLiteral_6= 'income' )
-                    // InternalJsonQ.g:634:4: enumLiteral_6= 'income'
+                    // InternalJsonQ.g:679:3: (enumLiteral_6= 'income' )
+                    // InternalJsonQ.g:680:4: enumLiteral_6= 'income'
                     {
                     enumLiteral_6=(Token)match(input,25,FOLLOW_2); 
 
@@ -1628,7 +1769,7 @@ public class InternalJsonQParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000003F80000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000000000000E000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000060000L});

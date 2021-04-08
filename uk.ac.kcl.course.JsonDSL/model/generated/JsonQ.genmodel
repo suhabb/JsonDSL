@@ -47,6 +47,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference JsonQ.ecore#//AdditionalQuery/q2val"/>
     </genClasses>
     <genClasses ecoreClass="JsonQ.ecore#//InputVal"/>
+    <genClasses ecoreClass="JsonQ.ecore#//IntLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//IntLiteral/value"/>
+    </genClasses>
     <genClasses ecoreClass="JsonQ.ecore#//StringLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute JsonQ.ecore#//StringLiteral/value"/>
     </genClasses>

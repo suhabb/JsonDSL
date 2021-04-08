@@ -22,9 +22,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJsonQParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'AVG'", "'AND'", "'OR'", "'DATA'", "'COUNT'", "'firstName'", "'lastName'", "'gender'", "'countryCode'", "'cityName'", "'isVaccinated'", "'income'", "'GET'", "'WHERE'", "'END'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'AVG'", "'AND'", "'OR'", "'DATA'", "'COUNT'", "'firstName'", "'lastName'", "'gender'", "'countryCode'", "'cityName'", "'isVaccinated'", "'income'", "'GET'", "'WHERE'", "'END'"
     };
-    public static final int RULE_STRING=4;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__19=19;
     public static final int T__15=15;
@@ -36,10 +36,10 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int RULE_ID=5;
+    public static final int RULE_ID=6;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
-    public static final int RULE_INT=6;
+    public static final int RULE_INT=4;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -517,25 +517,31 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleInputVal"
-    // InternalJsonQ.g:187:1: ruleInputVal : ( ruleStringLiteral ) ;
+    // InternalJsonQ.g:187:1: ruleInputVal : ( ( rule__InputVal__Alternatives ) ) ;
     public final void ruleInputVal() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:191:2: ( ( ruleStringLiteral ) )
-            // InternalJsonQ.g:192:2: ( ruleStringLiteral )
+            // InternalJsonQ.g:191:2: ( ( ( rule__InputVal__Alternatives ) ) )
+            // InternalJsonQ.g:192:2: ( ( rule__InputVal__Alternatives ) )
             {
-            // InternalJsonQ.g:192:2: ( ruleStringLiteral )
-            // InternalJsonQ.g:193:3: ruleStringLiteral
+            // InternalJsonQ.g:192:2: ( ( rule__InputVal__Alternatives ) )
+            // InternalJsonQ.g:193:3: ( rule__InputVal__Alternatives )
             {
-             before(grammarAccess.getInputValAccess().getStringLiteralParserRuleCall()); 
+             before(grammarAccess.getInputValAccess().getAlternatives()); 
+            // InternalJsonQ.g:194:3: ( rule__InputVal__Alternatives )
+            // InternalJsonQ.g:194:4: rule__InputVal__Alternatives
+            {
             pushFollow(FOLLOW_2);
-            ruleStringLiteral();
+            rule__InputVal__Alternatives();
 
             state._fsp--;
 
-             after(grammarAccess.getInputValAccess().getStringLiteralParserRuleCall()); 
+
+            }
+
+             after(grammarAccess.getInputValAccess().getAlternatives()); 
 
             }
 
@@ -557,12 +563,89 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleInputVal"
 
 
+    // $ANTLR start "entryRuleIntLiteral"
+    // InternalJsonQ.g:203:1: entryRuleIntLiteral : ruleIntLiteral EOF ;
+    public final void entryRuleIntLiteral() throws RecognitionException {
+        try {
+            // InternalJsonQ.g:204:1: ( ruleIntLiteral EOF )
+            // InternalJsonQ.g:205:1: ruleIntLiteral EOF
+            {
+             before(grammarAccess.getIntLiteralRule()); 
+            pushFollow(FOLLOW_1);
+            ruleIntLiteral();
+
+            state._fsp--;
+
+             after(grammarAccess.getIntLiteralRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleIntLiteral"
+
+
+    // $ANTLR start "ruleIntLiteral"
+    // InternalJsonQ.g:212:1: ruleIntLiteral : ( ( rule__IntLiteral__ValueAssignment ) ) ;
+    public final void ruleIntLiteral() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalJsonQ.g:216:2: ( ( ( rule__IntLiteral__ValueAssignment ) ) )
+            // InternalJsonQ.g:217:2: ( ( rule__IntLiteral__ValueAssignment ) )
+            {
+            // InternalJsonQ.g:217:2: ( ( rule__IntLiteral__ValueAssignment ) )
+            // InternalJsonQ.g:218:3: ( rule__IntLiteral__ValueAssignment )
+            {
+             before(grammarAccess.getIntLiteralAccess().getValueAssignment()); 
+            // InternalJsonQ.g:219:3: ( rule__IntLiteral__ValueAssignment )
+            // InternalJsonQ.g:219:4: rule__IntLiteral__ValueAssignment
+            {
+            pushFollow(FOLLOW_2);
+            rule__IntLiteral__ValueAssignment();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getIntLiteralAccess().getValueAssignment()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleIntLiteral"
+
+
     // $ANTLR start "entryRuleStringLiteral"
-    // InternalJsonQ.g:203:1: entryRuleStringLiteral : ruleStringLiteral EOF ;
+    // InternalJsonQ.g:228:1: entryRuleStringLiteral : ruleStringLiteral EOF ;
     public final void entryRuleStringLiteral() throws RecognitionException {
         try {
-            // InternalJsonQ.g:204:1: ( ruleStringLiteral EOF )
-            // InternalJsonQ.g:205:1: ruleStringLiteral EOF
+            // InternalJsonQ.g:229:1: ( ruleStringLiteral EOF )
+            // InternalJsonQ.g:230:1: ruleStringLiteral EOF
             {
              before(grammarAccess.getStringLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -588,21 +671,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleStringLiteral"
-    // InternalJsonQ.g:212:1: ruleStringLiteral : ( ( rule__StringLiteral__ValueAssignment ) ) ;
+    // InternalJsonQ.g:237:1: ruleStringLiteral : ( ( rule__StringLiteral__ValueAssignment ) ) ;
     public final void ruleStringLiteral() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:216:2: ( ( ( rule__StringLiteral__ValueAssignment ) ) )
-            // InternalJsonQ.g:217:2: ( ( rule__StringLiteral__ValueAssignment ) )
+            // InternalJsonQ.g:241:2: ( ( ( rule__StringLiteral__ValueAssignment ) ) )
+            // InternalJsonQ.g:242:2: ( ( rule__StringLiteral__ValueAssignment ) )
             {
-            // InternalJsonQ.g:217:2: ( ( rule__StringLiteral__ValueAssignment ) )
-            // InternalJsonQ.g:218:3: ( rule__StringLiteral__ValueAssignment )
+            // InternalJsonQ.g:242:2: ( ( rule__StringLiteral__ValueAssignment ) )
+            // InternalJsonQ.g:243:3: ( rule__StringLiteral__ValueAssignment )
             {
              before(grammarAccess.getStringLiteralAccess().getValueAssignment()); 
-            // InternalJsonQ.g:219:3: ( rule__StringLiteral__ValueAssignment )
-            // InternalJsonQ.g:219:4: rule__StringLiteral__ValueAssignment
+            // InternalJsonQ.g:244:3: ( rule__StringLiteral__ValueAssignment )
+            // InternalJsonQ.g:244:4: rule__StringLiteral__ValueAssignment
             {
             pushFollow(FOLLOW_2);
             rule__StringLiteral__ValueAssignment();
@@ -635,21 +718,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleConnector"
-    // InternalJsonQ.g:228:1: ruleConnector : ( ( rule__Connector__Alternatives ) ) ;
+    // InternalJsonQ.g:253:1: ruleConnector : ( ( rule__Connector__Alternatives ) ) ;
     public final void ruleConnector() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:232:1: ( ( ( rule__Connector__Alternatives ) ) )
-            // InternalJsonQ.g:233:2: ( ( rule__Connector__Alternatives ) )
+            // InternalJsonQ.g:257:1: ( ( ( rule__Connector__Alternatives ) ) )
+            // InternalJsonQ.g:258:2: ( ( rule__Connector__Alternatives ) )
             {
-            // InternalJsonQ.g:233:2: ( ( rule__Connector__Alternatives ) )
-            // InternalJsonQ.g:234:3: ( rule__Connector__Alternatives )
+            // InternalJsonQ.g:258:2: ( ( rule__Connector__Alternatives ) )
+            // InternalJsonQ.g:259:3: ( rule__Connector__Alternatives )
             {
              before(grammarAccess.getConnectorAccess().getAlternatives()); 
-            // InternalJsonQ.g:235:3: ( rule__Connector__Alternatives )
-            // InternalJsonQ.g:235:4: rule__Connector__Alternatives
+            // InternalJsonQ.g:260:3: ( rule__Connector__Alternatives )
+            // InternalJsonQ.g:260:4: rule__Connector__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__Connector__Alternatives();
@@ -682,21 +765,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleOperationAgg"
-    // InternalJsonQ.g:244:1: ruleOperationAgg : ( ( 'AVG' ) ) ;
+    // InternalJsonQ.g:269:1: ruleOperationAgg : ( ( 'AVG' ) ) ;
     public final void ruleOperationAgg() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:248:1: ( ( ( 'AVG' ) ) )
-            // InternalJsonQ.g:249:2: ( ( 'AVG' ) )
+            // InternalJsonQ.g:273:1: ( ( ( 'AVG' ) ) )
+            // InternalJsonQ.g:274:2: ( ( 'AVG' ) )
             {
-            // InternalJsonQ.g:249:2: ( ( 'AVG' ) )
-            // InternalJsonQ.g:250:3: ( 'AVG' )
+            // InternalJsonQ.g:274:2: ( ( 'AVG' ) )
+            // InternalJsonQ.g:275:3: ( 'AVG' )
             {
              before(grammarAccess.getOperationAggAccess().getAVGEnumLiteralDeclaration()); 
-            // InternalJsonQ.g:251:3: ( 'AVG' )
-            // InternalJsonQ.g:251:4: 'AVG'
+            // InternalJsonQ.g:276:3: ( 'AVG' )
+            // InternalJsonQ.g:276:4: 'AVG'
             {
             match(input,11,FOLLOW_2); 
 
@@ -725,21 +808,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleOperationGET"
-    // InternalJsonQ.g:260:1: ruleOperationGET : ( ( rule__OperationGET__Alternatives ) ) ;
+    // InternalJsonQ.g:285:1: ruleOperationGET : ( ( rule__OperationGET__Alternatives ) ) ;
     public final void ruleOperationGET() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:264:1: ( ( ( rule__OperationGET__Alternatives ) ) )
-            // InternalJsonQ.g:265:2: ( ( rule__OperationGET__Alternatives ) )
+            // InternalJsonQ.g:289:1: ( ( ( rule__OperationGET__Alternatives ) ) )
+            // InternalJsonQ.g:290:2: ( ( rule__OperationGET__Alternatives ) )
             {
-            // InternalJsonQ.g:265:2: ( ( rule__OperationGET__Alternatives ) )
-            // InternalJsonQ.g:266:3: ( rule__OperationGET__Alternatives )
+            // InternalJsonQ.g:290:2: ( ( rule__OperationGET__Alternatives ) )
+            // InternalJsonQ.g:291:3: ( rule__OperationGET__Alternatives )
             {
              before(grammarAccess.getOperationGETAccess().getAlternatives()); 
-            // InternalJsonQ.g:267:3: ( rule__OperationGET__Alternatives )
-            // InternalJsonQ.g:267:4: rule__OperationGET__Alternatives
+            // InternalJsonQ.g:292:3: ( rule__OperationGET__Alternatives )
+            // InternalJsonQ.g:292:4: rule__OperationGET__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__OperationGET__Alternatives();
@@ -772,21 +855,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleInputFieldSingle"
-    // InternalJsonQ.g:276:1: ruleInputFieldSingle : ( ( rule__InputFieldSingle__Alternatives ) ) ;
+    // InternalJsonQ.g:301:1: ruleInputFieldSingle : ( ( rule__InputFieldSingle__Alternatives ) ) ;
     public final void ruleInputFieldSingle() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:280:1: ( ( ( rule__InputFieldSingle__Alternatives ) ) )
-            // InternalJsonQ.g:281:2: ( ( rule__InputFieldSingle__Alternatives ) )
+            // InternalJsonQ.g:305:1: ( ( ( rule__InputFieldSingle__Alternatives ) ) )
+            // InternalJsonQ.g:306:2: ( ( rule__InputFieldSingle__Alternatives ) )
             {
-            // InternalJsonQ.g:281:2: ( ( rule__InputFieldSingle__Alternatives ) )
-            // InternalJsonQ.g:282:3: ( rule__InputFieldSingle__Alternatives )
+            // InternalJsonQ.g:306:2: ( ( rule__InputFieldSingle__Alternatives ) )
+            // InternalJsonQ.g:307:3: ( rule__InputFieldSingle__Alternatives )
             {
              before(grammarAccess.getInputFieldSingleAccess().getAlternatives()); 
-            // InternalJsonQ.g:283:3: ( rule__InputFieldSingle__Alternatives )
-            // InternalJsonQ.g:283:4: rule__InputFieldSingle__Alternatives
+            // InternalJsonQ.g:308:3: ( rule__InputFieldSingle__Alternatives )
+            // InternalJsonQ.g:308:4: rule__InputFieldSingle__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__InputFieldSingle__Alternatives();
@@ -819,13 +902,13 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Statements__Alternatives"
-    // InternalJsonQ.g:291:1: rule__Statements__Alternatives : ( ( ruleGetStatements ) | ( ruleAggregateStatements ) );
+    // InternalJsonQ.g:316:1: rule__Statements__Alternatives : ( ( ruleGetStatements ) | ( ruleAggregateStatements ) );
     public final void rule__Statements__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:295:1: ( ( ruleGetStatements ) | ( ruleAggregateStatements ) )
+            // InternalJsonQ.g:320:1: ( ( ruleGetStatements ) | ( ruleAggregateStatements ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -853,10 +936,10 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalJsonQ.g:296:2: ( ruleGetStatements )
+                    // InternalJsonQ.g:321:2: ( ruleGetStatements )
                     {
-                    // InternalJsonQ.g:296:2: ( ruleGetStatements )
-                    // InternalJsonQ.g:297:3: ruleGetStatements
+                    // InternalJsonQ.g:321:2: ( ruleGetStatements )
+                    // InternalJsonQ.g:322:3: ruleGetStatements
                     {
                      before(grammarAccess.getStatementsAccess().getGetStatementsParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -872,10 +955,10 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonQ.g:302:2: ( ruleAggregateStatements )
+                    // InternalJsonQ.g:327:2: ( ruleAggregateStatements )
                     {
-                    // InternalJsonQ.g:302:2: ( ruleAggregateStatements )
-                    // InternalJsonQ.g:303:3: ruleAggregateStatements
+                    // InternalJsonQ.g:327:2: ( ruleAggregateStatements )
+                    // InternalJsonQ.g:328:3: ruleAggregateStatements
                     {
                      before(grammarAccess.getStatementsAccess().getAggregateStatementsParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -907,21 +990,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Statements__Alternatives"
 
 
-    // $ANTLR start "rule__Connector__Alternatives"
-    // InternalJsonQ.g:312:1: rule__Connector__Alternatives : ( ( ( 'AND' ) ) | ( ( 'OR' ) ) );
-    public final void rule__Connector__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__InputVal__Alternatives"
+    // InternalJsonQ.g:337:1: rule__InputVal__Alternatives : ( ( ruleStringLiteral ) | ( ruleIntLiteral ) );
+    public final void rule__InputVal__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:316:1: ( ( ( 'AND' ) ) | ( ( 'OR' ) ) )
+            // InternalJsonQ.g:341:1: ( ( ruleStringLiteral ) | ( ruleIntLiteral ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==12) ) {
+            if ( (LA3_0==RULE_STRING) ) {
                 alt3=1;
             }
-            else if ( (LA3_0==13) ) {
+            else if ( (LA3_0==RULE_INT) ) {
                 alt3=2;
             }
             else {
@@ -932,14 +1015,93 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalJsonQ.g:317:2: ( ( 'AND' ) )
+                    // InternalJsonQ.g:342:2: ( ruleStringLiteral )
                     {
-                    // InternalJsonQ.g:317:2: ( ( 'AND' ) )
-                    // InternalJsonQ.g:318:3: ( 'AND' )
+                    // InternalJsonQ.g:342:2: ( ruleStringLiteral )
+                    // InternalJsonQ.g:343:3: ruleStringLiteral
+                    {
+                     before(grammarAccess.getInputValAccess().getStringLiteralParserRuleCall_0()); 
+                    pushFollow(FOLLOW_2);
+                    ruleStringLiteral();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getInputValAccess().getStringLiteralParserRuleCall_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalJsonQ.g:348:2: ( ruleIntLiteral )
+                    {
+                    // InternalJsonQ.g:348:2: ( ruleIntLiteral )
+                    // InternalJsonQ.g:349:3: ruleIntLiteral
+                    {
+                     before(grammarAccess.getInputValAccess().getIntLiteralParserRuleCall_1()); 
+                    pushFollow(FOLLOW_2);
+                    ruleIntLiteral();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getInputValAccess().getIntLiteralParserRuleCall_1()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__InputVal__Alternatives"
+
+
+    // $ANTLR start "rule__Connector__Alternatives"
+    // InternalJsonQ.g:358:1: rule__Connector__Alternatives : ( ( ( 'AND' ) ) | ( ( 'OR' ) ) );
+    public final void rule__Connector__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalJsonQ.g:362:1: ( ( ( 'AND' ) ) | ( ( 'OR' ) ) )
+            int alt4=2;
+            int LA4_0 = input.LA(1);
+
+            if ( (LA4_0==12) ) {
+                alt4=1;
+            }
+            else if ( (LA4_0==13) ) {
+                alt4=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 4, 0, input);
+
+                throw nvae;
+            }
+            switch (alt4) {
+                case 1 :
+                    // InternalJsonQ.g:363:2: ( ( 'AND' ) )
+                    {
+                    // InternalJsonQ.g:363:2: ( ( 'AND' ) )
+                    // InternalJsonQ.g:364:3: ( 'AND' )
                     {
                      before(grammarAccess.getConnectorAccess().getANDEnumLiteralDeclaration_0()); 
-                    // InternalJsonQ.g:319:3: ( 'AND' )
-                    // InternalJsonQ.g:319:4: 'AND'
+                    // InternalJsonQ.g:365:3: ( 'AND' )
+                    // InternalJsonQ.g:365:4: 'AND'
                     {
                     match(input,12,FOLLOW_2); 
 
@@ -953,14 +1115,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonQ.g:323:2: ( ( 'OR' ) )
+                    // InternalJsonQ.g:369:2: ( ( 'OR' ) )
                     {
-                    // InternalJsonQ.g:323:2: ( ( 'OR' ) )
-                    // InternalJsonQ.g:324:3: ( 'OR' )
+                    // InternalJsonQ.g:369:2: ( ( 'OR' ) )
+                    // InternalJsonQ.g:370:3: ( 'OR' )
                     {
                      before(grammarAccess.getConnectorAccess().getOREnumLiteralDeclaration_1()); 
-                    // InternalJsonQ.g:325:3: ( 'OR' )
-                    // InternalJsonQ.g:325:4: 'OR'
+                    // InternalJsonQ.g:371:3: ( 'OR' )
+                    // InternalJsonQ.g:371:4: 'OR'
                     {
                     match(input,13,FOLLOW_2); 
 
@@ -991,38 +1153,38 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OperationGET__Alternatives"
-    // InternalJsonQ.g:333:1: rule__OperationGET__Alternatives : ( ( ( 'DATA' ) ) | ( ( 'COUNT' ) ) );
+    // InternalJsonQ.g:379:1: rule__OperationGET__Alternatives : ( ( ( 'DATA' ) ) | ( ( 'COUNT' ) ) );
     public final void rule__OperationGET__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:337:1: ( ( ( 'DATA' ) ) | ( ( 'COUNT' ) ) )
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            // InternalJsonQ.g:383:1: ( ( ( 'DATA' ) ) | ( ( 'COUNT' ) ) )
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA4_0==14) ) {
-                alt4=1;
+            if ( (LA5_0==14) ) {
+                alt5=1;
             }
-            else if ( (LA4_0==15) ) {
-                alt4=2;
+            else if ( (LA5_0==15) ) {
+                alt5=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
-                    // InternalJsonQ.g:338:2: ( ( 'DATA' ) )
+                    // InternalJsonQ.g:384:2: ( ( 'DATA' ) )
                     {
-                    // InternalJsonQ.g:338:2: ( ( 'DATA' ) )
-                    // InternalJsonQ.g:339:3: ( 'DATA' )
+                    // InternalJsonQ.g:384:2: ( ( 'DATA' ) )
+                    // InternalJsonQ.g:385:3: ( 'DATA' )
                     {
                      before(grammarAccess.getOperationGETAccess().getDATAEnumLiteralDeclaration_0()); 
-                    // InternalJsonQ.g:340:3: ( 'DATA' )
-                    // InternalJsonQ.g:340:4: 'DATA'
+                    // InternalJsonQ.g:386:3: ( 'DATA' )
+                    // InternalJsonQ.g:386:4: 'DATA'
                     {
                     match(input,14,FOLLOW_2); 
 
@@ -1036,14 +1198,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonQ.g:344:2: ( ( 'COUNT' ) )
+                    // InternalJsonQ.g:390:2: ( ( 'COUNT' ) )
                     {
-                    // InternalJsonQ.g:344:2: ( ( 'COUNT' ) )
-                    // InternalJsonQ.g:345:3: ( 'COUNT' )
+                    // InternalJsonQ.g:390:2: ( ( 'COUNT' ) )
+                    // InternalJsonQ.g:391:3: ( 'COUNT' )
                     {
                      before(grammarAccess.getOperationGETAccess().getCOUNTEnumLiteralDeclaration_1()); 
-                    // InternalJsonQ.g:346:3: ( 'COUNT' )
-                    // InternalJsonQ.g:346:4: 'COUNT'
+                    // InternalJsonQ.g:392:3: ( 'COUNT' )
+                    // InternalJsonQ.g:392:4: 'COUNT'
                     {
                     match(input,15,FOLLOW_2); 
 
@@ -1074,67 +1236,67 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InputFieldSingle__Alternatives"
-    // InternalJsonQ.g:354:1: rule__InputFieldSingle__Alternatives : ( ( ( 'firstName' ) ) | ( ( 'lastName' ) ) | ( ( 'gender' ) ) | ( ( 'countryCode' ) ) | ( ( 'cityName' ) ) | ( ( 'isVaccinated' ) ) | ( ( 'income' ) ) );
+    // InternalJsonQ.g:400:1: rule__InputFieldSingle__Alternatives : ( ( ( 'firstName' ) ) | ( ( 'lastName' ) ) | ( ( 'gender' ) ) | ( ( 'countryCode' ) ) | ( ( 'cityName' ) ) | ( ( 'isVaccinated' ) ) | ( ( 'income' ) ) );
     public final void rule__InputFieldSingle__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:358:1: ( ( ( 'firstName' ) ) | ( ( 'lastName' ) ) | ( ( 'gender' ) ) | ( ( 'countryCode' ) ) | ( ( 'cityName' ) ) | ( ( 'isVaccinated' ) ) | ( ( 'income' ) ) )
-            int alt5=7;
+            // InternalJsonQ.g:404:1: ( ( ( 'firstName' ) ) | ( ( 'lastName' ) ) | ( ( 'gender' ) ) | ( ( 'countryCode' ) ) | ( ( 'cityName' ) ) | ( ( 'isVaccinated' ) ) | ( ( 'income' ) ) )
+            int alt6=7;
             switch ( input.LA(1) ) {
             case 16:
                 {
-                alt5=1;
+                alt6=1;
                 }
                 break;
             case 17:
                 {
-                alt5=2;
+                alt6=2;
                 }
                 break;
             case 18:
                 {
-                alt5=3;
+                alt6=3;
                 }
                 break;
             case 19:
                 {
-                alt5=4;
+                alt6=4;
                 }
                 break;
             case 20:
                 {
-                alt5=5;
+                alt6=5;
                 }
                 break;
             case 21:
                 {
-                alt5=6;
+                alt6=6;
                 }
                 break;
             case 22:
                 {
-                alt5=7;
+                alt6=7;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // InternalJsonQ.g:359:2: ( ( 'firstName' ) )
+                    // InternalJsonQ.g:405:2: ( ( 'firstName' ) )
                     {
-                    // InternalJsonQ.g:359:2: ( ( 'firstName' ) )
-                    // InternalJsonQ.g:360:3: ( 'firstName' )
+                    // InternalJsonQ.g:405:2: ( ( 'firstName' ) )
+                    // InternalJsonQ.g:406:3: ( 'firstName' )
                     {
                      before(grammarAccess.getInputFieldSingleAccess().getFirstNameEnumLiteralDeclaration_0()); 
-                    // InternalJsonQ.g:361:3: ( 'firstName' )
-                    // InternalJsonQ.g:361:4: 'firstName'
+                    // InternalJsonQ.g:407:3: ( 'firstName' )
+                    // InternalJsonQ.g:407:4: 'firstName'
                     {
                     match(input,16,FOLLOW_2); 
 
@@ -1148,14 +1310,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonQ.g:365:2: ( ( 'lastName' ) )
+                    // InternalJsonQ.g:411:2: ( ( 'lastName' ) )
                     {
-                    // InternalJsonQ.g:365:2: ( ( 'lastName' ) )
-                    // InternalJsonQ.g:366:3: ( 'lastName' )
+                    // InternalJsonQ.g:411:2: ( ( 'lastName' ) )
+                    // InternalJsonQ.g:412:3: ( 'lastName' )
                     {
                      before(grammarAccess.getInputFieldSingleAccess().getLastNameEnumLiteralDeclaration_1()); 
-                    // InternalJsonQ.g:367:3: ( 'lastName' )
-                    // InternalJsonQ.g:367:4: 'lastName'
+                    // InternalJsonQ.g:413:3: ( 'lastName' )
+                    // InternalJsonQ.g:413:4: 'lastName'
                     {
                     match(input,17,FOLLOW_2); 
 
@@ -1169,14 +1331,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalJsonQ.g:371:2: ( ( 'gender' ) )
+                    // InternalJsonQ.g:417:2: ( ( 'gender' ) )
                     {
-                    // InternalJsonQ.g:371:2: ( ( 'gender' ) )
-                    // InternalJsonQ.g:372:3: ( 'gender' )
+                    // InternalJsonQ.g:417:2: ( ( 'gender' ) )
+                    // InternalJsonQ.g:418:3: ( 'gender' )
                     {
                      before(grammarAccess.getInputFieldSingleAccess().getGenderEnumLiteralDeclaration_2()); 
-                    // InternalJsonQ.g:373:3: ( 'gender' )
-                    // InternalJsonQ.g:373:4: 'gender'
+                    // InternalJsonQ.g:419:3: ( 'gender' )
+                    // InternalJsonQ.g:419:4: 'gender'
                     {
                     match(input,18,FOLLOW_2); 
 
@@ -1190,14 +1352,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalJsonQ.g:377:2: ( ( 'countryCode' ) )
+                    // InternalJsonQ.g:423:2: ( ( 'countryCode' ) )
                     {
-                    // InternalJsonQ.g:377:2: ( ( 'countryCode' ) )
-                    // InternalJsonQ.g:378:3: ( 'countryCode' )
+                    // InternalJsonQ.g:423:2: ( ( 'countryCode' ) )
+                    // InternalJsonQ.g:424:3: ( 'countryCode' )
                     {
                      before(grammarAccess.getInputFieldSingleAccess().getCountryCodeEnumLiteralDeclaration_3()); 
-                    // InternalJsonQ.g:379:3: ( 'countryCode' )
-                    // InternalJsonQ.g:379:4: 'countryCode'
+                    // InternalJsonQ.g:425:3: ( 'countryCode' )
+                    // InternalJsonQ.g:425:4: 'countryCode'
                     {
                     match(input,19,FOLLOW_2); 
 
@@ -1211,14 +1373,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 5 :
-                    // InternalJsonQ.g:383:2: ( ( 'cityName' ) )
+                    // InternalJsonQ.g:429:2: ( ( 'cityName' ) )
                     {
-                    // InternalJsonQ.g:383:2: ( ( 'cityName' ) )
-                    // InternalJsonQ.g:384:3: ( 'cityName' )
+                    // InternalJsonQ.g:429:2: ( ( 'cityName' ) )
+                    // InternalJsonQ.g:430:3: ( 'cityName' )
                     {
                      before(grammarAccess.getInputFieldSingleAccess().getCityNameEnumLiteralDeclaration_4()); 
-                    // InternalJsonQ.g:385:3: ( 'cityName' )
-                    // InternalJsonQ.g:385:4: 'cityName'
+                    // InternalJsonQ.g:431:3: ( 'cityName' )
+                    // InternalJsonQ.g:431:4: 'cityName'
                     {
                     match(input,20,FOLLOW_2); 
 
@@ -1232,14 +1394,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 6 :
-                    // InternalJsonQ.g:389:2: ( ( 'isVaccinated' ) )
+                    // InternalJsonQ.g:435:2: ( ( 'isVaccinated' ) )
                     {
-                    // InternalJsonQ.g:389:2: ( ( 'isVaccinated' ) )
-                    // InternalJsonQ.g:390:3: ( 'isVaccinated' )
+                    // InternalJsonQ.g:435:2: ( ( 'isVaccinated' ) )
+                    // InternalJsonQ.g:436:3: ( 'isVaccinated' )
                     {
                      before(grammarAccess.getInputFieldSingleAccess().getIsVaccinatedEnumLiteralDeclaration_5()); 
-                    // InternalJsonQ.g:391:3: ( 'isVaccinated' )
-                    // InternalJsonQ.g:391:4: 'isVaccinated'
+                    // InternalJsonQ.g:437:3: ( 'isVaccinated' )
+                    // InternalJsonQ.g:437:4: 'isVaccinated'
                     {
                     match(input,21,FOLLOW_2); 
 
@@ -1253,14 +1415,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 7 :
-                    // InternalJsonQ.g:395:2: ( ( 'income' ) )
+                    // InternalJsonQ.g:441:2: ( ( 'income' ) )
                     {
-                    // InternalJsonQ.g:395:2: ( ( 'income' ) )
-                    // InternalJsonQ.g:396:3: ( 'income' )
+                    // InternalJsonQ.g:441:2: ( ( 'income' ) )
+                    // InternalJsonQ.g:442:3: ( 'income' )
                     {
                      before(grammarAccess.getInputFieldSingleAccess().getIncomeEnumLiteralDeclaration_6()); 
-                    // InternalJsonQ.g:397:3: ( 'income' )
-                    // InternalJsonQ.g:397:4: 'income'
+                    // InternalJsonQ.g:443:3: ( 'income' )
+                    // InternalJsonQ.g:443:4: 'income'
                     {
                     match(input,22,FOLLOW_2); 
 
@@ -1291,14 +1453,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__0"
-    // InternalJsonQ.g:405:1: rule__AggregateStatements__Group__0 : rule__AggregateStatements__Group__0__Impl rule__AggregateStatements__Group__1 ;
+    // InternalJsonQ.g:451:1: rule__AggregateStatements__Group__0 : rule__AggregateStatements__Group__0__Impl rule__AggregateStatements__Group__1 ;
     public final void rule__AggregateStatements__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:409:1: ( rule__AggregateStatements__Group__0__Impl rule__AggregateStatements__Group__1 )
-            // InternalJsonQ.g:410:2: rule__AggregateStatements__Group__0__Impl rule__AggregateStatements__Group__1
+            // InternalJsonQ.g:455:1: ( rule__AggregateStatements__Group__0__Impl rule__AggregateStatements__Group__1 )
+            // InternalJsonQ.g:456:2: rule__AggregateStatements__Group__0__Impl rule__AggregateStatements__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__AggregateStatements__Group__0__Impl();
@@ -1329,17 +1491,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__0__Impl"
-    // InternalJsonQ.g:417:1: rule__AggregateStatements__Group__0__Impl : ( 'GET' ) ;
+    // InternalJsonQ.g:463:1: rule__AggregateStatements__Group__0__Impl : ( 'GET' ) ;
     public final void rule__AggregateStatements__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:421:1: ( ( 'GET' ) )
-            // InternalJsonQ.g:422:1: ( 'GET' )
+            // InternalJsonQ.g:467:1: ( ( 'GET' ) )
+            // InternalJsonQ.g:468:1: ( 'GET' )
             {
-            // InternalJsonQ.g:422:1: ( 'GET' )
-            // InternalJsonQ.g:423:2: 'GET'
+            // InternalJsonQ.g:468:1: ( 'GET' )
+            // InternalJsonQ.g:469:2: 'GET'
             {
              before(grammarAccess.getAggregateStatementsAccess().getGETKeyword_0()); 
             match(input,23,FOLLOW_2); 
@@ -1366,14 +1528,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__1"
-    // InternalJsonQ.g:432:1: rule__AggregateStatements__Group__1 : rule__AggregateStatements__Group__1__Impl rule__AggregateStatements__Group__2 ;
+    // InternalJsonQ.g:478:1: rule__AggregateStatements__Group__1 : rule__AggregateStatements__Group__1__Impl rule__AggregateStatements__Group__2 ;
     public final void rule__AggregateStatements__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:436:1: ( rule__AggregateStatements__Group__1__Impl rule__AggregateStatements__Group__2 )
-            // InternalJsonQ.g:437:2: rule__AggregateStatements__Group__1__Impl rule__AggregateStatements__Group__2
+            // InternalJsonQ.g:482:1: ( rule__AggregateStatements__Group__1__Impl rule__AggregateStatements__Group__2 )
+            // InternalJsonQ.g:483:2: rule__AggregateStatements__Group__1__Impl rule__AggregateStatements__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__AggregateStatements__Group__1__Impl();
@@ -1404,21 +1566,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__1__Impl"
-    // InternalJsonQ.g:444:1: rule__AggregateStatements__Group__1__Impl : ( ( rule__AggregateStatements__OpAggAssignment_1 ) ) ;
+    // InternalJsonQ.g:490:1: rule__AggregateStatements__Group__1__Impl : ( ( rule__AggregateStatements__OpAggAssignment_1 ) ) ;
     public final void rule__AggregateStatements__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:448:1: ( ( ( rule__AggregateStatements__OpAggAssignment_1 ) ) )
-            // InternalJsonQ.g:449:1: ( ( rule__AggregateStatements__OpAggAssignment_1 ) )
+            // InternalJsonQ.g:494:1: ( ( ( rule__AggregateStatements__OpAggAssignment_1 ) ) )
+            // InternalJsonQ.g:495:1: ( ( rule__AggregateStatements__OpAggAssignment_1 ) )
             {
-            // InternalJsonQ.g:449:1: ( ( rule__AggregateStatements__OpAggAssignment_1 ) )
-            // InternalJsonQ.g:450:2: ( rule__AggregateStatements__OpAggAssignment_1 )
+            // InternalJsonQ.g:495:1: ( ( rule__AggregateStatements__OpAggAssignment_1 ) )
+            // InternalJsonQ.g:496:2: ( rule__AggregateStatements__OpAggAssignment_1 )
             {
              before(grammarAccess.getAggregateStatementsAccess().getOpAggAssignment_1()); 
-            // InternalJsonQ.g:451:2: ( rule__AggregateStatements__OpAggAssignment_1 )
-            // InternalJsonQ.g:451:3: rule__AggregateStatements__OpAggAssignment_1
+            // InternalJsonQ.g:497:2: ( rule__AggregateStatements__OpAggAssignment_1 )
+            // InternalJsonQ.g:497:3: rule__AggregateStatements__OpAggAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__AggregateStatements__OpAggAssignment_1();
@@ -1451,14 +1613,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__2"
-    // InternalJsonQ.g:459:1: rule__AggregateStatements__Group__2 : rule__AggregateStatements__Group__2__Impl rule__AggregateStatements__Group__3 ;
+    // InternalJsonQ.g:505:1: rule__AggregateStatements__Group__2 : rule__AggregateStatements__Group__2__Impl rule__AggregateStatements__Group__3 ;
     public final void rule__AggregateStatements__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:463:1: ( rule__AggregateStatements__Group__2__Impl rule__AggregateStatements__Group__3 )
-            // InternalJsonQ.g:464:2: rule__AggregateStatements__Group__2__Impl rule__AggregateStatements__Group__3
+            // InternalJsonQ.g:509:1: ( rule__AggregateStatements__Group__2__Impl rule__AggregateStatements__Group__3 )
+            // InternalJsonQ.g:510:2: rule__AggregateStatements__Group__2__Impl rule__AggregateStatements__Group__3
             {
             pushFollow(FOLLOW_6);
             rule__AggregateStatements__Group__2__Impl();
@@ -1489,21 +1651,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__2__Impl"
-    // InternalJsonQ.g:471:1: rule__AggregateStatements__Group__2__Impl : ( ( rule__AggregateStatements__AggFieldAssignment_2 ) ) ;
+    // InternalJsonQ.g:517:1: rule__AggregateStatements__Group__2__Impl : ( ( rule__AggregateStatements__AggFieldAssignment_2 ) ) ;
     public final void rule__AggregateStatements__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:475:1: ( ( ( rule__AggregateStatements__AggFieldAssignment_2 ) ) )
-            // InternalJsonQ.g:476:1: ( ( rule__AggregateStatements__AggFieldAssignment_2 ) )
+            // InternalJsonQ.g:521:1: ( ( ( rule__AggregateStatements__AggFieldAssignment_2 ) ) )
+            // InternalJsonQ.g:522:1: ( ( rule__AggregateStatements__AggFieldAssignment_2 ) )
             {
-            // InternalJsonQ.g:476:1: ( ( rule__AggregateStatements__AggFieldAssignment_2 ) )
-            // InternalJsonQ.g:477:2: ( rule__AggregateStatements__AggFieldAssignment_2 )
+            // InternalJsonQ.g:522:1: ( ( rule__AggregateStatements__AggFieldAssignment_2 ) )
+            // InternalJsonQ.g:523:2: ( rule__AggregateStatements__AggFieldAssignment_2 )
             {
              before(grammarAccess.getAggregateStatementsAccess().getAggFieldAssignment_2()); 
-            // InternalJsonQ.g:478:2: ( rule__AggregateStatements__AggFieldAssignment_2 )
-            // InternalJsonQ.g:478:3: rule__AggregateStatements__AggFieldAssignment_2
+            // InternalJsonQ.g:524:2: ( rule__AggregateStatements__AggFieldAssignment_2 )
+            // InternalJsonQ.g:524:3: rule__AggregateStatements__AggFieldAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__AggregateStatements__AggFieldAssignment_2();
@@ -1536,14 +1698,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__3"
-    // InternalJsonQ.g:486:1: rule__AggregateStatements__Group__3 : rule__AggregateStatements__Group__3__Impl rule__AggregateStatements__Group__4 ;
+    // InternalJsonQ.g:532:1: rule__AggregateStatements__Group__3 : rule__AggregateStatements__Group__3__Impl rule__AggregateStatements__Group__4 ;
     public final void rule__AggregateStatements__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:490:1: ( rule__AggregateStatements__Group__3__Impl rule__AggregateStatements__Group__4 )
-            // InternalJsonQ.g:491:2: rule__AggregateStatements__Group__3__Impl rule__AggregateStatements__Group__4
+            // InternalJsonQ.g:536:1: ( rule__AggregateStatements__Group__3__Impl rule__AggregateStatements__Group__4 )
+            // InternalJsonQ.g:537:2: rule__AggregateStatements__Group__3__Impl rule__AggregateStatements__Group__4
             {
             pushFollow(FOLLOW_5);
             rule__AggregateStatements__Group__3__Impl();
@@ -1574,17 +1736,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__3__Impl"
-    // InternalJsonQ.g:498:1: rule__AggregateStatements__Group__3__Impl : ( 'WHERE' ) ;
+    // InternalJsonQ.g:544:1: rule__AggregateStatements__Group__3__Impl : ( 'WHERE' ) ;
     public final void rule__AggregateStatements__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:502:1: ( ( 'WHERE' ) )
-            // InternalJsonQ.g:503:1: ( 'WHERE' )
+            // InternalJsonQ.g:548:1: ( ( 'WHERE' ) )
+            // InternalJsonQ.g:549:1: ( 'WHERE' )
             {
-            // InternalJsonQ.g:503:1: ( 'WHERE' )
-            // InternalJsonQ.g:504:2: 'WHERE'
+            // InternalJsonQ.g:549:1: ( 'WHERE' )
+            // InternalJsonQ.g:550:2: 'WHERE'
             {
              before(grammarAccess.getAggregateStatementsAccess().getWHEREKeyword_3()); 
             match(input,24,FOLLOW_2); 
@@ -1611,14 +1773,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__4"
-    // InternalJsonQ.g:513:1: rule__AggregateStatements__Group__4 : rule__AggregateStatements__Group__4__Impl rule__AggregateStatements__Group__5 ;
+    // InternalJsonQ.g:559:1: rule__AggregateStatements__Group__4 : rule__AggregateStatements__Group__4__Impl rule__AggregateStatements__Group__5 ;
     public final void rule__AggregateStatements__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:517:1: ( rule__AggregateStatements__Group__4__Impl rule__AggregateStatements__Group__5 )
-            // InternalJsonQ.g:518:2: rule__AggregateStatements__Group__4__Impl rule__AggregateStatements__Group__5
+            // InternalJsonQ.g:563:1: ( rule__AggregateStatements__Group__4__Impl rule__AggregateStatements__Group__5 )
+            // InternalJsonQ.g:564:2: rule__AggregateStatements__Group__4__Impl rule__AggregateStatements__Group__5
             {
             pushFollow(FOLLOW_7);
             rule__AggregateStatements__Group__4__Impl();
@@ -1649,21 +1811,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__4__Impl"
-    // InternalJsonQ.g:525:1: rule__AggregateStatements__Group__4__Impl : ( ( rule__AggregateStatements__Q1keyAssignment_4 ) ) ;
+    // InternalJsonQ.g:571:1: rule__AggregateStatements__Group__4__Impl : ( ( rule__AggregateStatements__Q1keyAssignment_4 ) ) ;
     public final void rule__AggregateStatements__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:529:1: ( ( ( rule__AggregateStatements__Q1keyAssignment_4 ) ) )
-            // InternalJsonQ.g:530:1: ( ( rule__AggregateStatements__Q1keyAssignment_4 ) )
+            // InternalJsonQ.g:575:1: ( ( ( rule__AggregateStatements__Q1keyAssignment_4 ) ) )
+            // InternalJsonQ.g:576:1: ( ( rule__AggregateStatements__Q1keyAssignment_4 ) )
             {
-            // InternalJsonQ.g:530:1: ( ( rule__AggregateStatements__Q1keyAssignment_4 ) )
-            // InternalJsonQ.g:531:2: ( rule__AggregateStatements__Q1keyAssignment_4 )
+            // InternalJsonQ.g:576:1: ( ( rule__AggregateStatements__Q1keyAssignment_4 ) )
+            // InternalJsonQ.g:577:2: ( rule__AggregateStatements__Q1keyAssignment_4 )
             {
              before(grammarAccess.getAggregateStatementsAccess().getQ1keyAssignment_4()); 
-            // InternalJsonQ.g:532:2: ( rule__AggregateStatements__Q1keyAssignment_4 )
-            // InternalJsonQ.g:532:3: rule__AggregateStatements__Q1keyAssignment_4
+            // InternalJsonQ.g:578:2: ( rule__AggregateStatements__Q1keyAssignment_4 )
+            // InternalJsonQ.g:578:3: rule__AggregateStatements__Q1keyAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__AggregateStatements__Q1keyAssignment_4();
@@ -1696,14 +1858,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__5"
-    // InternalJsonQ.g:540:1: rule__AggregateStatements__Group__5 : rule__AggregateStatements__Group__5__Impl rule__AggregateStatements__Group__6 ;
+    // InternalJsonQ.g:586:1: rule__AggregateStatements__Group__5 : rule__AggregateStatements__Group__5__Impl rule__AggregateStatements__Group__6 ;
     public final void rule__AggregateStatements__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:544:1: ( rule__AggregateStatements__Group__5__Impl rule__AggregateStatements__Group__6 )
-            // InternalJsonQ.g:545:2: rule__AggregateStatements__Group__5__Impl rule__AggregateStatements__Group__6
+            // InternalJsonQ.g:590:1: ( rule__AggregateStatements__Group__5__Impl rule__AggregateStatements__Group__6 )
+            // InternalJsonQ.g:591:2: rule__AggregateStatements__Group__5__Impl rule__AggregateStatements__Group__6
             {
             pushFollow(FOLLOW_8);
             rule__AggregateStatements__Group__5__Impl();
@@ -1734,21 +1896,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__5__Impl"
-    // InternalJsonQ.g:552:1: rule__AggregateStatements__Group__5__Impl : ( ( rule__AggregateStatements__Q1valAssignment_5 ) ) ;
+    // InternalJsonQ.g:598:1: rule__AggregateStatements__Group__5__Impl : ( ( rule__AggregateStatements__Q1valAssignment_5 ) ) ;
     public final void rule__AggregateStatements__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:556:1: ( ( ( rule__AggregateStatements__Q1valAssignment_5 ) ) )
-            // InternalJsonQ.g:557:1: ( ( rule__AggregateStatements__Q1valAssignment_5 ) )
+            // InternalJsonQ.g:602:1: ( ( ( rule__AggregateStatements__Q1valAssignment_5 ) ) )
+            // InternalJsonQ.g:603:1: ( ( rule__AggregateStatements__Q1valAssignment_5 ) )
             {
-            // InternalJsonQ.g:557:1: ( ( rule__AggregateStatements__Q1valAssignment_5 ) )
-            // InternalJsonQ.g:558:2: ( rule__AggregateStatements__Q1valAssignment_5 )
+            // InternalJsonQ.g:603:1: ( ( rule__AggregateStatements__Q1valAssignment_5 ) )
+            // InternalJsonQ.g:604:2: ( rule__AggregateStatements__Q1valAssignment_5 )
             {
              before(grammarAccess.getAggregateStatementsAccess().getQ1valAssignment_5()); 
-            // InternalJsonQ.g:559:2: ( rule__AggregateStatements__Q1valAssignment_5 )
-            // InternalJsonQ.g:559:3: rule__AggregateStatements__Q1valAssignment_5
+            // InternalJsonQ.g:605:2: ( rule__AggregateStatements__Q1valAssignment_5 )
+            // InternalJsonQ.g:605:3: rule__AggregateStatements__Q1valAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__AggregateStatements__Q1valAssignment_5();
@@ -1781,14 +1943,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__6"
-    // InternalJsonQ.g:567:1: rule__AggregateStatements__Group__6 : rule__AggregateStatements__Group__6__Impl rule__AggregateStatements__Group__7 ;
+    // InternalJsonQ.g:613:1: rule__AggregateStatements__Group__6 : rule__AggregateStatements__Group__6__Impl rule__AggregateStatements__Group__7 ;
     public final void rule__AggregateStatements__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:571:1: ( rule__AggregateStatements__Group__6__Impl rule__AggregateStatements__Group__7 )
-            // InternalJsonQ.g:572:2: rule__AggregateStatements__Group__6__Impl rule__AggregateStatements__Group__7
+            // InternalJsonQ.g:617:1: ( rule__AggregateStatements__Group__6__Impl rule__AggregateStatements__Group__7 )
+            // InternalJsonQ.g:618:2: rule__AggregateStatements__Group__6__Impl rule__AggregateStatements__Group__7
             {
             pushFollow(FOLLOW_8);
             rule__AggregateStatements__Group__6__Impl();
@@ -1819,29 +1981,29 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__6__Impl"
-    // InternalJsonQ.g:579:1: rule__AggregateStatements__Group__6__Impl : ( ( rule__AggregateStatements__QryadditionalAssignment_6 )? ) ;
+    // InternalJsonQ.g:625:1: rule__AggregateStatements__Group__6__Impl : ( ( rule__AggregateStatements__QryadditionalAssignment_6 )? ) ;
     public final void rule__AggregateStatements__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:583:1: ( ( ( rule__AggregateStatements__QryadditionalAssignment_6 )? ) )
-            // InternalJsonQ.g:584:1: ( ( rule__AggregateStatements__QryadditionalAssignment_6 )? )
+            // InternalJsonQ.g:629:1: ( ( ( rule__AggregateStatements__QryadditionalAssignment_6 )? ) )
+            // InternalJsonQ.g:630:1: ( ( rule__AggregateStatements__QryadditionalAssignment_6 )? )
             {
-            // InternalJsonQ.g:584:1: ( ( rule__AggregateStatements__QryadditionalAssignment_6 )? )
-            // InternalJsonQ.g:585:2: ( rule__AggregateStatements__QryadditionalAssignment_6 )?
+            // InternalJsonQ.g:630:1: ( ( rule__AggregateStatements__QryadditionalAssignment_6 )? )
+            // InternalJsonQ.g:631:2: ( rule__AggregateStatements__QryadditionalAssignment_6 )?
             {
              before(grammarAccess.getAggregateStatementsAccess().getQryadditionalAssignment_6()); 
-            // InternalJsonQ.g:586:2: ( rule__AggregateStatements__QryadditionalAssignment_6 )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalJsonQ.g:632:2: ( rule__AggregateStatements__QryadditionalAssignment_6 )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( ((LA6_0>=12 && LA6_0<=13)) ) {
-                alt6=1;
+            if ( ((LA7_0>=12 && LA7_0<=13)) ) {
+                alt7=1;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalJsonQ.g:586:3: rule__AggregateStatements__QryadditionalAssignment_6
+                    // InternalJsonQ.g:632:3: rule__AggregateStatements__QryadditionalAssignment_6
                     {
                     pushFollow(FOLLOW_2);
                     rule__AggregateStatements__QryadditionalAssignment_6();
@@ -1877,14 +2039,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__7"
-    // InternalJsonQ.g:594:1: rule__AggregateStatements__Group__7 : rule__AggregateStatements__Group__7__Impl ;
+    // InternalJsonQ.g:640:1: rule__AggregateStatements__Group__7 : rule__AggregateStatements__Group__7__Impl ;
     public final void rule__AggregateStatements__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:598:1: ( rule__AggregateStatements__Group__7__Impl )
-            // InternalJsonQ.g:599:2: rule__AggregateStatements__Group__7__Impl
+            // InternalJsonQ.g:644:1: ( rule__AggregateStatements__Group__7__Impl )
+            // InternalJsonQ.g:645:2: rule__AggregateStatements__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AggregateStatements__Group__7__Impl();
@@ -1910,17 +2072,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Group__7__Impl"
-    // InternalJsonQ.g:605:1: rule__AggregateStatements__Group__7__Impl : ( 'END' ) ;
+    // InternalJsonQ.g:651:1: rule__AggregateStatements__Group__7__Impl : ( 'END' ) ;
     public final void rule__AggregateStatements__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:609:1: ( ( 'END' ) )
-            // InternalJsonQ.g:610:1: ( 'END' )
+            // InternalJsonQ.g:655:1: ( ( 'END' ) )
+            // InternalJsonQ.g:656:1: ( 'END' )
             {
-            // InternalJsonQ.g:610:1: ( 'END' )
-            // InternalJsonQ.g:611:2: 'END'
+            // InternalJsonQ.g:656:1: ( 'END' )
+            // InternalJsonQ.g:657:2: 'END'
             {
              before(grammarAccess.getAggregateStatementsAccess().getENDKeyword_7()); 
             match(input,25,FOLLOW_2); 
@@ -1947,14 +2109,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__0"
-    // InternalJsonQ.g:621:1: rule__GetStatements__Group__0 : rule__GetStatements__Group__0__Impl rule__GetStatements__Group__1 ;
+    // InternalJsonQ.g:667:1: rule__GetStatements__Group__0 : rule__GetStatements__Group__0__Impl rule__GetStatements__Group__1 ;
     public final void rule__GetStatements__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:625:1: ( rule__GetStatements__Group__0__Impl rule__GetStatements__Group__1 )
-            // InternalJsonQ.g:626:2: rule__GetStatements__Group__0__Impl rule__GetStatements__Group__1
+            // InternalJsonQ.g:671:1: ( rule__GetStatements__Group__0__Impl rule__GetStatements__Group__1 )
+            // InternalJsonQ.g:672:2: rule__GetStatements__Group__0__Impl rule__GetStatements__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__GetStatements__Group__0__Impl();
@@ -1985,17 +2147,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__0__Impl"
-    // InternalJsonQ.g:633:1: rule__GetStatements__Group__0__Impl : ( 'GET' ) ;
+    // InternalJsonQ.g:679:1: rule__GetStatements__Group__0__Impl : ( 'GET' ) ;
     public final void rule__GetStatements__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:637:1: ( ( 'GET' ) )
-            // InternalJsonQ.g:638:1: ( 'GET' )
+            // InternalJsonQ.g:683:1: ( ( 'GET' ) )
+            // InternalJsonQ.g:684:1: ( 'GET' )
             {
-            // InternalJsonQ.g:638:1: ( 'GET' )
-            // InternalJsonQ.g:639:2: 'GET'
+            // InternalJsonQ.g:684:1: ( 'GET' )
+            // InternalJsonQ.g:685:2: 'GET'
             {
              before(grammarAccess.getGetStatementsAccess().getGETKeyword_0()); 
             match(input,23,FOLLOW_2); 
@@ -2022,14 +2184,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__1"
-    // InternalJsonQ.g:648:1: rule__GetStatements__Group__1 : rule__GetStatements__Group__1__Impl rule__GetStatements__Group__2 ;
+    // InternalJsonQ.g:694:1: rule__GetStatements__Group__1 : rule__GetStatements__Group__1__Impl rule__GetStatements__Group__2 ;
     public final void rule__GetStatements__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:652:1: ( rule__GetStatements__Group__1__Impl rule__GetStatements__Group__2 )
-            // InternalJsonQ.g:653:2: rule__GetStatements__Group__1__Impl rule__GetStatements__Group__2
+            // InternalJsonQ.g:698:1: ( rule__GetStatements__Group__1__Impl rule__GetStatements__Group__2 )
+            // InternalJsonQ.g:699:2: rule__GetStatements__Group__1__Impl rule__GetStatements__Group__2
             {
             pushFollow(FOLLOW_6);
             rule__GetStatements__Group__1__Impl();
@@ -2060,21 +2222,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__1__Impl"
-    // InternalJsonQ.g:660:1: rule__GetStatements__Group__1__Impl : ( ( rule__GetStatements__OpGetAssignment_1 ) ) ;
+    // InternalJsonQ.g:706:1: rule__GetStatements__Group__1__Impl : ( ( rule__GetStatements__OpGetAssignment_1 ) ) ;
     public final void rule__GetStatements__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:664:1: ( ( ( rule__GetStatements__OpGetAssignment_1 ) ) )
-            // InternalJsonQ.g:665:1: ( ( rule__GetStatements__OpGetAssignment_1 ) )
+            // InternalJsonQ.g:710:1: ( ( ( rule__GetStatements__OpGetAssignment_1 ) ) )
+            // InternalJsonQ.g:711:1: ( ( rule__GetStatements__OpGetAssignment_1 ) )
             {
-            // InternalJsonQ.g:665:1: ( ( rule__GetStatements__OpGetAssignment_1 ) )
-            // InternalJsonQ.g:666:2: ( rule__GetStatements__OpGetAssignment_1 )
+            // InternalJsonQ.g:711:1: ( ( rule__GetStatements__OpGetAssignment_1 ) )
+            // InternalJsonQ.g:712:2: ( rule__GetStatements__OpGetAssignment_1 )
             {
              before(grammarAccess.getGetStatementsAccess().getOpGetAssignment_1()); 
-            // InternalJsonQ.g:667:2: ( rule__GetStatements__OpGetAssignment_1 )
-            // InternalJsonQ.g:667:3: rule__GetStatements__OpGetAssignment_1
+            // InternalJsonQ.g:713:2: ( rule__GetStatements__OpGetAssignment_1 )
+            // InternalJsonQ.g:713:3: rule__GetStatements__OpGetAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__GetStatements__OpGetAssignment_1();
@@ -2107,14 +2269,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__2"
-    // InternalJsonQ.g:675:1: rule__GetStatements__Group__2 : rule__GetStatements__Group__2__Impl rule__GetStatements__Group__3 ;
+    // InternalJsonQ.g:721:1: rule__GetStatements__Group__2 : rule__GetStatements__Group__2__Impl rule__GetStatements__Group__3 ;
     public final void rule__GetStatements__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:679:1: ( rule__GetStatements__Group__2__Impl rule__GetStatements__Group__3 )
-            // InternalJsonQ.g:680:2: rule__GetStatements__Group__2__Impl rule__GetStatements__Group__3
+            // InternalJsonQ.g:725:1: ( rule__GetStatements__Group__2__Impl rule__GetStatements__Group__3 )
+            // InternalJsonQ.g:726:2: rule__GetStatements__Group__2__Impl rule__GetStatements__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__GetStatements__Group__2__Impl();
@@ -2145,17 +2307,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__2__Impl"
-    // InternalJsonQ.g:687:1: rule__GetStatements__Group__2__Impl : ( 'WHERE' ) ;
+    // InternalJsonQ.g:733:1: rule__GetStatements__Group__2__Impl : ( 'WHERE' ) ;
     public final void rule__GetStatements__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:691:1: ( ( 'WHERE' ) )
-            // InternalJsonQ.g:692:1: ( 'WHERE' )
+            // InternalJsonQ.g:737:1: ( ( 'WHERE' ) )
+            // InternalJsonQ.g:738:1: ( 'WHERE' )
             {
-            // InternalJsonQ.g:692:1: ( 'WHERE' )
-            // InternalJsonQ.g:693:2: 'WHERE'
+            // InternalJsonQ.g:738:1: ( 'WHERE' )
+            // InternalJsonQ.g:739:2: 'WHERE'
             {
              before(grammarAccess.getGetStatementsAccess().getWHEREKeyword_2()); 
             match(input,24,FOLLOW_2); 
@@ -2182,14 +2344,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__3"
-    // InternalJsonQ.g:702:1: rule__GetStatements__Group__3 : rule__GetStatements__Group__3__Impl rule__GetStatements__Group__4 ;
+    // InternalJsonQ.g:748:1: rule__GetStatements__Group__3 : rule__GetStatements__Group__3__Impl rule__GetStatements__Group__4 ;
     public final void rule__GetStatements__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:706:1: ( rule__GetStatements__Group__3__Impl rule__GetStatements__Group__4 )
-            // InternalJsonQ.g:707:2: rule__GetStatements__Group__3__Impl rule__GetStatements__Group__4
+            // InternalJsonQ.g:752:1: ( rule__GetStatements__Group__3__Impl rule__GetStatements__Group__4 )
+            // InternalJsonQ.g:753:2: rule__GetStatements__Group__3__Impl rule__GetStatements__Group__4
             {
             pushFollow(FOLLOW_7);
             rule__GetStatements__Group__3__Impl();
@@ -2220,21 +2382,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__3__Impl"
-    // InternalJsonQ.g:714:1: rule__GetStatements__Group__3__Impl : ( ( rule__GetStatements__Q1keyAssignment_3 ) ) ;
+    // InternalJsonQ.g:760:1: rule__GetStatements__Group__3__Impl : ( ( rule__GetStatements__Q1keyAssignment_3 ) ) ;
     public final void rule__GetStatements__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:718:1: ( ( ( rule__GetStatements__Q1keyAssignment_3 ) ) )
-            // InternalJsonQ.g:719:1: ( ( rule__GetStatements__Q1keyAssignment_3 ) )
+            // InternalJsonQ.g:764:1: ( ( ( rule__GetStatements__Q1keyAssignment_3 ) ) )
+            // InternalJsonQ.g:765:1: ( ( rule__GetStatements__Q1keyAssignment_3 ) )
             {
-            // InternalJsonQ.g:719:1: ( ( rule__GetStatements__Q1keyAssignment_3 ) )
-            // InternalJsonQ.g:720:2: ( rule__GetStatements__Q1keyAssignment_3 )
+            // InternalJsonQ.g:765:1: ( ( rule__GetStatements__Q1keyAssignment_3 ) )
+            // InternalJsonQ.g:766:2: ( rule__GetStatements__Q1keyAssignment_3 )
             {
              before(grammarAccess.getGetStatementsAccess().getQ1keyAssignment_3()); 
-            // InternalJsonQ.g:721:2: ( rule__GetStatements__Q1keyAssignment_3 )
-            // InternalJsonQ.g:721:3: rule__GetStatements__Q1keyAssignment_3
+            // InternalJsonQ.g:767:2: ( rule__GetStatements__Q1keyAssignment_3 )
+            // InternalJsonQ.g:767:3: rule__GetStatements__Q1keyAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__GetStatements__Q1keyAssignment_3();
@@ -2267,14 +2429,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__4"
-    // InternalJsonQ.g:729:1: rule__GetStatements__Group__4 : rule__GetStatements__Group__4__Impl rule__GetStatements__Group__5 ;
+    // InternalJsonQ.g:775:1: rule__GetStatements__Group__4 : rule__GetStatements__Group__4__Impl rule__GetStatements__Group__5 ;
     public final void rule__GetStatements__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:733:1: ( rule__GetStatements__Group__4__Impl rule__GetStatements__Group__5 )
-            // InternalJsonQ.g:734:2: rule__GetStatements__Group__4__Impl rule__GetStatements__Group__5
+            // InternalJsonQ.g:779:1: ( rule__GetStatements__Group__4__Impl rule__GetStatements__Group__5 )
+            // InternalJsonQ.g:780:2: rule__GetStatements__Group__4__Impl rule__GetStatements__Group__5
             {
             pushFollow(FOLLOW_8);
             rule__GetStatements__Group__4__Impl();
@@ -2305,21 +2467,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__4__Impl"
-    // InternalJsonQ.g:741:1: rule__GetStatements__Group__4__Impl : ( ( rule__GetStatements__Q1valAssignment_4 ) ) ;
+    // InternalJsonQ.g:787:1: rule__GetStatements__Group__4__Impl : ( ( rule__GetStatements__Q1valAssignment_4 ) ) ;
     public final void rule__GetStatements__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:745:1: ( ( ( rule__GetStatements__Q1valAssignment_4 ) ) )
-            // InternalJsonQ.g:746:1: ( ( rule__GetStatements__Q1valAssignment_4 ) )
+            // InternalJsonQ.g:791:1: ( ( ( rule__GetStatements__Q1valAssignment_4 ) ) )
+            // InternalJsonQ.g:792:1: ( ( rule__GetStatements__Q1valAssignment_4 ) )
             {
-            // InternalJsonQ.g:746:1: ( ( rule__GetStatements__Q1valAssignment_4 ) )
-            // InternalJsonQ.g:747:2: ( rule__GetStatements__Q1valAssignment_4 )
+            // InternalJsonQ.g:792:1: ( ( rule__GetStatements__Q1valAssignment_4 ) )
+            // InternalJsonQ.g:793:2: ( rule__GetStatements__Q1valAssignment_4 )
             {
              before(grammarAccess.getGetStatementsAccess().getQ1valAssignment_4()); 
-            // InternalJsonQ.g:748:2: ( rule__GetStatements__Q1valAssignment_4 )
-            // InternalJsonQ.g:748:3: rule__GetStatements__Q1valAssignment_4
+            // InternalJsonQ.g:794:2: ( rule__GetStatements__Q1valAssignment_4 )
+            // InternalJsonQ.g:794:3: rule__GetStatements__Q1valAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__GetStatements__Q1valAssignment_4();
@@ -2352,14 +2514,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__5"
-    // InternalJsonQ.g:756:1: rule__GetStatements__Group__5 : rule__GetStatements__Group__5__Impl rule__GetStatements__Group__6 ;
+    // InternalJsonQ.g:802:1: rule__GetStatements__Group__5 : rule__GetStatements__Group__5__Impl rule__GetStatements__Group__6 ;
     public final void rule__GetStatements__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:760:1: ( rule__GetStatements__Group__5__Impl rule__GetStatements__Group__6 )
-            // InternalJsonQ.g:761:2: rule__GetStatements__Group__5__Impl rule__GetStatements__Group__6
+            // InternalJsonQ.g:806:1: ( rule__GetStatements__Group__5__Impl rule__GetStatements__Group__6 )
+            // InternalJsonQ.g:807:2: rule__GetStatements__Group__5__Impl rule__GetStatements__Group__6
             {
             pushFollow(FOLLOW_8);
             rule__GetStatements__Group__5__Impl();
@@ -2390,29 +2552,29 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__5__Impl"
-    // InternalJsonQ.g:768:1: rule__GetStatements__Group__5__Impl : ( ( rule__GetStatements__QryadditionalAssignment_5 )? ) ;
+    // InternalJsonQ.g:814:1: rule__GetStatements__Group__5__Impl : ( ( rule__GetStatements__QryadditionalAssignment_5 )? ) ;
     public final void rule__GetStatements__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:772:1: ( ( ( rule__GetStatements__QryadditionalAssignment_5 )? ) )
-            // InternalJsonQ.g:773:1: ( ( rule__GetStatements__QryadditionalAssignment_5 )? )
+            // InternalJsonQ.g:818:1: ( ( ( rule__GetStatements__QryadditionalAssignment_5 )? ) )
+            // InternalJsonQ.g:819:1: ( ( rule__GetStatements__QryadditionalAssignment_5 )? )
             {
-            // InternalJsonQ.g:773:1: ( ( rule__GetStatements__QryadditionalAssignment_5 )? )
-            // InternalJsonQ.g:774:2: ( rule__GetStatements__QryadditionalAssignment_5 )?
+            // InternalJsonQ.g:819:1: ( ( rule__GetStatements__QryadditionalAssignment_5 )? )
+            // InternalJsonQ.g:820:2: ( rule__GetStatements__QryadditionalAssignment_5 )?
             {
              before(grammarAccess.getGetStatementsAccess().getQryadditionalAssignment_5()); 
-            // InternalJsonQ.g:775:2: ( rule__GetStatements__QryadditionalAssignment_5 )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalJsonQ.g:821:2: ( rule__GetStatements__QryadditionalAssignment_5 )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( ((LA7_0>=12 && LA7_0<=13)) ) {
-                alt7=1;
+            if ( ((LA8_0>=12 && LA8_0<=13)) ) {
+                alt8=1;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalJsonQ.g:775:3: rule__GetStatements__QryadditionalAssignment_5
+                    // InternalJsonQ.g:821:3: rule__GetStatements__QryadditionalAssignment_5
                     {
                     pushFollow(FOLLOW_2);
                     rule__GetStatements__QryadditionalAssignment_5();
@@ -2448,14 +2610,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__6"
-    // InternalJsonQ.g:783:1: rule__GetStatements__Group__6 : rule__GetStatements__Group__6__Impl ;
+    // InternalJsonQ.g:829:1: rule__GetStatements__Group__6 : rule__GetStatements__Group__6__Impl ;
     public final void rule__GetStatements__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:787:1: ( rule__GetStatements__Group__6__Impl )
-            // InternalJsonQ.g:788:2: rule__GetStatements__Group__6__Impl
+            // InternalJsonQ.g:833:1: ( rule__GetStatements__Group__6__Impl )
+            // InternalJsonQ.g:834:2: rule__GetStatements__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__GetStatements__Group__6__Impl();
@@ -2481,17 +2643,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Group__6__Impl"
-    // InternalJsonQ.g:794:1: rule__GetStatements__Group__6__Impl : ( 'END' ) ;
+    // InternalJsonQ.g:840:1: rule__GetStatements__Group__6__Impl : ( 'END' ) ;
     public final void rule__GetStatements__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:798:1: ( ( 'END' ) )
-            // InternalJsonQ.g:799:1: ( 'END' )
+            // InternalJsonQ.g:844:1: ( ( 'END' ) )
+            // InternalJsonQ.g:845:1: ( 'END' )
             {
-            // InternalJsonQ.g:799:1: ( 'END' )
-            // InternalJsonQ.g:800:2: 'END'
+            // InternalJsonQ.g:845:1: ( 'END' )
+            // InternalJsonQ.g:846:2: 'END'
             {
              before(grammarAccess.getGetStatementsAccess().getENDKeyword_6()); 
             match(input,25,FOLLOW_2); 
@@ -2518,14 +2680,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AdditionalQuery__Group__0"
-    // InternalJsonQ.g:810:1: rule__AdditionalQuery__Group__0 : rule__AdditionalQuery__Group__0__Impl rule__AdditionalQuery__Group__1 ;
+    // InternalJsonQ.g:856:1: rule__AdditionalQuery__Group__0 : rule__AdditionalQuery__Group__0__Impl rule__AdditionalQuery__Group__1 ;
     public final void rule__AdditionalQuery__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:814:1: ( rule__AdditionalQuery__Group__0__Impl rule__AdditionalQuery__Group__1 )
-            // InternalJsonQ.g:815:2: rule__AdditionalQuery__Group__0__Impl rule__AdditionalQuery__Group__1
+            // InternalJsonQ.g:860:1: ( rule__AdditionalQuery__Group__0__Impl rule__AdditionalQuery__Group__1 )
+            // InternalJsonQ.g:861:2: rule__AdditionalQuery__Group__0__Impl rule__AdditionalQuery__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__AdditionalQuery__Group__0__Impl();
@@ -2556,21 +2718,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AdditionalQuery__Group__0__Impl"
-    // InternalJsonQ.g:822:1: rule__AdditionalQuery__Group__0__Impl : ( ( rule__AdditionalQuery__ConnectorAssignment_0 ) ) ;
+    // InternalJsonQ.g:868:1: rule__AdditionalQuery__Group__0__Impl : ( ( rule__AdditionalQuery__ConnectorAssignment_0 ) ) ;
     public final void rule__AdditionalQuery__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:826:1: ( ( ( rule__AdditionalQuery__ConnectorAssignment_0 ) ) )
-            // InternalJsonQ.g:827:1: ( ( rule__AdditionalQuery__ConnectorAssignment_0 ) )
+            // InternalJsonQ.g:872:1: ( ( ( rule__AdditionalQuery__ConnectorAssignment_0 ) ) )
+            // InternalJsonQ.g:873:1: ( ( rule__AdditionalQuery__ConnectorAssignment_0 ) )
             {
-            // InternalJsonQ.g:827:1: ( ( rule__AdditionalQuery__ConnectorAssignment_0 ) )
-            // InternalJsonQ.g:828:2: ( rule__AdditionalQuery__ConnectorAssignment_0 )
+            // InternalJsonQ.g:873:1: ( ( rule__AdditionalQuery__ConnectorAssignment_0 ) )
+            // InternalJsonQ.g:874:2: ( rule__AdditionalQuery__ConnectorAssignment_0 )
             {
              before(grammarAccess.getAdditionalQueryAccess().getConnectorAssignment_0()); 
-            // InternalJsonQ.g:829:2: ( rule__AdditionalQuery__ConnectorAssignment_0 )
-            // InternalJsonQ.g:829:3: rule__AdditionalQuery__ConnectorAssignment_0
+            // InternalJsonQ.g:875:2: ( rule__AdditionalQuery__ConnectorAssignment_0 )
+            // InternalJsonQ.g:875:3: rule__AdditionalQuery__ConnectorAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__AdditionalQuery__ConnectorAssignment_0();
@@ -2603,14 +2765,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AdditionalQuery__Group__1"
-    // InternalJsonQ.g:837:1: rule__AdditionalQuery__Group__1 : rule__AdditionalQuery__Group__1__Impl rule__AdditionalQuery__Group__2 ;
+    // InternalJsonQ.g:883:1: rule__AdditionalQuery__Group__1 : rule__AdditionalQuery__Group__1__Impl rule__AdditionalQuery__Group__2 ;
     public final void rule__AdditionalQuery__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:841:1: ( rule__AdditionalQuery__Group__1__Impl rule__AdditionalQuery__Group__2 )
-            // InternalJsonQ.g:842:2: rule__AdditionalQuery__Group__1__Impl rule__AdditionalQuery__Group__2
+            // InternalJsonQ.g:887:1: ( rule__AdditionalQuery__Group__1__Impl rule__AdditionalQuery__Group__2 )
+            // InternalJsonQ.g:888:2: rule__AdditionalQuery__Group__1__Impl rule__AdditionalQuery__Group__2
             {
             pushFollow(FOLLOW_7);
             rule__AdditionalQuery__Group__1__Impl();
@@ -2641,21 +2803,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AdditionalQuery__Group__1__Impl"
-    // InternalJsonQ.g:849:1: rule__AdditionalQuery__Group__1__Impl : ( ( rule__AdditionalQuery__Q2keyAssignment_1 ) ) ;
+    // InternalJsonQ.g:895:1: rule__AdditionalQuery__Group__1__Impl : ( ( rule__AdditionalQuery__Q2keyAssignment_1 ) ) ;
     public final void rule__AdditionalQuery__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:853:1: ( ( ( rule__AdditionalQuery__Q2keyAssignment_1 ) ) )
-            // InternalJsonQ.g:854:1: ( ( rule__AdditionalQuery__Q2keyAssignment_1 ) )
+            // InternalJsonQ.g:899:1: ( ( ( rule__AdditionalQuery__Q2keyAssignment_1 ) ) )
+            // InternalJsonQ.g:900:1: ( ( rule__AdditionalQuery__Q2keyAssignment_1 ) )
             {
-            // InternalJsonQ.g:854:1: ( ( rule__AdditionalQuery__Q2keyAssignment_1 ) )
-            // InternalJsonQ.g:855:2: ( rule__AdditionalQuery__Q2keyAssignment_1 )
+            // InternalJsonQ.g:900:1: ( ( rule__AdditionalQuery__Q2keyAssignment_1 ) )
+            // InternalJsonQ.g:901:2: ( rule__AdditionalQuery__Q2keyAssignment_1 )
             {
              before(grammarAccess.getAdditionalQueryAccess().getQ2keyAssignment_1()); 
-            // InternalJsonQ.g:856:2: ( rule__AdditionalQuery__Q2keyAssignment_1 )
-            // InternalJsonQ.g:856:3: rule__AdditionalQuery__Q2keyAssignment_1
+            // InternalJsonQ.g:902:2: ( rule__AdditionalQuery__Q2keyAssignment_1 )
+            // InternalJsonQ.g:902:3: rule__AdditionalQuery__Q2keyAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__AdditionalQuery__Q2keyAssignment_1();
@@ -2688,14 +2850,14 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AdditionalQuery__Group__2"
-    // InternalJsonQ.g:864:1: rule__AdditionalQuery__Group__2 : rule__AdditionalQuery__Group__2__Impl ;
+    // InternalJsonQ.g:910:1: rule__AdditionalQuery__Group__2 : rule__AdditionalQuery__Group__2__Impl ;
     public final void rule__AdditionalQuery__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:868:1: ( rule__AdditionalQuery__Group__2__Impl )
-            // InternalJsonQ.g:869:2: rule__AdditionalQuery__Group__2__Impl
+            // InternalJsonQ.g:914:1: ( rule__AdditionalQuery__Group__2__Impl )
+            // InternalJsonQ.g:915:2: rule__AdditionalQuery__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AdditionalQuery__Group__2__Impl();
@@ -2721,21 +2883,21 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AdditionalQuery__Group__2__Impl"
-    // InternalJsonQ.g:875:1: rule__AdditionalQuery__Group__2__Impl : ( ( rule__AdditionalQuery__Q2valAssignment_2 ) ) ;
+    // InternalJsonQ.g:921:1: rule__AdditionalQuery__Group__2__Impl : ( ( rule__AdditionalQuery__Q2valAssignment_2 ) ) ;
     public final void rule__AdditionalQuery__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:879:1: ( ( ( rule__AdditionalQuery__Q2valAssignment_2 ) ) )
-            // InternalJsonQ.g:880:1: ( ( rule__AdditionalQuery__Q2valAssignment_2 ) )
+            // InternalJsonQ.g:925:1: ( ( ( rule__AdditionalQuery__Q2valAssignment_2 ) ) )
+            // InternalJsonQ.g:926:1: ( ( rule__AdditionalQuery__Q2valAssignment_2 ) )
             {
-            // InternalJsonQ.g:880:1: ( ( rule__AdditionalQuery__Q2valAssignment_2 ) )
-            // InternalJsonQ.g:881:2: ( rule__AdditionalQuery__Q2valAssignment_2 )
+            // InternalJsonQ.g:926:1: ( ( rule__AdditionalQuery__Q2valAssignment_2 ) )
+            // InternalJsonQ.g:927:2: ( rule__AdditionalQuery__Q2valAssignment_2 )
             {
              before(grammarAccess.getAdditionalQueryAccess().getQ2valAssignment_2()); 
-            // InternalJsonQ.g:882:2: ( rule__AdditionalQuery__Q2valAssignment_2 )
-            // InternalJsonQ.g:882:3: rule__AdditionalQuery__Q2valAssignment_2
+            // InternalJsonQ.g:928:2: ( rule__AdditionalQuery__Q2valAssignment_2 )
+            // InternalJsonQ.g:928:3: rule__AdditionalQuery__Q2valAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__AdditionalQuery__Q2valAssignment_2();
@@ -2768,17 +2930,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__JSONQueryModel__InputStatementAssignment"
-    // InternalJsonQ.g:891:1: rule__JSONQueryModel__InputStatementAssignment : ( ruleStatements ) ;
+    // InternalJsonQ.g:937:1: rule__JSONQueryModel__InputStatementAssignment : ( ruleStatements ) ;
     public final void rule__JSONQueryModel__InputStatementAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:895:1: ( ( ruleStatements ) )
-            // InternalJsonQ.g:896:2: ( ruleStatements )
+            // InternalJsonQ.g:941:1: ( ( ruleStatements ) )
+            // InternalJsonQ.g:942:2: ( ruleStatements )
             {
-            // InternalJsonQ.g:896:2: ( ruleStatements )
-            // InternalJsonQ.g:897:3: ruleStatements
+            // InternalJsonQ.g:942:2: ( ruleStatements )
+            // InternalJsonQ.g:943:3: ruleStatements
             {
              before(grammarAccess.getJSONQueryModelAccess().getInputStatementStatementsParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -2809,17 +2971,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__OpAggAssignment_1"
-    // InternalJsonQ.g:906:1: rule__AggregateStatements__OpAggAssignment_1 : ( ruleOperationAgg ) ;
+    // InternalJsonQ.g:952:1: rule__AggregateStatements__OpAggAssignment_1 : ( ruleOperationAgg ) ;
     public final void rule__AggregateStatements__OpAggAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:910:1: ( ( ruleOperationAgg ) )
-            // InternalJsonQ.g:911:2: ( ruleOperationAgg )
+            // InternalJsonQ.g:956:1: ( ( ruleOperationAgg ) )
+            // InternalJsonQ.g:957:2: ( ruleOperationAgg )
             {
-            // InternalJsonQ.g:911:2: ( ruleOperationAgg )
-            // InternalJsonQ.g:912:3: ruleOperationAgg
+            // InternalJsonQ.g:957:2: ( ruleOperationAgg )
+            // InternalJsonQ.g:958:3: ruleOperationAgg
             {
              before(grammarAccess.getAggregateStatementsAccess().getOpAggOperationAggEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -2850,17 +3012,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__AggFieldAssignment_2"
-    // InternalJsonQ.g:921:1: rule__AggregateStatements__AggFieldAssignment_2 : ( ruleInputFieldSingle ) ;
+    // InternalJsonQ.g:967:1: rule__AggregateStatements__AggFieldAssignment_2 : ( ruleInputFieldSingle ) ;
     public final void rule__AggregateStatements__AggFieldAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:925:1: ( ( ruleInputFieldSingle ) )
-            // InternalJsonQ.g:926:2: ( ruleInputFieldSingle )
+            // InternalJsonQ.g:971:1: ( ( ruleInputFieldSingle ) )
+            // InternalJsonQ.g:972:2: ( ruleInputFieldSingle )
             {
-            // InternalJsonQ.g:926:2: ( ruleInputFieldSingle )
-            // InternalJsonQ.g:927:3: ruleInputFieldSingle
+            // InternalJsonQ.g:972:2: ( ruleInputFieldSingle )
+            // InternalJsonQ.g:973:3: ruleInputFieldSingle
             {
              before(grammarAccess.getAggregateStatementsAccess().getAggFieldInputFieldSingleEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -2891,17 +3053,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Q1keyAssignment_4"
-    // InternalJsonQ.g:936:1: rule__AggregateStatements__Q1keyAssignment_4 : ( ruleInputFieldSingle ) ;
+    // InternalJsonQ.g:982:1: rule__AggregateStatements__Q1keyAssignment_4 : ( ruleInputFieldSingle ) ;
     public final void rule__AggregateStatements__Q1keyAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:940:1: ( ( ruleInputFieldSingle ) )
-            // InternalJsonQ.g:941:2: ( ruleInputFieldSingle )
+            // InternalJsonQ.g:986:1: ( ( ruleInputFieldSingle ) )
+            // InternalJsonQ.g:987:2: ( ruleInputFieldSingle )
             {
-            // InternalJsonQ.g:941:2: ( ruleInputFieldSingle )
-            // InternalJsonQ.g:942:3: ruleInputFieldSingle
+            // InternalJsonQ.g:987:2: ( ruleInputFieldSingle )
+            // InternalJsonQ.g:988:3: ruleInputFieldSingle
             {
              before(grammarAccess.getAggregateStatementsAccess().getQ1keyInputFieldSingleEnumRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -2932,17 +3094,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__Q1valAssignment_5"
-    // InternalJsonQ.g:951:1: rule__AggregateStatements__Q1valAssignment_5 : ( ruleInputVal ) ;
+    // InternalJsonQ.g:997:1: rule__AggregateStatements__Q1valAssignment_5 : ( ruleInputVal ) ;
     public final void rule__AggregateStatements__Q1valAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:955:1: ( ( ruleInputVal ) )
-            // InternalJsonQ.g:956:2: ( ruleInputVal )
+            // InternalJsonQ.g:1001:1: ( ( ruleInputVal ) )
+            // InternalJsonQ.g:1002:2: ( ruleInputVal )
             {
-            // InternalJsonQ.g:956:2: ( ruleInputVal )
-            // InternalJsonQ.g:957:3: ruleInputVal
+            // InternalJsonQ.g:1002:2: ( ruleInputVal )
+            // InternalJsonQ.g:1003:3: ruleInputVal
             {
              before(grammarAccess.getAggregateStatementsAccess().getQ1valInputValParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -2973,17 +3135,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AggregateStatements__QryadditionalAssignment_6"
-    // InternalJsonQ.g:966:1: rule__AggregateStatements__QryadditionalAssignment_6 : ( ruleAdditionalQuery ) ;
+    // InternalJsonQ.g:1012:1: rule__AggregateStatements__QryadditionalAssignment_6 : ( ruleAdditionalQuery ) ;
     public final void rule__AggregateStatements__QryadditionalAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:970:1: ( ( ruleAdditionalQuery ) )
-            // InternalJsonQ.g:971:2: ( ruleAdditionalQuery )
+            // InternalJsonQ.g:1016:1: ( ( ruleAdditionalQuery ) )
+            // InternalJsonQ.g:1017:2: ( ruleAdditionalQuery )
             {
-            // InternalJsonQ.g:971:2: ( ruleAdditionalQuery )
-            // InternalJsonQ.g:972:3: ruleAdditionalQuery
+            // InternalJsonQ.g:1017:2: ( ruleAdditionalQuery )
+            // InternalJsonQ.g:1018:3: ruleAdditionalQuery
             {
              before(grammarAccess.getAggregateStatementsAccess().getQryadditionalAdditionalQueryParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -3014,17 +3176,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__OpGetAssignment_1"
-    // InternalJsonQ.g:981:1: rule__GetStatements__OpGetAssignment_1 : ( ruleOperationGET ) ;
+    // InternalJsonQ.g:1027:1: rule__GetStatements__OpGetAssignment_1 : ( ruleOperationGET ) ;
     public final void rule__GetStatements__OpGetAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:985:1: ( ( ruleOperationGET ) )
-            // InternalJsonQ.g:986:2: ( ruleOperationGET )
+            // InternalJsonQ.g:1031:1: ( ( ruleOperationGET ) )
+            // InternalJsonQ.g:1032:2: ( ruleOperationGET )
             {
-            // InternalJsonQ.g:986:2: ( ruleOperationGET )
-            // InternalJsonQ.g:987:3: ruleOperationGET
+            // InternalJsonQ.g:1032:2: ( ruleOperationGET )
+            // InternalJsonQ.g:1033:3: ruleOperationGET
             {
              before(grammarAccess.getGetStatementsAccess().getOpGetOperationGETEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -3055,17 +3217,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Q1keyAssignment_3"
-    // InternalJsonQ.g:996:1: rule__GetStatements__Q1keyAssignment_3 : ( ruleInputFieldSingle ) ;
+    // InternalJsonQ.g:1042:1: rule__GetStatements__Q1keyAssignment_3 : ( ruleInputFieldSingle ) ;
     public final void rule__GetStatements__Q1keyAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:1000:1: ( ( ruleInputFieldSingle ) )
-            // InternalJsonQ.g:1001:2: ( ruleInputFieldSingle )
+            // InternalJsonQ.g:1046:1: ( ( ruleInputFieldSingle ) )
+            // InternalJsonQ.g:1047:2: ( ruleInputFieldSingle )
             {
-            // InternalJsonQ.g:1001:2: ( ruleInputFieldSingle )
-            // InternalJsonQ.g:1002:3: ruleInputFieldSingle
+            // InternalJsonQ.g:1047:2: ( ruleInputFieldSingle )
+            // InternalJsonQ.g:1048:3: ruleInputFieldSingle
             {
              before(grammarAccess.getGetStatementsAccess().getQ1keyInputFieldSingleEnumRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -3096,17 +3258,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__Q1valAssignment_4"
-    // InternalJsonQ.g:1011:1: rule__GetStatements__Q1valAssignment_4 : ( ruleInputVal ) ;
+    // InternalJsonQ.g:1057:1: rule__GetStatements__Q1valAssignment_4 : ( ruleInputVal ) ;
     public final void rule__GetStatements__Q1valAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:1015:1: ( ( ruleInputVal ) )
-            // InternalJsonQ.g:1016:2: ( ruleInputVal )
+            // InternalJsonQ.g:1061:1: ( ( ruleInputVal ) )
+            // InternalJsonQ.g:1062:2: ( ruleInputVal )
             {
-            // InternalJsonQ.g:1016:2: ( ruleInputVal )
-            // InternalJsonQ.g:1017:3: ruleInputVal
+            // InternalJsonQ.g:1062:2: ( ruleInputVal )
+            // InternalJsonQ.g:1063:3: ruleInputVal
             {
              before(grammarAccess.getGetStatementsAccess().getQ1valInputValParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -3137,17 +3299,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GetStatements__QryadditionalAssignment_5"
-    // InternalJsonQ.g:1026:1: rule__GetStatements__QryadditionalAssignment_5 : ( ruleAdditionalQuery ) ;
+    // InternalJsonQ.g:1072:1: rule__GetStatements__QryadditionalAssignment_5 : ( ruleAdditionalQuery ) ;
     public final void rule__GetStatements__QryadditionalAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:1030:1: ( ( ruleAdditionalQuery ) )
-            // InternalJsonQ.g:1031:2: ( ruleAdditionalQuery )
+            // InternalJsonQ.g:1076:1: ( ( ruleAdditionalQuery ) )
+            // InternalJsonQ.g:1077:2: ( ruleAdditionalQuery )
             {
-            // InternalJsonQ.g:1031:2: ( ruleAdditionalQuery )
-            // InternalJsonQ.g:1032:3: ruleAdditionalQuery
+            // InternalJsonQ.g:1077:2: ( ruleAdditionalQuery )
+            // InternalJsonQ.g:1078:3: ruleAdditionalQuery
             {
              before(grammarAccess.getGetStatementsAccess().getQryadditionalAdditionalQueryParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -3178,17 +3340,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AdditionalQuery__ConnectorAssignment_0"
-    // InternalJsonQ.g:1041:1: rule__AdditionalQuery__ConnectorAssignment_0 : ( ruleConnector ) ;
+    // InternalJsonQ.g:1087:1: rule__AdditionalQuery__ConnectorAssignment_0 : ( ruleConnector ) ;
     public final void rule__AdditionalQuery__ConnectorAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:1045:1: ( ( ruleConnector ) )
-            // InternalJsonQ.g:1046:2: ( ruleConnector )
+            // InternalJsonQ.g:1091:1: ( ( ruleConnector ) )
+            // InternalJsonQ.g:1092:2: ( ruleConnector )
             {
-            // InternalJsonQ.g:1046:2: ( ruleConnector )
-            // InternalJsonQ.g:1047:3: ruleConnector
+            // InternalJsonQ.g:1092:2: ( ruleConnector )
+            // InternalJsonQ.g:1093:3: ruleConnector
             {
              before(grammarAccess.getAdditionalQueryAccess().getConnectorConnectorEnumRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -3219,17 +3381,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AdditionalQuery__Q2keyAssignment_1"
-    // InternalJsonQ.g:1056:1: rule__AdditionalQuery__Q2keyAssignment_1 : ( ruleInputFieldSingle ) ;
+    // InternalJsonQ.g:1102:1: rule__AdditionalQuery__Q2keyAssignment_1 : ( ruleInputFieldSingle ) ;
     public final void rule__AdditionalQuery__Q2keyAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:1060:1: ( ( ruleInputFieldSingle ) )
-            // InternalJsonQ.g:1061:2: ( ruleInputFieldSingle )
+            // InternalJsonQ.g:1106:1: ( ( ruleInputFieldSingle ) )
+            // InternalJsonQ.g:1107:2: ( ruleInputFieldSingle )
             {
-            // InternalJsonQ.g:1061:2: ( ruleInputFieldSingle )
-            // InternalJsonQ.g:1062:3: ruleInputFieldSingle
+            // InternalJsonQ.g:1107:2: ( ruleInputFieldSingle )
+            // InternalJsonQ.g:1108:3: ruleInputFieldSingle
             {
              before(grammarAccess.getAdditionalQueryAccess().getQ2keyInputFieldSingleEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -3260,17 +3422,17 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AdditionalQuery__Q2valAssignment_2"
-    // InternalJsonQ.g:1071:1: rule__AdditionalQuery__Q2valAssignment_2 : ( ruleInputVal ) ;
+    // InternalJsonQ.g:1117:1: rule__AdditionalQuery__Q2valAssignment_2 : ( ruleInputVal ) ;
     public final void rule__AdditionalQuery__Q2valAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:1075:1: ( ( ruleInputVal ) )
-            // InternalJsonQ.g:1076:2: ( ruleInputVal )
+            // InternalJsonQ.g:1121:1: ( ( ruleInputVal ) )
+            // InternalJsonQ.g:1122:2: ( ruleInputVal )
             {
-            // InternalJsonQ.g:1076:2: ( ruleInputVal )
-            // InternalJsonQ.g:1077:3: ruleInputVal
+            // InternalJsonQ.g:1122:2: ( ruleInputVal )
+            // InternalJsonQ.g:1123:3: ruleInputVal
             {
              before(grammarAccess.getAdditionalQueryAccess().getQ2valInputValParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -3300,18 +3462,55 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__AdditionalQuery__Q2valAssignment_2"
 
 
+    // $ANTLR start "rule__IntLiteral__ValueAssignment"
+    // InternalJsonQ.g:1132:1: rule__IntLiteral__ValueAssignment : ( RULE_INT ) ;
+    public final void rule__IntLiteral__ValueAssignment() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalJsonQ.g:1136:1: ( ( RULE_INT ) )
+            // InternalJsonQ.g:1137:2: ( RULE_INT )
+            {
+            // InternalJsonQ.g:1137:2: ( RULE_INT )
+            // InternalJsonQ.g:1138:3: RULE_INT
+            {
+             before(grammarAccess.getIntLiteralAccess().getValueINTTerminalRuleCall_0()); 
+            match(input,RULE_INT,FOLLOW_2); 
+             after(grammarAccess.getIntLiteralAccess().getValueINTTerminalRuleCall_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__IntLiteral__ValueAssignment"
+
+
     // $ANTLR start "rule__StringLiteral__ValueAssignment"
-    // InternalJsonQ.g:1086:1: rule__StringLiteral__ValueAssignment : ( RULE_STRING ) ;
+    // InternalJsonQ.g:1147:1: rule__StringLiteral__ValueAssignment : ( RULE_STRING ) ;
     public final void rule__StringLiteral__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonQ.g:1090:1: ( ( RULE_STRING ) )
-            // InternalJsonQ.g:1091:2: ( RULE_STRING )
+            // InternalJsonQ.g:1151:1: ( ( RULE_STRING ) )
+            // InternalJsonQ.g:1152:2: ( RULE_STRING )
             {
-            // InternalJsonQ.g:1091:2: ( RULE_STRING )
-            // InternalJsonQ.g:1092:3: RULE_STRING
+            // InternalJsonQ.g:1152:2: ( RULE_STRING )
+            // InternalJsonQ.g:1153:3: RULE_STRING
             {
              before(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -3347,7 +3546,7 @@ public class InternalJsonQParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000800L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000000007F0000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000002003000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x000000000000C000L});
 

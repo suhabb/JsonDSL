@@ -1,0 +1,80 @@
+import uk.ac.kcl.course.jsonQ.AdditionalQuery
+import uk.ac.kcl.course.jsonQ.AggregateStatements
+import uk.ac.kcl.course.jsonQ.GetStatements
+import uk.ac.kcl.course.jsonQ.Statements
+import uk.ac.kcl.course.jsonQ.StringLiteral
+import uk.ac.kcl.course.validation.AbstractJsonQValidator
+
+system uk.ac.kcl.course.typing.JsonDSLTypeSystem
+
+validatorExtends AbstractJsonQValidator
+
+judgments{
+	type |- Statements inp : output JsonQInputtype
+		error "Cannot type other than String" + stringRep(inp)
+	typeAdd |- AdditionalQuery inp ~> output JsonQInputtype
+		error "Issue in Additional Query Input Value"		
+	subtype |- JsonQInputtype left <: JsonQInputtype right 
+		error "The type must be String"
+}
+	
+rule TGetStatementInputType 
+	G |- GetStatements stmt : JsonQInputtype type
+from {
+	if (stmt.q1val instanceof StringLiteral){
+		type = JsonQInputtype.STRING
+	}else{
+		type = JsonQInputtype.INT
+	}
+}
+
+rule TAggStatementInputType 
+	G |- AggregateStatements stmt : JsonQInputtype type
+from {
+	if (stmt.q1val instanceof StringLiteral){
+		type = JsonQInputtype.STRING
+	}else{
+		type = JsonQInputtype.INT
+	}
+}
+
+rule TAddQueryInputType 
+	G |- AdditionalQuery stmt ~> JsonQInputtype type
+from {
+	if (stmt.q2val instanceof StringLiteral){
+		type = JsonQInputtype.STRING
+	}else{
+		type = JsonQInputtype.INT
+	}
+}
+
+rule SubTyping
+	G |- JsonQInputtype left <: JsonQInputtype right
+from {
+	left.ordinal === right.ordinal //INT STRING 
+}
+
+checkrule checkGetStatementInput for
+	GetStatements stmt
+from {
+	empty |- stmt : var JsonQInputtype type
+	empty |- type <: JsonQInputtype.STRING
+} 
+
+checkrule checkAggStatementInput for
+	AggregateStatements stmt
+from {
+	empty |- stmt : var JsonQInputtype type
+	empty |- type <: JsonQInputtype.STRING
+} 
+
+checkrule checkAddtionalQueryStatementInput for
+	AdditionalQuery stmt
+from {
+	empty |- stmt ~> var JsonQInputtype type
+	empty |- type <: JsonQInputtype.STRING
+} 
+
+
+
+	

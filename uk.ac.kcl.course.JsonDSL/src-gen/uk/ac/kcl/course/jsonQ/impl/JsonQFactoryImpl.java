@@ -72,6 +72,7 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
       case JsonQPackage.GET_STATEMENTS: return createGetStatements();
       case JsonQPackage.ADDITIONAL_QUERY: return createAdditionalQuery();
       case JsonQPackage.INPUT_VAL: return createInputVal();
+      case JsonQPackage.INT_LITERAL: return createIntLiteral();
       case JsonQPackage.STRING_LITERAL: return createStringLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -194,6 +195,18 @@ public class JsonQFactoryImpl extends EFactoryImpl implements JsonQFactory
   {
     InputValImpl inputVal = new InputValImpl();
     return inputVal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IntLiteral createIntLiteral()
+  {
+    IntLiteralImpl intLiteral = new IntLiteralImpl();
+    return intLiteral;
   }
 
   /**

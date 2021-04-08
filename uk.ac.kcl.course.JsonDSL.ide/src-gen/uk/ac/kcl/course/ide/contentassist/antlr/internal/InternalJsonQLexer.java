@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalJsonQLexer extends Lexer {
-    public static final int RULE_STRING=4;
+    public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__19=19;
     public static final int T__15=15;
@@ -24,10 +24,10 @@ public class InternalJsonQLexer extends Lexer {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int RULE_ID=5;
+    public static final int RULE_ID=6;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
-    public static final int RULE_INT=6;
+    public static final int RULE_INT=4;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -369,10 +369,10 @@ public class InternalJsonQLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonQ.g:1101:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalJsonQ.g:1101:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalJsonQ.g:1162:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalJsonQ.g:1162:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalJsonQ.g:1101:11: ( '^' )?
+            // InternalJsonQ.g:1162:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -381,7 +381,7 @@ public class InternalJsonQLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalJsonQ.g:1101:11: '^'
+                    // InternalJsonQ.g:1162:11: '^'
                     {
                     match('^'); 
 
@@ -399,7 +399,7 @@ public class InternalJsonQLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalJsonQ.g:1101:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalJsonQ.g:1162:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -448,10 +448,10 @@ public class InternalJsonQLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonQ.g:1103:10: ( ( '0' .. '9' )+ )
-            // InternalJsonQ.g:1103:12: ( '0' .. '9' )+
+            // InternalJsonQ.g:1164:10: ( ( '0' .. '9' )+ )
+            // InternalJsonQ.g:1164:12: ( '0' .. '9' )+
             {
-            // InternalJsonQ.g:1103:12: ( '0' .. '9' )+
+            // InternalJsonQ.g:1164:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -465,7 +465,7 @@ public class InternalJsonQLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalJsonQ.g:1103:13: '0' .. '9'
+            	    // InternalJsonQ.g:1164:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -497,10 +497,10 @@ public class InternalJsonQLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonQ.g:1105:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalJsonQ.g:1105:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalJsonQ.g:1166:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalJsonQ.g:1166:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalJsonQ.g:1105:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalJsonQ.g:1166:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -518,10 +518,10 @@ public class InternalJsonQLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalJsonQ.g:1105:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalJsonQ.g:1166:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalJsonQ.g:1105:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalJsonQ.g:1166:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -537,7 +537,7 @@ public class InternalJsonQLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalJsonQ.g:1105:21: '\\\\' .
+                    	    // InternalJsonQ.g:1166:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -545,7 +545,7 @@ public class InternalJsonQLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalJsonQ.g:1105:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalJsonQ.g:1166:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -570,10 +570,10 @@ public class InternalJsonQLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalJsonQ.g:1105:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalJsonQ.g:1166:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalJsonQ.g:1105:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalJsonQ.g:1166:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -589,7 +589,7 @@ public class InternalJsonQLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalJsonQ.g:1105:54: '\\\\' .
+                    	    // InternalJsonQ.g:1166:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -597,7 +597,7 @@ public class InternalJsonQLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalJsonQ.g:1105:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalJsonQ.g:1166:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -640,12 +640,12 @@ public class InternalJsonQLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonQ.g:1107:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalJsonQ.g:1107:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalJsonQ.g:1168:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalJsonQ.g:1168:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalJsonQ.g:1107:24: ( options {greedy=false; } : . )*
+            // InternalJsonQ.g:1168:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -670,7 +670,7 @@ public class InternalJsonQLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalJsonQ.g:1107:52: .
+            	    // InternalJsonQ.g:1168:52: .
             	    {
             	    matchAny(); 
 
@@ -700,12 +700,12 @@ public class InternalJsonQLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonQ.g:1109:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalJsonQ.g:1109:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalJsonQ.g:1170:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalJsonQ.g:1170:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalJsonQ.g:1109:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalJsonQ.g:1170:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -718,7 +718,7 @@ public class InternalJsonQLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalJsonQ.g:1109:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalJsonQ.g:1170:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -738,7 +738,7 @@ public class InternalJsonQLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalJsonQ.g:1109:40: ( ( '\\r' )? '\\n' )?
+            // InternalJsonQ.g:1170:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -747,9 +747,9 @@ public class InternalJsonQLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalJsonQ.g:1109:41: ( '\\r' )? '\\n'
+                    // InternalJsonQ.g:1170:41: ( '\\r' )? '\\n'
                     {
-                    // InternalJsonQ.g:1109:41: ( '\\r' )?
+                    // InternalJsonQ.g:1170:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -758,7 +758,7 @@ public class InternalJsonQLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalJsonQ.g:1109:41: '\\r'
+                            // InternalJsonQ.g:1170:41: '\\r'
                             {
                             match('\r'); 
 
@@ -790,10 +790,10 @@ public class InternalJsonQLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonQ.g:1111:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalJsonQ.g:1111:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJsonQ.g:1172:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalJsonQ.g:1172:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalJsonQ.g:1111:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJsonQ.g:1172:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -847,8 +847,8 @@ public class InternalJsonQLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonQ.g:1113:16: ( . )
-            // InternalJsonQ.g:1113:18: .
+            // InternalJsonQ.g:1174:16: ( . )
+            // InternalJsonQ.g:1174:18: .
             {
             matchAny(); 
 

@@ -17,6 +17,7 @@ import uk.ac.kcl.course.jsonQ.Connector;
 import uk.ac.kcl.course.jsonQ.GetStatements;
 import uk.ac.kcl.course.jsonQ.InputFieldSingle;
 import uk.ac.kcl.course.jsonQ.InputVal;
+import uk.ac.kcl.course.jsonQ.IntLiteral;
 import uk.ac.kcl.course.jsonQ.JSONQueryModel;
 import uk.ac.kcl.course.jsonQ.JsonQFactory;
 import uk.ac.kcl.course.jsonQ.JsonQPackage;
@@ -74,6 +75,13 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   private EClass inputValEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass intLiteralEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -355,6 +363,28 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
    * @generated
    */
   @Override
+  public EClass getIntLiteral()
+  {
+    return intLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getIntLiteral_Value()
+  {
+    return (EAttribute)intLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getStringLiteral()
   {
     return stringLiteralEClass;
@@ -468,6 +498,9 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
 
     inputValEClass = createEClass(INPUT_VAL);
 
+    intLiteralEClass = createEClass(INT_LITERAL);
+    createEAttribute(intLiteralEClass, INT_LITERAL__VALUE);
+
     stringLiteralEClass = createEClass(STRING_LITERAL);
     createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
 
@@ -509,6 +542,7 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
     // Add supertypes to classes
     aggregateStatementsEClass.getESuperTypes().add(this.getStatements());
     getStatementsEClass.getESuperTypes().add(this.getStatements());
+    intLiteralEClass.getESuperTypes().add(this.getInputVal());
     stringLiteralEClass.getESuperTypes().add(this.getInputVal());
 
     // Initialize classes and features; add operations and parameters
@@ -533,6 +567,9 @@ public class JsonQPackageImpl extends EPackageImpl implements JsonQPackage
     initEReference(getAdditionalQuery_Q2val(), this.getInputVal(), null, "q2val", null, 0, 1, AdditionalQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inputValEClass, InputVal.class, "InputVal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(intLiteralEClass, IntLiteral.class, "IntLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIntLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

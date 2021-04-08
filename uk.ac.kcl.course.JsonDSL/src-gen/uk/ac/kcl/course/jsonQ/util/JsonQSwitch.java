@@ -117,6 +117,14 @@ public class JsonQSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case JsonQPackage.INT_LITERAL:
+      {
+        IntLiteral intLiteral = (IntLiteral)theEObject;
+        T result = caseIntLiteral(intLiteral);
+        if (result == null) result = caseInputVal(intLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case JsonQPackage.STRING_LITERAL:
       {
         StringLiteral stringLiteral = (StringLiteral)theEObject;
@@ -221,6 +229,22 @@ public class JsonQSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseInputVal(InputVal object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Int Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Int Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntLiteral(IntLiteral object)
   {
     return null;
   }

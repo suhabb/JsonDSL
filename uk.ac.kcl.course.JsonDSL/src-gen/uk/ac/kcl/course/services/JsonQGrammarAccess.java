@@ -220,15 +220,39 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	public class InputValElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.InputVal");
-		private final RuleCall cStringLiteralParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cStringLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cIntLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//InputVal:
-		//    StringLiteral
+		//    StringLiteral | IntLiteral
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//StringLiteral | IntLiteral
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//StringLiteral
-		public RuleCall getStringLiteralParserRuleCall() { return cStringLiteralParserRuleCall; }
+		public RuleCall getStringLiteralParserRuleCall_0() { return cStringLiteralParserRuleCall_0; }
+		
+		//IntLiteral
+		public RuleCall getIntLiteralParserRuleCall_1() { return cIntLiteralParserRuleCall_1; }
+	}
+	public class IntLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.IntLiteral");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueINTTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//IntLiteral:
+		//    value = INT
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value = INT
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_0() { return cValueINTTerminalRuleCall_0; }
 	}
 	public class StringLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.ac.kcl.course.JsonQ.StringLiteral");
@@ -395,6 +419,7 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final AdditionalQueryElements pAdditionalQuery;
 	private final ConnectorElements eConnector;
 	private final InputValElements pInputVal;
+	private final IntLiteralElements pIntLiteral;
 	private final StringLiteralElements pStringLiteral;
 	private final OperationAggElements eOperationAgg;
 	private final OperationGETElements eOperationGET;
@@ -416,6 +441,7 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pAdditionalQuery = new AdditionalQueryElements();
 		this.eConnector = new ConnectorElements();
 		this.pInputVal = new InputValElements();
+		this.pIntLiteral = new IntLiteralElements();
 		this.pStringLiteral = new StringLiteralElements();
 		this.eOperationAgg = new OperationAggElements();
 		this.eOperationGET = new OperationGETElements();
@@ -517,7 +543,7 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//InputVal:
-	//    StringLiteral
+	//    StringLiteral | IntLiteral
 	//;
 	public InputValElements getInputValAccess() {
 		return pInputVal;
@@ -525,6 +551,17 @@ public class JsonQGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getInputValRule() {
 		return getInputValAccess().getRule();
+	}
+	
+	//IntLiteral:
+	//    value = INT
+	//;
+	public IntLiteralElements getIntLiteralAccess() {
+		return pIntLiteral;
+	}
+	
+	public ParserRule getIntLiteralRule() {
+		return getIntLiteralAccess().getRule();
 	}
 	
 	//StringLiteral:

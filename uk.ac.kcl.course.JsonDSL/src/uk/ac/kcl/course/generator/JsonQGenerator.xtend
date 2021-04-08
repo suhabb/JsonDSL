@@ -22,20 +22,20 @@ import uk.ac.kcl.course.jsonQ.AdditionalQuery
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class JsonQGenerator extends AbstractGenerator {
-	
+
 	var static int counter = 0 ;
 	var List<String> jsonList = newArrayList
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val model = resource.contents.head as JSONQueryModel
-		if(model !== null){
-		fsa.generateFile("JSONQueryMain" + '.java', model.doGenerateClass)
+		if (model !== null) {
+			fsa.generateFile("JSONQueryMain" + '.java', model.doGenerateClass)
 		}
 		initialize
 	}
-	
-	def initialize(){
-		counter=0;
+
+	def initialize() {
+		counter = 0;
 		jsonList.clear
 	}
 
@@ -45,7 +45,7 @@ class JsonQGenerator extends AbstractGenerator {
 		import java.util.List;
 		import java.util.Map;
 		import org.json.JSONObject;
-
+		
 		import uk.ac.kcl.course.json_lib.dto.JSONQuery;
 		import uk.ac.kcl.course.json_lib.dto.JSONQueryBuilder;
 		import uk.ac.kcl.course.json_lib.service.JSONQueryProcess;
@@ -63,58 +63,69 @@ class JsonQGenerator extends AbstractGenerator {
 				}
 		}
 	'''
-	
-	def String convertListToString(){
+
+	def String convertListToString() {
 		var json = jsonList.stream.collect(Collectors.joining(','));
 		json
 	}
-	
-	dispatch def String generateJQ(Statements stmt)''''''
-	dispatch def String generateJQ(GetStatements stmt){
-		var jsonCount="json" + counter
-	 	var str = stmt.q1val as StringLiteral
-	 	var qa = stmt.qryadditional as AdditionalQuery
-		var result = '''
-				  JSONQuery «jsonCount»= new JSONQueryBuilder()
-				        	.setOperationValue("«stmt.opGet.literal»")
-				        	.setFirstQueryKey("«stmt.q1key.literal»")
-				        	.setFirstQueryValue("«str.value»")
-				        	«if (qa !== null) '''
+
+	dispatch def String generateJQ(Statements stmt) ''''''
+
+	dispatch def String generateJQ(GetStatements stmt) {
+		var jsonCount = "json" + counter
+		var qa = stmt.qryadditional as AdditionalQuery
+		var result = ''
+		if (stmt.q1val instanceof StringLiteral) {
+			var str = stmt.q1val as StringLiteral
+
+			result = '''
+				JSONQuery «jsonCount»= new JSONQueryBuilder()
+				      	.setOperationValue("«stmt.opGet.literal»")
+				      	.setFirstQueryKey("«stmt.q1key.literal»")
+				      	.setFirstQueryValue("«str.value»")
+				      	«if (qa !== null && qa.q2val instanceof StringLiteral) '''
 				        	.setConnectorValue("«qa.connector»")
 				        	.setSecondQueryKey("«qa.q2key.literal»")
 				        	«var q2str = qa.q2val as StringLiteral»
 				        	.setSecondQueryValue("«q2str.value»")
 				        	'''»
-				        	.build();
-				        	
-		'''
-		counter++;
-		jsonList.add(jsonCount)
-		result;		
+				      	.build();
+				      	
+			'''
+
+			counter++;
+			jsonList.add(jsonCount)
+		}
+		result;
 	}
 
-	dispatch def String generateJQ(AggregateStatements stmt){
-		var jsonCount="json" + counter
-	 	var str = stmt.q1val as StringLiteral
-	 	var qa = stmt.qryadditional as AdditionalQuery
-		var result = '''
-				  JSONQuery «jsonCount»= new JSONQueryBuilder()
-				        	.setOperationValue("«stmt.opAgg.literal»")
-				        	.setAggregateField("«stmt.aggField»")
-				        	.setFirstQueryKey("«stmt.q1key.literal»")
-				        	.setFirstQueryValue("«str.value»")
-				        	«if (qa !== null) '''
+	dispatch def String generateJQ(AggregateStatements stmt) {
+		var jsonCount = "json" + counter
+		var result = ''
+		if (stmt.q1val instanceof StringLiteral) {
+			var str = stmt.q1val as StringLiteral
+			var qa = stmt.qryadditional as AdditionalQuery
+
+			result = '''
+				JSONQuery «jsonCount»= new JSONQueryBuilder()
+				      	.setOperationValue("«stmt.opAgg.literal»")
+				      	.setAggregateField("«stmt.aggField»")
+				      	.setFirstQueryKey("«stmt.q1key.literal»")
+				      	.setFirstQueryValue("«str.value»")
+				      	«if (qa !== null && qa.q2val instanceof StringLiteral) '''
 				        	.setConnectorValue("«qa.connector»")
 				        	.setSecondQueryKey("«qa.q2key.literal»")
 				        	«var q2str = qa.q2val as StringLiteral»
 				        	.setSecondQueryValue("«q2str.value»")
 				        	'''»
-				        	.build();
-				        	
-		'''
-		counter++;
-		jsonList.add(jsonCount)
-		result;		
+				      	.build();
+				      	
+			'''
+			counter++;
+			jsonList.add(jsonCount)
+
+		}
+		result;
 	}
 
 }

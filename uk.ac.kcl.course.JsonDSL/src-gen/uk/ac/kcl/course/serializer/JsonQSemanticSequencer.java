@@ -17,6 +17,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import uk.ac.kcl.course.jsonQ.AdditionalQuery;
 import uk.ac.kcl.course.jsonQ.AggregateStatements;
 import uk.ac.kcl.course.jsonQ.GetStatements;
+import uk.ac.kcl.course.jsonQ.IntLiteral;
 import uk.ac.kcl.course.jsonQ.JSONQueryModel;
 import uk.ac.kcl.course.jsonQ.JsonQPackage;
 import uk.ac.kcl.course.jsonQ.StringLiteral;
@@ -44,6 +45,9 @@ public class JsonQSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case JsonQPackage.GET_STATEMENTS:
 				sequence_GetStatements(context, (GetStatements) semanticObject); 
+				return; 
+			case JsonQPackage.INT_LITERAL:
+				sequence_IntLiteral(context, (IntLiteral) semanticObject); 
 				return; 
 			case JsonQPackage.JSON_QUERY_MODEL:
 				sequence_JSONQueryModel(context, (JSONQueryModel) semanticObject); 
@@ -103,6 +107,25 @@ public class JsonQSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_GetStatements(ISerializationContext context, GetStatements semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     InputVal returns IntLiteral
+	 *     IntLiteral returns IntLiteral
+	 *
+	 * Constraint:
+	 *     value=INT
+	 */
+	protected void sequence_IntLiteral(ISerializationContext context, IntLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, JsonQPackage.Literals.INT_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JsonQPackage.Literals.INT_LITERAL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIntLiteralAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	

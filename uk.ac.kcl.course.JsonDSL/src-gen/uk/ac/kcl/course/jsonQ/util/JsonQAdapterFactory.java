@@ -106,6 +106,11 @@ public class JsonQAdapterFactory extends AdapterFactoryImpl
         return createInputValAdapter();
       }
       @Override
+      public Adapter caseIntLiteral(IntLiteral object)
+      {
+        return createIntLiteralAdapter();
+      }
+      @Override
       public Adapter caseStringLiteral(StringLiteral object)
       {
         return createStringLiteralAdapter();
@@ -218,6 +223,21 @@ public class JsonQAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInputValAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.ac.kcl.course.jsonQ.IntLiteral <em>Int Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.ac.kcl.course.jsonQ.IntLiteral
+   * @generated
+   */
+  public Adapter createIntLiteralAdapter()
   {
     return null;
   }
