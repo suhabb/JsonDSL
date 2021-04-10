@@ -58,7 +58,7 @@ class JsonQGenerator extends AbstractGenerator {
 					«model.inputStatement.map[generateJQ].join('\n')»
 					List<JSONQuery> jsonList = Arrays.asList(«convertListToString»);
 					JSONQueryProcess jsonProcess = new JSONQueryProcess(jsonList);
-					Map<Integer,JSONObject> map = jsonProcess.processJSONQuery();
+					Map<String, List<JSONObject>> map = jsonProcess.processJSONQuery();
 					System.out.println("Json:"+map.toString());
 				}
 		}
