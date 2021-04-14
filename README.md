@@ -19,4 +19,5 @@ What things you need to install the software and how to install them
       https://github.com/suhabb/JsonDSL.git
 - Go to project ``uk.ac.kcl.course.JsonDSL`` and Run ->Eclipse Runtime isntance.
 - This should open new runtime instance of eclipse.
+- https://github.com/suhabb/JsonQ
 
